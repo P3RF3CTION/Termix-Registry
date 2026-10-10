@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-10T05:58:43.628Z",
+  "updatedAt": "2026-10-10T19:12:43.599Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -743,9 +743,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Snippets/releases/download/v1.0.0/snippets-1.0.0.tmxplug",
-          "sha256": "89bbf4cd732682b9f60d72fdb9f3a28b01f9dcb0fb119868b53a7eec2bb637b1",
-          "signature": "1+/AxJAq4EYotB2uXgRpWCEaWjfvLBQUagzEOeilq6fC0Ck9foevUc0LFjZQVG/k/9oBs0AbViFHG8R/Il8qDQ==",
-          "size": 321272,
+          "sha256": "47872d08cdf4a15b50c8f90ca125276a92579147a27cb6b5639a84a01160abe5",
+          "signature": "XuxAA2kg1nWtMt1Lu+X3+nlxRNXaNCnatYRV+yFgFQ2ArDONtCcsok8f+weJVatL3QBnSHLGyqNP1uGnoXr6CA==",
+          "size": 322356,
           "capabilities": [
             "db:own",
             "network:serve",
@@ -757,8 +757,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-10T05:12:10.000Z",
-          "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON"
+          "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON",
+          "publishedAt": "2026-10-10T19:12:16.000Z"
         }
       ]
     },
@@ -979,9 +979,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/download/v1.0.0/termix-identity-1.0.0.tmxplug",
-          "sha256": "74f3acee4486cacb837f235ee3609f3b88666b17f3fe61b687552c4ec59a2a0b",
-          "signature": "I7jCEAV1zXhYhErQsPWWdi0F15GKle9wwnjXS09VllmMGAYtE5GoiWvgmkWafit6wPBNeDklqP3kVMBa4pYYDA==",
-          "size": 162016,
+          "sha256": "facd9f1c6036202e7c6b1020408ce49c7ba4bc687a8f8b93ccf60e97f473f897",
+          "signature": "2TP2pglvLnNlutOWoagsadbmNXuJQOcpdfvdWEwlkh87K4o0xfpAZpZRyXiNSSOcgM4PVSIpedV/TXNa8gjWCw==",
+          "size": 161351,
           "capabilities": [
             "db:own",
             "secrets:own",
@@ -991,8 +991,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-09T21:42:21.000Z",
-          "notes": "### Added\n\n- First release\n- Publish your public keys under a handle\n- Add your keys to any server with one command\n- Generate new keys or import saved ones\n- Your own SSH certificate authority"
+          "notes": "### Added\n\n- First release\n- Publish your public keys under a handle\n- Add your keys to any server with one command\n- Generate new keys or import saved ones\n- Your own SSH certificate authority",
+          "publishedAt": "2026-10-10T19:12:16.000Z"
         }
       ]
     },
