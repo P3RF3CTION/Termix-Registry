@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-10T19:29:56.529Z",
+  "updatedAt": "2026-10-10T19:33:08.459Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -238,9 +238,9 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/download/v1.0.0/file-manager-1.0.0.tmxplug",
-          "sha256": "e0263ea7abcdcaed88a9b198dde06962610453708222e798ebe51a3e76b9215f",
-          "signature": "15s3ou0HNIo5W0LNVDh0je6ZNr8TVI1kKAbj/WEjdRp3QTBmKh8EekbeJQLVdvL77b4IgFcJriN7sEAe+D+yAA==",
-          "size": 7487309,
+          "sha256": "1cafccfe86a29e2f318026ca7bc20629df94331c81209607976dafd7feac0ca4",
+          "signature": "6hBpBZ0pMSvXCj3GAAMOiQlitlemB6yhJERgttVUDg2wYtMoxe/EUIUk4KjVCebyNyzPhgKBq4l4r+tvV2YQDA==",
+          "size": 7487258,
           "capabilities": [
             "hosts:read",
             "credentials:use",
@@ -255,7 +255,7 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.0.0",
           "notes": "### Added\n\n- First release\n- Browse, upload, download, rename, move and delete files, with sudo support\n- Edit files in a built-in code editor and preview images, PDFs, audio and video\n- A trash you can restore deleted files from\n- Copy files between two hosts, with the fastest route picked for you and an integrity check\n- A side by side local and remote view in the desktop app\n- Each file session belongs to the user who opened it, so another user cannot end or take it over",
-          "publishedAt": "2026-10-10T19:29:17.000Z"
+          "publishedAt": "2026-10-10T19:32:31.000Z"
         }
       ]
     },
