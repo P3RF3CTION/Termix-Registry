@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-10T19:13:29.463Z",
+  "updatedAt": "2026-10-10T19:29:56.529Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -238,8 +238,8 @@
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/download/v1.0.0/file-manager-1.0.0.tmxplug",
-          "sha256": "398866bc031c025d4e7c595efea7d625558d74abb93fba91a4225a96467a3b64",
-          "signature": "IvT1z2zRK0qD+nRl4jxiUlALR2Wf70De9YL+JeFfUSEVQI7dCGO5ZzZ9EOT1orV91tUtyG3fJnwPLGN8EfzJBg==",
+          "sha256": "e0263ea7abcdcaed88a9b198dde06962610453708222e798ebe51a3e76b9215f",
+          "signature": "15s3ou0HNIo5W0LNVDh0je6ZNr8TVI1kKAbj/WEjdRp3QTBmKh8EekbeJQLVdvL77b4IgFcJriN7sEAe+D+yAA==",
           "size": 7487309,
           "capabilities": [
             "hosts:read",
@@ -254,8 +254,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.0.0",
-          "publishedAt": "2026-10-10T02:57:10.000Z",
-          "notes": "### Added\n\n- First release\n- Browse, upload, download, rename, move and delete files, with sudo support\n- Edit files in a built-in code editor and preview images, PDFs, audio and video\n- A trash you can restore deleted files from\n- Copy files between two hosts, with the fastest route picked for you and an integrity check\n- A side by side local and remote view in the desktop app\n- Each file session belongs to the user who opened it, so another user cannot end or take it over"
+          "notes": "### Added\n\n- First release\n- Browse, upload, download, rename, move and delete files, with sudo support\n- Edit files in a built-in code editor and preview images, PDFs, audio and video\n- A trash you can restore deleted files from\n- Copy files between two hosts, with the fastest route picked for you and an integrity check\n- A side by side local and remote view in the desktop app\n- Each file session belongs to the user who opened it, so another user cannot end or take it over",
+          "publishedAt": "2026-10-10T19:29:17.000Z"
         }
       ]
     },
