@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-10T19:12:43.599Z",
+  "updatedAt": "2026-10-10T19:13:29.463Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -757,8 +757,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON",
-          "publishedAt": "2026-10-10T19:12:16.000Z"
+          "publishedAt": "2026-10-10T19:12:16.000Z",
+          "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON"
         }
       ]
     },
@@ -991,8 +991,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- First release\n- Publish your public keys under a handle\n- Add your keys to any server with one command\n- Generate new keys or import saved ones\n- Your own SSH certificate authority",
-          "publishedAt": "2026-10-10T19:12:16.000Z"
+          "publishedAt": "2026-10-10T19:12:16.000Z",
+          "notes": "### Added\n\n- First release\n- Publish your public keys under a handle\n- Add your keys to any server with one command\n- Generate new keys or import saved ones\n- Your own SSH certificate authority"
         }
       ]
     },
