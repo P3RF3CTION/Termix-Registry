@@ -109,8 +109,14 @@ jobs:
               json.version = process.env.VERSION;
               fs.writeFileSync(file, JSON.stringify(json, null, 2) + "\n");
             }
+            // Stamp the lock by hand. Re-resolving it on the runner npm drops bundled deps.
+            if (fs.existsSync("package-lock.json")) {
+              const lock = JSON.parse(fs.readFileSync("package-lock.json", "utf8"));
+              lock.version = process.env.VERSION;
+              if (lock.packages && lock.packages[""]) lock.packages[""].version = process.env.VERSION;
+              fs.writeFileSync("package-lock.json", JSON.stringify(lock, null, 2) + "\n");
+            }
           '
-          npm install --package-lock-only --ignore-scripts --no-audit --no-fund > /dev/null
 
       # A beta's notes come from git. Writing them into CHANGELOG.md for the
       # build gives validate the heading it wants and puts them in the
