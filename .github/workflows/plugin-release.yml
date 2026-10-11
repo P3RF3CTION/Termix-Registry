@@ -110,10 +110,15 @@ jobs:
         run: |
           node -e '
             const fs = require("fs");
+            // Swap only the version string so the file keeps its prettier formatting.
             for (const file of ["manifest.json", "package.json"]) {
-              const json = JSON.parse(fs.readFileSync(file, "utf8"));
-              json.version = process.env.VERSION;
-              fs.writeFileSync(file, JSON.stringify(json, null, 2) + "\n");
+              const text = fs.readFileSync(file, "utf8");
+              const next = text.replace(/^(\s{2}"version":\s*")[^"]*(")/m, `$1${process.env.VERSION}$2`);
+              if (JSON.parse(next).version !== process.env.VERSION) {
+                console.error(`Could not stamp the version in ${file}`);
+                process.exit(1);
+              }
+              fs.writeFileSync(file, next);
             }
             // Stamp the lock by hand. Re-resolving it on the runner npm drops bundled deps.
             if (fs.existsSync("package-lock.json")) {
