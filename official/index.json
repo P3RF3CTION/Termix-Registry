@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-11T22:28:27.765Z",
+  "updatedAt": "2026-10-11T22:29:08.167Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -82,6 +82,31 @@
       ],
       "docs": "https://docs.termix.site/plugins/ai",
       "versions": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.0.1/ai-1.0.1.tmxplug",
+          "sha256": "2558c91e3e6823b3e18873d7b074762c4d76a1a0b96ff38d2dad13e0404b74a7",
+          "signature": "cT4C2I3+yZKeYGthBsNDGlYr+zV1/JQatHXWCiTK4u4TFgl2lfDmxr4GUVkdYdEi7w5FEO9KHfZTV/oyWDmSDA==",
+          "size": 1317518,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "notify:send",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "events:core"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:28:14.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -325,6 +350,29 @@
       ],
       "docs": "https://docs.termix.site/plugins/file-manager",
       "versions": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/download/v1.0.1/file-manager-1.0.1.tmxplug",
+          "sha256": "12416f48f8dbbd1670e86ade779c7b473f27c5b0ae809d60ade507fd465d068b",
+          "signature": "/i4hh0KLEbhEkCy0Ws/i8yxVTA0e3sIrMSVbN5Vs0ZLXp1rUA0s6vwYPqfW+QxgB1ULJnrHIQH9r4kHUIr2SBw==",
+          "size": 7684930,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "kv:own",
+            "users:impersonate"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:28:38.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
