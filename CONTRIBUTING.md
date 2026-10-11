@@ -54,6 +54,8 @@ A version that was listed can't be swapped for another file. If you overwrite a 
 - Secrets and credentials are only used for what the plugin is for, and never sent anywhere else.
 - The name and icon don't pretend to be an official plugin.
 
+Before a maintainer looks, the Termix bot runs an AI security review of each new version. It checks the release file hash, reads the full source at the release commit and the built bundle, compares the capabilities and network domains the code uses with what the manifest says, and posts a `Community plugin review` comment and check on the PR. A high-risk result fails the check. The AI review helps the maintainer, it does not replace the human review.
+
 A plugin can be removed from the registry if it breaks these rules later, stops working, or its repo goes away.
 
 ## Removing your plugin

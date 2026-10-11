@@ -328,7 +328,7 @@ async function main() {
     lines.push("### Problems", "", ...problems.map((p) => `- ${p}`), "");
   } else if (files.length > 0) {
     lines.push(
-      "All checks passed. A maintainer still reviews the source before merging.",
+      "All checks passed. The Termix bot posts an AI security review on the PR, and a maintainer still reviews the source before merging.",
     );
   }
   const summary = `${lines.join("\n")}\n`;

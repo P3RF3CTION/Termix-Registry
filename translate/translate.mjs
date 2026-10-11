@@ -158,6 +158,8 @@ async function translateChunk(job, chunk) {
     temperature: 0.2,
     top_p: 0.9,
     max_tokens: 16000,
+    // Batch work: the server runs bot triage and reviews first
+    priority: 10,
     messages: [
       {
         role: "system",
