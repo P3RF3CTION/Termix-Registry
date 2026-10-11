@@ -49,6 +49,8 @@ jobs:
         run: npm run sync
 
       - name: Validate
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: npm run validate
 
       - name: Commit

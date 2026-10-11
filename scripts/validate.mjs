@@ -3,8 +3,9 @@
  *
  * - the index matches registry-index-schema.json
  * - plugin ids and versions are unique, versions newest first
- * - each version's .tmxplug downloads, and its size, sha256 and signature
- *   match (skipped with --offline)
+ * - each version's .tmxplug exists, and its size, sha256 and signature
+ *   match (skipped with --offline). Read from the GitHub API digest when
+ *   there is one, so the download count stays untouched
  * - reviewed registries (a plugins/ folder): every submission matches
  *   community-submission-schema.json, and every listed version is one a
  *   submission pins
@@ -22,7 +23,9 @@ import process from "node:process";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import {
+  assetSha256,
   compareVersions,
+  findReleaseAsset,
   isPrerelease,
   isSigned,
   keysFor,
@@ -60,6 +63,25 @@ function findIndexes() {
 }
 
 async function checkArtifact(where, version, keys, problems) {
+  // Through the API first, so validating does not add to the download count.
+  const asset = await findReleaseAsset(version.url);
+  const sha = assetSha256(asset);
+  if (asset && sha) {
+    if (asset.size !== version.size) {
+      problems.push(
+        `${where}: size is ${asset.size}, index says ${version.size}`,
+      );
+    }
+    if (sha !== version.sha256) {
+      problems.push(`${where}: sha256 does not match the file`);
+      return;
+    }
+    if (!isSigned(Buffer.from(sha, "hex"), version.signature, keys)) {
+      problems.push(`${where}: signature does not match the registry key`);
+    }
+    return;
+  }
+
   const response = await fetch(version.url);
   if (!response.ok) {
     problems.push(`${where}: download failed with ${response.status}`);

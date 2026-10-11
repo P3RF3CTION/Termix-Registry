@@ -27,15 +27,12 @@ jobs:
 
       - run: npm ci
 
-      # PostHog is optional: without the secrets only download counts are
-      # written. A PostHog failure still commits the download counts.
-      - name: Count downloads and active installs
+      # A plugin whose releases cannot be read keeps the rest committed.
+      - name: Count downloads
         id: stats
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
-          POSTHOG_PROJECT_ID: ${{ vars.POSTHOG_PROJECT_ID }}
         run: npm run stats
 
       - name: Commit

@@ -144,10 +144,47 @@ export async function github(url) {
   return response.json();
 }
 
+/**
+ * GitHub counts every download of a release asset and the plugin store shows
+ * that count, so automation should check files through asset digests and
+ * only download what it has never seen.
+ */
 export async function download(url) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`${url}: ${response.status}`);
   return Buffer.from(await response.arrayBuffer());
+}
+
+/** The sha256 hex GitHub reports for a release asset, or null. */
+export function assetSha256(asset) {
+  return /^sha256:([0-9a-f]{64})$/.exec(asset?.digest ?? "")?.[1] ?? null;
+}
+
+const releaseCache = new Map();
+
+/**
+ * The release asset behind a github.com/<owner>/<repo>/releases/download/
+ * link, read from the API so the download count stays untouched. Null when
+ * the link is not one or the release or asset is gone.
+ */
+export async function findReleaseAsset(url) {
+  const match = String(url).match(
+    /^https:\/\/github\.com\/([^/]+\/[^/]+)\/releases\/download\/([^/]+)\/([^/]+)$/,
+  );
+  if (!match) return null;
+  const [, repo, tag, name] = match;
+  const key = `${repo}@${tag}`;
+  if (!releaseCache.has(key)) {
+    releaseCache.set(
+      key,
+      github(`/repos/${repo}/releases/tags/${tag}`).catch(() => null),
+    );
+  }
+  const release = await releaseCache.get(key);
+  return (
+    release?.assets?.find((asset) => asset.name === decodeURIComponent(name)) ??
+    null
+  );
 }
 
 export function sha256(buffer) {

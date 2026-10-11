@@ -19,6 +19,11 @@
  * In both, betas (semver prerelease versions) go in prereleases, and only
  * while they are newer than the newest stable.
  *
+ * A plugin whose release files all still have the sha256 the index lists
+ * (read from the GitHub API digest) is kept as listed without downloading,
+ * because every download adds to the count the plugin store shows. Pass
+ * --full to download and re-read everything anyway.
+ *
  * Set GH_TOKEN for the higher GitHub API rate limit.
  */
 
@@ -26,10 +31,13 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import {
+  assetSha256,
+  compareVersions,
   download,
   github,
   githubRepo,
   inspectArtifact,
+  isPrerelease,
   isSigned,
   keysFor,
   listing,
@@ -42,6 +50,39 @@ import {
   splitChannels,
   versionEntry,
 } from "./lib.mjs";
+
+const full = process.argv.includes("--full");
+
+/**
+ * The listed plugin when every file it lists is still on GitHub with the same
+ * sha256 and nothing new was released, or null when it needs a full read.
+ * files is [{ version, asset }] for each release that has a .tmxplug.
+ */
+function unchanged(old, repository, files, keys) {
+  if (full || !old || old.repository !== repository) return null;
+  const listed = [...old.versions, ...(old.prereleases ?? [])];
+  const newestStable = old.versions[0]?.version;
+  let matched = 0;
+  for (const { version, asset } of files) {
+    const entry = listed.find((item) => item.version === version);
+    if (!entry) {
+      // A beta that stable has passed is left out of the index on purpose.
+      if (
+        isPrerelease(version) &&
+        newestStable &&
+        compareVersions(version, newestStable) <= 0
+      ) {
+        continue;
+      }
+      return null;
+    }
+    const sha = assetSha256(asset);
+    if (!sha || sha !== entry.sha256) return null;
+    if (!isSigned(Buffer.from(sha, "hex"), entry.signature, keys)) return null;
+    matched++;
+  }
+  return matched === listed.length ? old : null;
+}
 
 async function readRelease(repo, release, keys, problems) {
   const where = `${repo}@${release.tag_name}`;
@@ -99,8 +140,32 @@ async function officialPlugins(dir, previous, keys, problems) {
     fs.readFileSync(path.join(dir, "sources.json"), "utf8"),
   );
   const plugins = [];
+  const byRepository = new Map(
+    [...previous.values()].map((plugin) => [plugin.repository, plugin]),
+  );
   for (const repo of sources.repositories) {
     const releases = await github(`/repos/${repo}/releases?per_page=100`);
+    const repository = `https://github.com/${repo}`;
+    const files = [];
+    for (const release of releases) {
+      if (release.draft) continue;
+      const asset = release.assets.find((item) =>
+        item.name.endsWith(".tmxplug"),
+      );
+      if (asset)
+        files.push({ version: release.tag_name.replace(/^v/, ""), asset });
+    }
+    const kept = unchanged(
+      byRepository.get(repository),
+      repository,
+      files,
+      keys,
+    );
+    if (kept) {
+      plugins.push(kept);
+      continue;
+    }
+
     const found = [];
     for (const release of releases) {
       if (release.draft) continue;
@@ -121,7 +186,7 @@ async function officialPlugins(dir, previous, keys, problems) {
     const versions = keep(old?.versions, stable);
     const prereleases = keep(old?.prereleases, betas);
     plugins.push({
-      ...listing(latest, `https://github.com/${repo}`, sources.docsBase),
+      ...listing(latest, repository, sources.docsBase),
       versions,
       ...(prereleases.length > 0 ? { prereleases } : {}),
     });
@@ -179,6 +244,29 @@ async function readPinned({ repo, id, pin, keys, signer, old, problems }) {
   };
 }
 
+/** Like unchanged(), for a reviewed submission whose pins all still match. */
+async function keptSubmission(old, repo, submission, pins, keys) {
+  if (full || !old) return null;
+  const listed = [...old.versions, ...(old.prereleases ?? [])];
+  if (
+    pins.some((pin) => !listed.some((entry) => entry.sha256 === pin.sha256))
+  ) {
+    return null;
+  }
+  const files = [];
+  for (const pin of pins) {
+    const release = await github(
+      `/repos/${repo}/releases/tags/v${pin.version}`,
+    ).catch(() => null);
+    const asset = release?.assets.find(
+      (item) => item.name === `${submission.id}-${pin.version}.tmxplug`,
+    );
+    if (!asset) return null;
+    files.push({ version: pin.version, asset });
+  }
+  return unchanged(old, `https://github.com/${repo}`, files, keys);
+}
+
 async function reviewedPlugins(dir, registry, previous, keys, problems) {
   const envName = `TERMIX_${registry.toUpperCase().replace(/-/g, "_")}_SIGNING_KEY`;
   const signer = loadPrivateKey(process.env[envName]);
@@ -190,8 +278,15 @@ async function reviewedPlugins(dir, registry, previous, keys, problems) {
       continue;
     }
     const old = previous.get(submission.id);
+    const pins = submission.versions ?? [];
+    const kept = await keptSubmission(old, repo, submission, pins, keys);
+    if (kept) {
+      plugins.push(kept);
+      continue;
+    }
+
     const found = [];
-    for (const pin of submission.versions ?? []) {
+    for (const pin of pins) {
       try {
         const entry = await readPinned({
           repo,
