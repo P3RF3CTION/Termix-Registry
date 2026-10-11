@@ -243,13 +243,22 @@ async function syncRegistry(dir, allKeys, problems) {
     ids.add(plugin.id);
   }
 
-  if (JSON.stringify(plugins) === before) {
+  const publicKey = keys[0].publicKey;
+  if (JSON.stringify(plugins) === before && index.publicKey === publicKey) {
     console.log(`${path.relative(root, indexPath)}: up to date`);
     return;
   }
-  index.plugins = plugins;
-  index.updatedAt = new Date().toISOString();
-  fs.writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`);
+  const { $schema, registry, name, apiVersion } = index;
+  const next = {
+    $schema,
+    registry,
+    name,
+    apiVersion,
+    publicKey,
+    updatedAt: new Date().toISOString(),
+    plugins,
+  };
+  fs.writeFileSync(indexPath, `${JSON.stringify(next, null, 2)}\n`);
   console.log(
     `${path.relative(root, indexPath)}: ${plugins.length} plugin(s) written`,
   );

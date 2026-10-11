@@ -9,6 +9,7 @@
  *   community-submission-schema.json, and every listed version is one a
  *   submission pins
  * - no plugin id is in two registries
+ * - publicKey, when set, is the key in keys/<registry>.pub
  *
  * Signatures are checked against keys/<registry>.pub. That only catches mistakes
  * early; the Termix server trusts only the keys compiled into it.
@@ -168,6 +169,11 @@ async function main() {
       }
     }
     const keys = keysFor(allKeys, index.registry);
+    if (index.publicKey && !keys.some((k) => k.publicKey === index.publicKey)) {
+      problems.push(
+        `${rel}: publicKey is not the key in keys/${index.registry}.pub`,
+      );
+    }
 
     const ids = new Set();
     for (const plugin of index.plugins) {

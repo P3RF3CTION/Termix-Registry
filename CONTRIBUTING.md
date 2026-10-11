@@ -5,7 +5,7 @@ This repo holds two plugin lists:
 - `official/`: the plugins made by the Termix team. Not open to submissions.
 - `community/`: plugins made by anyone, reviewed by a person before they are listed.
 
-Termix can't install community plugins yet. That comes in a later update. The community registry is open now so it is ready when that update ships. Until then, people can install your plugin from a `.tmxplug` file with plugin developer mode on.
+Admins turn on the community registry in Termix under Plugins, Registries. Your plugin then shows in Browse with a Community badge.
 
 The full guide is at [docs.termix.site/develop/community-registry](https://docs.termix.site/develop/community-registry).
 

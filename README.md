@@ -22,17 +22,15 @@
 This is the plugin registry for [Termix](https://github.com/Termix-SSH/Termix), self-hosted, plugin-based server management. It has two lists:
 
 - `official/index.json`: the official Termix plugins, each built and signed from its own `Plugin-<Name>` repo. Termix reads it to show the plugins you can install from the Plugins tab.
-- `community/index.json`: plugins made by anyone and reviewed by a person before they are listed.
+- `community/index.json`: plugins made by anyone and reviewed by a person before they are listed. Admins turn it on in Termix under Plugins, Registries.
 
-Want to build your own plugin? Start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template). Plugins that are not in the official list install from a `.tmxplug` file with plugin developer mode on.
+Want to build your own plugin? Start from the [plugin template](https://github.com/Termix-SSH/Termix-Plugin-Template). You can also host your own registry and add it to Termix by its URL. See [host your own registry](https://docs.termix.site/develop/registries#host-your-own-registry).
 
 <br />
 
 ## Submit a plugin
 
 The community registry is open for submissions. Release your plugin with the template's Release workflow, then open a pull request that adds `community/plugins/<id>.json`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps and what reviewers check.
-
-Termix can't install community plugins yet. That comes in a later update. Submissions are open now so the community registry is ready when it ships.
 
 <br />
 

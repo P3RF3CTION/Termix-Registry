@@ -17,6 +17,11 @@
       "description": "Version of this index format.",
       "const": 1
     },
+    "publicKey": {
+      "description": "Base64 Ed25519 public key every release here is signed with. Termix shows its fingerprint when an admin adds the registry and pins it.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9+/]{43}=$"
+    },
     "updatedAt": { "type": "string", "format": "date-time" },
     "plugins": {
       "type": "array",

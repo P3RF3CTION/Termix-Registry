@@ -28,6 +28,7 @@ export function loadKeys() {
         throw new Error(`keys/${file} is not a 32-byte key`);
       return {
         file,
+        publicKey: raw.toString("base64"),
         key: crypto.createPublicKey({
           key: Buffer.concat([SPKI_PREFIX, raw]),
           format: "der",
