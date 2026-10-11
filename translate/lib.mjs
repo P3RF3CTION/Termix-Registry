@@ -50,6 +50,8 @@ export function buildUnits(enPairs) {
   const units = [];
   const seenPlural = new Set();
   for (const [key, text] of enPairs) {
+    // Old style: `x` is the singular of `x_other`, so it joins that group.
+    if (en.has(`${key}_other`)) continue;
     const match = key.match(PLURAL_SUFFIX);
     if (match && en.has(`${match[1]}_other`)) {
       const base = match[1];
@@ -59,6 +61,7 @@ export function buildUnits(enPairs) {
       for (const cat of PLURAL_ORDER) {
         if (en.has(`${base}_${cat}`)) forms[cat] = en.get(`${base}_${cat}`);
       }
+      if (!forms.one && en.has(base)) forms.one = en.get(base);
       units.push({ id: base, plural: true, forms, hash: hashText(forms) });
     } else {
       units.push({ id: key, plural: false, text, hash: hashText(text) });

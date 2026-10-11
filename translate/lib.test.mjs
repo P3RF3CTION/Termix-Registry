@@ -54,6 +54,18 @@ test("plural keys become one unit", () => {
   });
 });
 
+test("an old style singular joins its _other group", () => {
+  const units = buildUnits([
+    ["items", "{{count}} item"],
+    ["items_other", "{{count}} items"],
+  ]);
+  assert.equal(units.length, 1);
+  assert.deepEqual(units[0].forms, {
+    one: "{{count}} item",
+    other: "{{count}} items",
+  });
+});
+
 test("a key ending in a plural word without _other stays a plain string", () => {
   const units = buildUnits([["status.other", "Other"]]);
   assert.equal(units[0].plural, false);
