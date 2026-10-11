@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-11T22:29:08.167Z",
+  "updatedAt": "2026-10-11T22:29:55.239Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -417,6 +417,27 @@
       "docs": "https://docs.termix.site/plugins/fleets",
       "versions": [
         {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.0.1/fleets-1.0.1.tmxplug",
+          "sha256": "82ac71e69022c4991570e6fed109a9eec79421f081af0a1dcb6d8b8e4251ee3b",
+          "signature": "pkE2k+vzFhadBsPdxh93Q9tLD/5v7s+qqvBD9pXyKORAWZYzbqgJQ7hToEdQysb8GSEZvkmQgdw//06WmEWBBw==",
+          "size": 469083,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.0.1",
+          "notes": "### Fixed\n\n- Fleet commands, package actions and file transfers no longer time out after 30 seconds\n- Fleet commands can run for up to an hour per host",
+          "publishedAt": "2026-10-11T22:29:33.000Z"
+        },
+        {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.0.0/fleets-1.0.0.tmxplug",
@@ -456,6 +477,23 @@
       ],
       "docs": "https://docs.termix.site/plugins/homepage",
       "versions": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Homepage/releases/download/v1.0.1/homepage-1.0.1.tmxplug",
+          "sha256": "573375726f334e37bbf504d9411c4ad2d4bfc4363219ff10dcea6cb2cb00ed32",
+          "signature": "NIZo/+w3twEJffvw2aDSmAcpFK/h3NSS3WmvoYTpZQmOOuwI9eM/LOoZCMlBJgiY/SHr9xD+lReqrIy2/rKzBQ==",
+          "size": 428905,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "network:outbound",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Homepage/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:29:35.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -558,6 +596,24 @@
       "docs": "https://docs.termix.site/plugins/ldap",
       "versions": [
         {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-LDAP/releases/download/v1.0.1/ldap-1.0.1.tmxplug",
+          "sha256": "f5ba13c682d11060f373f85a9c7aaa131e587ec59c0498c0dabb013c2e474f5c",
+          "signature": "HmMBKJaeek1Yh4a4JtOtQMw433cL2at5OlT/r/hHTuRqvcZiz9Fy3l4T2bb9VrECFbSnS8rdW1Pxe4olb9/PBg==",
+          "size": 346692,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:29:37.000Z"
+        },
+        {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-LDAP/releases/download/v1.0.0/ldap-1.0.0.tmxplug",
@@ -595,6 +651,22 @@
       "docs": "https://docs.termix.site/plugins/network-topology",
       "versions": [
         {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/download/v1.0.1/network-topology-1.0.1.tmxplug",
+          "sha256": "4c8ec1ae0c39b8b72a89e0dce4b20a36df4adc826abe215b8ee9b69b44fe75ca",
+          "signature": "YsLkeyreifKAVAXtMRznx+MhpxI2qDaC5Usp+XIKqV5ppTODHEfp+hnVOy1B8v57XTcIdoTzYf2Kw9yX+loLDQ==",
+          "size": 756539,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:29:38.000Z"
+        },
+        {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/download/v1.0.0/network-topology-1.0.0.tmxplug",
@@ -628,6 +700,28 @@
       ],
       "docs": "https://docs.termix.site/plugins/opkssh",
       "versions": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/download/v1.0.1/opkssh-1.0.1.tmxplug",
+          "sha256": "c19eadfe763e4dbecbd9a5e9e753576c577c75296ddc8e0af4cce98c2376b26f",
+          "signature": "tsg9IB92OB27FB9CospDW5nMCuBJSvMaCc/kz3x/42Nyx30DGWi42PVFm/kakvEAQ8h2Hp0Xuq+eWQ8xqvJBAg==",
+          "size": 176309,
+          "capabilities": [
+            "db:own",
+            "files:own",
+            "secrets:own",
+            "hosts:read",
+            "process:spawn",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:29:40.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -986,6 +1080,25 @@
       ],
       "docs": "https://docs.termix.site/plugins/sso",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.0.2/sso-1.0.2.tmxplug",
+          "sha256": "29ab0e4748ee71cb11f9b8dacd630430d284b6ce24561cffae9b4d7fe64e9c3b",
+          "signature": "7ZMt/+Tx2ib/57ESLSaZJqthKMKJ7tW3rnTesRt7wLK8iBGh25doujYUCjV+CsWJzl6GDB5jUBE2cgWyjox5CQ==",
+          "size": 886879,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:29:47.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
