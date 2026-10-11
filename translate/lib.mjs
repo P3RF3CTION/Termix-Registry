@@ -192,7 +192,7 @@ export function buildPrompt(language, cats, glossary) {
     "",
     "Input is a JSON object of numbered entries. Return a JSON object with the same numbers.",
     '- An entry with "text": return its translation as a string.',
-    `- An entry with "forms" is a plural. Return an object with exactly these plural categories for ${language.name}: ${cats.join(", ")}. Each must be correct for a count in that category.`,
+    `- An entry with "forms" is a plural. Return an object with exactly these plural categories for ${language.name}: ${cats.join(", ")}. Each must be correct for a count in that category. The "other" form must keep every placeholder from the English "other" form, like {{count}}.`,
     '- "key" is the string\'s id in the app. Use it only for context. Never translate or return it.',
     "",
     "Rules:",
