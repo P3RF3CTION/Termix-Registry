@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-11T08:50:13.314Z",
+  "updatedAt": "2026-10-11T22:28:27.765Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -22,6 +22,26 @@
       ],
       "docs": "https://docs.termix.site/plugins/acme-ssl",
       "versions": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/download/v1.0.1/acme-ssl-1.0.1.tmxplug",
+          "sha256": "cb5b7c56a281272cfff229d01a2729a4fa3936de04c0ac487d65bcf8dbd2f38e",
+          "signature": "QGNUPOjtQw6d4neWBLU89G7A20INK9EIXAVnl7nevrV+3OVkE7v9O190ZfcYY7NzqRorzAx9IrrpgVWVQf3lBA==",
+          "size": 785986,
+          "capabilities": [
+            "system:tls",
+            "kv:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "notify:send",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:27:55.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -107,6 +127,28 @@
       "docs": "https://docs.termix.site/plugins/alerts",
       "versions": [
         {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.0.1/alerts-1.0.1.tmxplug",
+          "sha256": "f5f233c0ffdeee956e1839a17a323c18ce8eb389a08569c3c6e5e24b698dd72a",
+          "signature": "JxBBZqNEXTlEHHpHpefCyE0VPv/KyO2hQ4mDC0eAxJiT25aPpcV45jKcyD4VoZlT63aiAprzafm58Ab/dH0NBQ==",
+          "size": 539331,
+          "capabilities": [
+            "db:core-refs",
+            "db:own",
+            "events:core",
+            "network:outbound",
+            "network:serve",
+            "notify:hub",
+            "secrets:own",
+            "settings:read-core",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:28:09.000Z"
+        },
+        {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.0.0/alerts-1.0.0.tmxplug",
@@ -148,6 +190,34 @@
       ],
       "docs": "https://docs.termix.site/plugins/automations",
       "versions": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.0.1/automations-1.0.1.tmxplug",
+          "sha256": "d2bb5298f8afac3f479ded81d5b1a799d9844b3f4990c8aaf2dd8fed7222428d",
+          "signature": "KsCGeFFVIMOzf5uEVf+FiMCCnyRRNr88Vs8oDwjioW9wa9bNobxjqRRAnLYW3nDZ+Fgb/rf/InxTWdThUKfHAw==",
+          "size": 368308,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "events:core",
+            "notify:send",
+            "network:outbound",
+            "network:serve",
+            "settings:read-core",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "dependencies": {
+            "snippets": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:28:13.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -195,6 +265,26 @@
       ],
       "docs": "https://docs.termix.site/plugins/docker",
       "versions": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.0.1/docker-1.0.1.tmxplug",
+          "sha256": "00e170e61ea9b7952449ea9ce30b09b983433f8d18d29f523cf3c6f98e7286e3",
+          "signature": "ivZW6ysFjbBzwwgiozwqPM22ptDPcJM2VCk2JcGgSvQjjv20UYQQ1UzEu7RjKVJv1BVX10/74Mm3+hwsa1i6Aw==",
+          "size": 972671,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.0.1",
+          "notes": "### Changed\n\n- Translated into every supported language",
+          "publishedAt": "2026-10-11T22:28:11.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
