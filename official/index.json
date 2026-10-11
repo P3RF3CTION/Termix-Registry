@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-11T02:18:16.335Z",
+  "updatedAt": "2026-10-11T08:50:13.314Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -374,8 +374,8 @@
             "notify:send"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.1",
-          "notes": "### Added\n\n- AMD GPUs in the GPU card, read from the amdgpu driver\n\n### Fixed\n\n- Metrics now work on OPKSSH hosts\n- Firewall card no longer runs sudo without a saved sudo password, which sent \"a password is required\" emails\n- Firewall tools are run by full path so sudoers rules match",
-          "publishedAt": "2026-10-11T02:17:32.000Z"
+          "publishedAt": "2026-10-11T02:17:32.000Z",
+          "notes": "### Added\n\n- AMD GPUs in the GPU card, read from the amdgpu driver\n\n### Fixed\n\n- Metrics now work on OPKSSH hosts\n- Firewall card no longer runs sudo without a saved sudo password, which sent \"a password is required\" emails\n- Firewall tools are run by full path so sudoers rules match"
         },
         {
           "version": "1.0.0",
