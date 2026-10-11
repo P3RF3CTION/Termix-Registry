@@ -3,7 +3,7 @@
   "registry": "official",
   "name": "Termix Official Plugins",
   "apiVersion": 1,
-  "updatedAt": "2026-10-10T22:31:59.803Z",
+  "updatedAt": "2026-10-11T02:18:16.335Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -345,7 +345,7 @@
       "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
       "icon": "Activity",
       "features": [
-        "CPU, memory, disk, network, temperature, NVIDIA GPU, processes, ports and logins",
+        "CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, ports and logins",
         "History charts for each host",
         "Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard",
         "Health checks for your hosts and services",
@@ -354,6 +354,29 @@
       ],
       "docs": "https://docs.termix.site/plugins/host-metrics",
       "versions": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/download/v1.0.1/host-metrics-1.0.1.tmxplug",
+          "sha256": "fdceb230e6e314e62ed33508718d788180f075942d408a46ac64f1b47678902d",
+          "signature": "r2Mot1TJq4AwsXXP5AIsT3Fpb/bG9pW6GSrLwR3tPNpZ72kxnqE4ZBjkXeeR8c4FW5TrzZxU2B7rtJ8SL4oCBw==",
+          "size": 537506,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate",
+            "notify:send"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.1",
+          "notes": "### Added\n\n- AMD GPUs in the GPU card, read from the amdgpu driver\n\n### Fixed\n\n- Metrics now work on OPKSSH hosts\n- Firewall card no longer runs sudo without a saved sudo password, which sent \"a password is required\" emails\n- Firewall tools are run by full path so sudoers rules match",
+          "publishedAt": "2026-10-11T02:17:32.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
