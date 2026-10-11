@@ -12,6 +12,10 @@ name: Plugin Release
 #   replacing its files. Works from any branch.
 # dry-run: everything up to pack, nothing is pushed or published.
 #
+# Official plugins are translated before the build with the Termix LLM
+# server (translate/ in this repo). Stable folds the new translations into the
+# release commit; beta commits them to the dev branch. Overwrite skips it.
+#
 # Plugins outside Termix-SSH need no secrets. Their release is not signed,
 # it gets GitHub build provenance instead, and the job summary shows what to
 # put in a community registry submission. Their release.yml must grant
@@ -30,6 +34,8 @@ on:
       TERMIX_PLUGIN_SIGNING_KEY:
         required: false
       TERMIX_PAT:
+        required: false
+      TERMIX_LLM_API_KEY:
         required: false
 
 # No permissions block on purpose: the job keeps what the caller grants, so
@@ -150,6 +156,20 @@ jobs:
             );
           ' "$RUNNER_TEMP/beta.md"
 
+      - name: Find locales
+        id: locales
+        run: |
+          dir=$(node -p "require('./manifest.json').locales || 'locales'")
+          if [ -f "$dir/en.json" ]; then echo "dir=$dir" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Translate
+        if: ${{ env.OFFICIAL == 'true' && inputs.mode != 'overwrite' && steps.locales.outputs.dir != '' }}
+        uses: Termix-SSH/Termix-Registry/translate@main
+        with:
+          source: ${{ steps.locales.outputs.dir }}/en.json
+          out: ${{ steps.locales.outputs.dir }}/translated
+          api-key: ${{ secrets.TERMIX_LLM_API_KEY }}
+
       - name: Test
         run: npx termix-plugin test
 
@@ -211,6 +231,7 @@ jobs:
         if: ${{ inputs.mode == 'release' && inputs.channel == 'stable' }}
         env:
           VERSION: ${{ steps.version.outputs.version }}
+          LOCALES: ${{ steps.locales.outputs.dir }}
           # npm ci installs the repo's git hooks. lint-staged can turn a
           # lockfile-only commit into an empty one and fail it.
           HUSKY: "0"
@@ -223,6 +244,7 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           fi
           git add manifest.json package.json package-lock.json
+          if [ -n "$LOCALES" ]; then git add "$LOCALES"; fi
           if ! git diff --cached --quiet; then
             git commit -m "chore: release $VERSION"
             git push origin "HEAD:$GITHUB_REF_NAME"
@@ -241,11 +263,36 @@ jobs:
           git push origin HEAD:main
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
+      # Only the locales are committed. The stamped version and beta changelog
+      # stay out of git, as before.
+      - name: Commit translations (beta)
+        id: translations
+        if: ${{ inputs.mode == 'release' && inputs.channel == 'beta' && steps.locales.outputs.dir != '' }}
+        env:
+          LOCALES: ${{ steps.locales.outputs.dir }}
+          HUSKY: "0"
+        run: |
+          git add "$LOCALES"
+          if git diff --cached --quiet; then
+            echo "No translation changes"
+            exit 0
+          fi
+          if [ "$OFFICIAL" = "true" ]; then
+            git config user.name "LukeGus"
+            git config user.email "bugattiguy527@gmail.com"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          fi
+          git commit -m "chore: update translations"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Tag
         if: ${{ inputs.mode != 'dry-run' }}
         env:
           TAG: ${{ steps.version.outputs.tag }}
-          TARGET: ${{ steps.merge.outputs.sha || github.sha }}
+          TARGET: ${{ steps.merge.outputs.sha || steps.translations.outputs.sha || github.sha }}
         run: |
           git tag -f "$TAG" "$TARGET"
           git push -f origin "refs/tags/$TAG"
@@ -255,7 +302,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.version.outputs.tag }}
-          TARGET: ${{ steps.merge.outputs.sha || github.sha }}
+          TARGET: ${{ steps.merge.outputs.sha || steps.translations.outputs.sha || github.sha }}
           PRERELEASE: ${{ inputs.channel == 'beta' && '--prerelease' || '' }}
         run: |
           files=(release/*.tmxplug)

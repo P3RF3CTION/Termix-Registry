@@ -8,6 +8,7 @@
     "sync": "node scripts/sync.mjs",
     "check:submission": "node scripts/check-submission.mjs",
     "stats": "node scripts/stats.mjs",
+    "test": "node --test \"translate/*.test.mjs\"",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky || true"

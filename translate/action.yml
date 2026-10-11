@@ -1,0 +1,39 @@
+name: Translate
+description: Translates an en.json into every Termix language with the Termix LLM server.
+
+inputs:
+  source:
+    description: Path to en.json
+    required: true
+  out:
+    description: Directory for the translated files
+    required: true
+  languages:
+    description: Optional languages.json to use instead of the built-in list
+    required: false
+    default: ""
+  retranslate:
+    description: Translate every string again, not only new or changed ones
+    required: false
+    default: "false"
+  api-key:
+    description: TERMIX_LLM_API_KEY. Without it the step warns and does nothing.
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - name: Translate
+      shell: bash
+      env:
+        TERMIX_LLM_API_KEY: ${{ inputs.api-key }}
+        SOURCE: ${{ inputs.source }}
+        OUT: ${{ inputs.out }}
+        LANGUAGES: ${{ inputs.languages }}
+        RETRANSLATE: ${{ inputs.retranslate }}
+      run: |
+        args=(--source "$SOURCE" --out "$OUT")
+        [ -n "$LANGUAGES" ] && args+=(--languages "$LANGUAGES")
+        [ "$RETRANSLATE" = "true" ] && args+=(--retranslate)
+        node "$GITHUB_ACTION_PATH/translate.mjs" "${args[@]}"
