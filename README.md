@@ -36,7 +36,7 @@ The community registry is open for submissions. Release your plugin with the tem
 
 ## Sponsors
 
-Interested in a paid placement to support development? Email [mail@termix.site](mailto:mail@termix.site).
+For a paid sponsor spot, email [mail@termix.site](mailto:mail@termix.site).
 
 <!-- SPONSORS:START -->
 
@@ -82,7 +82,7 @@ Interested in a paid placement to support development? Email [mail@termix.site](
 
 Problems with the registry itself (a plugin missing from a list, a broken index) go in this repo's [issues](https://github.com/Termix-SSH/Termix-Registry/issues). A bug in a plugin goes in that plugin's own repo, and problems with Termix itself go in the [Termix repo](https://github.com/Termix-SSH/Termix/issues/new/choose).
 
-Please be as detailed as possible, preferably in English.
+Add as much detail as you can, in English if possible.
 
 For discussions and questions, join the [Discord](https://discord.gg/jVQGdvHDrf) server.
 
@@ -90,4 +90,4 @@ For discussions and questions, join the [Discord](https://discord.gg/jVQGdvHDrf)
 
 ## License
 
-Distributed under the Apache License Version 2.0. See [LICENSE](LICENSE) for more information.
+Apache License 2.0. See [LICENSE](LICENSE).
