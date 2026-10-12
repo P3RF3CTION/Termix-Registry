@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-12T16:15:44.607Z",
+  "updatedAt": "2026-10-12T16:16:43.450Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1250,6 +1250,27 @@
       "docs": "https://docs.termix.site/plugins/ssh-terminal",
       "versions": [
         {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/download/v1.0.2/ssh-terminal-1.0.2.tmxplug",
+          "sha256": "e65102a8cd6afdaa890095fa698f3f455a1035729b9fdca800a31cc6e5ed760f",
+          "signature": "9zGnsetVppBMOs5yTjXAdpFNisIfoJpig9N6Sk41yK9wJBWz53z5a9P/csE2b5xflJ+mT2FvR93Yb33nOEFTAw==",
+          "size": 1874483,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "events:core",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.2",
+          "notes": "### Fixed\n\n- The mouse wheel walked shell history instead of doing nothing when there was nothing to scroll back\n- Fast scroll with a modifier key no longer scrolls the page behind the terminal\n- Password autofill now knows a macOS or BSD sudo `Password:` prompt is from sudo, so it follows the sudo autofill setting and fills the sudo password\n- Passwords typed at a password prompt are no longer saved to command history",
+          "publishedAt": "2026-10-12T16:15:39.000Z"
+        },
+        {
           "version": "1.0.1",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/download/v1.0.1/ssh-terminal-1.0.1.tmxplug",
@@ -1267,8 +1288,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.1",
-          "notes": "### Fixed\n\n- Terminal links opened straight from a URL no longer crash with a command history error",
-          "publishedAt": "2026-10-11T22:30:33.000Z"
+          "publishedAt": "2026-10-11T22:30:33.000Z",
+          "notes": "### Fixed\n\n- Terminal links opened straight from a URL no longer crash with a command history error"
         },
         {
           "version": "1.0.0",
