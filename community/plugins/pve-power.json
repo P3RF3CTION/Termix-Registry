@@ -1,0 +1,12 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "pve-power",
+  "repository": "https://github.com/jeakob/termix-plugin-pve-power",
+  "maintainers": ["jeakob"],
+  "versions": [
+    {
+      "version": "0.6.8",
+      "sha256": "91e26e7264bfce30858bfbb73de12af2c879589e7e0626e4701e27a0f43d82b2"
+    }
+  ]
+}
