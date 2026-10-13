@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-10-13T14:31:17.879Z",
+  "updatedAt": "2026-10-13T15:31:02.086Z",
   "plugins": [
     {
       "id": "pve-power",
@@ -21,6 +21,26 @@
       ],
       "docs": "https://github.com/jeakob/termix-plugin-pve-power/blob/main/docs/index.md",
       "versions": [
+        {
+          "version": "0.6.9",
+          "api": "1",
+          "url": "https://github.com/jeakob/termix-plugin-pve-power/releases/download/v0.6.9/pve-power-0.6.9.tmxplug",
+          "sha256": "8f38a232fa187909e27c2e78e9a473c4eabb1ff4d5570441d01e952397c25171",
+          "signature": "1DBYtNxOalsXGUKfI0M/k+zoHP6mlDVUw7+e4RKKTf89jIBCSWMhFUFcwz5OM0qGt12cBApKyhcUb9FmuPpDAQ==",
+          "size": 33739,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "hosts:read",
+            "ssh:connect",
+            "credentials:use",
+            "users:impersonate",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.6.9",
+          "notes": "### Fixed\n\n- The Proxmox host list in guest setup was empty. Hosts now appear when **Proxmox Power** is enabled in their host editor; the bundled Proxmox Integration switch is no longer required. Guest setup now says this under the host field.\n\n### Changed\n\n- Both shutdown rules can be 0, so a guest can be started and stopped without automatic shutdown.",
+          "publishedAt": "2026-10-13T15:21:10.000Z"
+        },
         {
           "version": "0.6.8",
           "api": "1",
