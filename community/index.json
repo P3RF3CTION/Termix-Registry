@@ -4,6 +4,44 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-10-09T00:00:00.000Z",
-  "plugins": []
+  "updatedAt": "2026-10-13T14:31:17.879Z",
+  "plugins": [
+    {
+      "id": "pve-power",
+      "name": "Proxmox Power",
+      "description": "Start Proxmox VMs and LXC containers on demand and shut them down after idle CPU use or a time limit.",
+      "author": "jeakob",
+      "category": "Infrastructure",
+      "repository": "https://github.com/jeakob/termix-plugin-pve-power",
+      "icon": "Power",
+      "features": [
+        "Start or gracefully stop a Proxmox VM or LXC container",
+        "Start a linked guest from its host action before connecting",
+        "Graceful shutdown after sustained idle CPU use or maximum uptime"
+      ],
+      "docs": "https://github.com/jeakob/termix-plugin-pve-power/blob/main/docs/index.md",
+      "versions": [
+        {
+          "version": "0.6.8",
+          "api": "1",
+          "url": "https://github.com/jeakob/termix-plugin-pve-power/releases/download/v0.6.8/pve-power-0.6.8.tmxplug",
+          "sha256": "91e26e7264bfce30858bfbb73de12af2c879589e7e0626e4701e27a0f43d82b2",
+          "signature": "GgZh31EQEOZJnz0T1v7zZP1PFYGogl/kOGBknEPWMMznR2V4HfrMhGVwUH90GlPfSp9iCloUBdB6i9zm0HyNBg==",
+          "size": 33642,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "hosts:read",
+            "ssh:connect",
+            "credentials:use",
+            "users:impersonate",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/jeakob/termix-plugin-pve-power/releases/tag/v0.6.8",
+          "notes": "### Changed\n\n- Add screenshots and a usage guide to the docs.\n- Move all interface text into `locales/en.json`, ready for translation.\n- Document every API route with OpenAPI.\n- Remove an unneeded import query from the shutdown policy module.",
+          "publishedAt": "2026-10-13T14:23:37.000Z"
+        }
+      ]
+    }
+  ]
 }
