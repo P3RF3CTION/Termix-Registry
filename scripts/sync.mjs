@@ -24,6 +24,9 @@
  * because every download adds to the count the plugin store shows. Pass
  * --full to download and re-read everything anyway.
  *
+ * Official plugins take their demo video link from the manifest on their
+ * default branch, so a new video shows up without a release.
+ *
  * Set GH_TOKEN for the higher GitHub API rate limit.
  */
 
@@ -162,7 +165,7 @@ async function officialPlugins(dir, previous, keys, problems) {
       keys,
     );
     if (kept) {
-      plugins.push(kept);
+      plugins.push(await withMainVideo(kept, repo, problems));
       continue;
     }
 
@@ -185,13 +188,42 @@ async function officialPlugins(dir, previous, keys, problems) {
     const old = previous.get(latest.id);
     const versions = keep(old?.versions, stable);
     const prereleases = keep(old?.prereleases, betas);
-    plugins.push({
-      ...listing(latest, repository, sources.docsBase),
-      versions,
-      ...(prereleases.length > 0 ? { prereleases } : {}),
-    });
+    plugins.push(
+      await withMainVideo(
+        {
+          ...listing(latest, repository, sources.docsBase),
+          versions,
+          ...(prereleases.length > 0 ? { prereleases } : {}),
+        },
+        repo,
+        problems,
+      ),
+    );
   }
   return plugins;
+}
+
+const YOUTUBE =
+  /^https:\/\/(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)[A-Za-z0-9_-]{11}/;
+
+/**
+ * Official plugins take their demo video link from the manifest on their
+ * default branch, so a new video shows up without a release. Community
+ * plugins keep the link from their reviewed release.
+ */
+async function withMainVideo(entry, repo, problems) {
+  try {
+    const file = await github(`/repos/${repo}/contents/manifest.json`);
+    const manifest = JSON.parse(Buffer.from(file.content, "base64").toString());
+    if (typeof manifest.video === "string" && YOUTUBE.test(manifest.video)) {
+      return { ...entry, video: manifest.video };
+    }
+  } catch (error) {
+    problems.push(
+      `${repo}: could not read the manifest video (${error.message})`,
+    );
+  }
+  return entry;
 }
 
 async function readPinned({ repo, id, pin, keys, signer, old, problems }) {
