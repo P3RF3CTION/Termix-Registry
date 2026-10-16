@@ -28,8 +28,16 @@ jobs:
       - name: Type-check
         run: npm run typecheck --if-present
 
+      # The plugin's own build script, so a plugin can add steps after
+      # termix-plugin build (like vendoring a file into dist). Plugins without
+      # one get the plain SDK build.
       - name: Build
-        run: npx termix-plugin build
+        run: |
+          if [ "$(npm pkg get scripts.build)" != "{}" ]; then
+            npm run build
+          else
+            npx termix-plugin build
+          fi
 
       - name: Validate
         run: npx termix-plugin validate
