@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T05:08:24.068Z",
+  "updatedAt": "2026-10-18T05:13:01.518Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -250,6 +250,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Automations",
       "icon": "Workflow",
+      "video": "https://www.youtube.com/watch?v=h5JJJv56U-4",
       "features": [
         "Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks",
         "Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts",
@@ -260,6 +261,34 @@
       ],
       "docs": "https://docs.termix.site/plugins/automations",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.0.2/automations-1.0.2.tmxplug",
+          "sha256": "674eb04276b4a0c77c794b30647f8680218a78de8d52b73e99ec900cc1b3fdb3",
+          "signature": "d3Qh3zkcq1pxesugU6udpNC7uGF78UDbLVE8Rlk59g4TS4dFfHWWNIixHHgCLN82/jhAim5Ht7JUBR9ZDmIXBw==",
+          "size": 393361,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "events:core",
+            "notify:send",
+            "network:outbound",
+            "network:serve",
+            "settings:read-core",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "dependencies": {
+            "snippets": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.2",
+          "notes": "### Added\n\n- `automations.access` `create` takes `concurrencyPolicy` and `maxRunSeconds`, so plugins can create automations with a longer run limit\n- Set a timeout per step for commands, snippets and HTTP calls (60 seconds by default)\n- Ask AI step, which has the AI Assistant look into a problem on your hosts and report back or propose a fix for approval\n\n### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- Metric triggers kept their hosts' metrics alive every 15 seconds and filled the audit log; they now check in once a minute\n- A step that timed out with Carry on set left the run marked as successful",
+          "publishedAt": "2026-10-18T05:12:26.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -285,8 +314,8 @@
             "snippets": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:28:13.000Z"
+          "publishedAt": "2026-10-11T22:28:13.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -316,8 +345,7 @@
           "publishedAt": "2026-10-10T05:56:35.000Z",
           "notes": "### Added\n\n- First release\n- Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks\n- Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts, with values from triggers and variables always passed safely into shell commands\n- Conditions, waits and variables for more complex flows, and nested steps that only run automations you own\n- Run on one host, a fleet or every host\n- Test runs and a history of every run\n- Maintenance windows that pause automations while you work on a host"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=h5JJJv56U-4"
+      ]
     },
     {
       "id": "docker",
@@ -1578,9 +1606,11 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-SSH-Terminal",
       "icon": "SquareTerminal",
+      "video": "https://www.youtube.com/watch?v=rpUYOa-n9YI",
       "features": [
         "Tabs and split screen",
         "Jump hosts and host key verification",
+        "Cloudflare Tunnel (Zero Trust) support",
         "Sessions stay alive after a disconnect and reconnect on their own",
         "Tmux and Mosh support",
         "Themes, fonts and syntax highlighting",
@@ -1592,6 +1622,27 @@
       ],
       "docs": "https://docs.termix.site/plugins/ssh-terminal",
       "versions": [
+        {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/download/v1.0.3/ssh-terminal-1.0.3.tmxplug",
+          "sha256": "bc288bd843e37b64bcda7462d175039147b75dc6de8866769e4a938036a9d023",
+          "signature": "trb/GGb43dWZ3xWq40O8cvuC5umsv6zozVcvQDVeSyn6Zf/H/HBc9ojUr/CnEgt0nHpqaVBatZ9mPH/WHvsqDA==",
+          "size": 2034716,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "events:core",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.3",
+          "notes": "### Added\n\n- A keyboard shortcut to open a new local terminal, set in Settings, Keyboard Shortcuts\n- Pasting a copied image with Ctrl+V or Cmd+V uploads it to the host, the same as the paste image button\n- Connect to hosts behind a Cloudflare Tunnel, with an optional Access service token, from the host's Terminal tab\n- Other plugins can open a terminal tab attached to a tmux session\n- Keep tab open on exit, in a host's Terminal tab, keeps the output on screen when the shell exits or the connection closes; press Enter to reconnect\n- Copy selected text automatically and right-click paste now work in the local terminal too\n\n### Changed\n\n- The terminal toolbar uses the same background as the tab bar, so its border matches the rest of the app\n- The local terminal uses your terminal look from host defaults (theme, font, cursor and spacing)\n- On macOS, Option+drag selects text even while an app like Midnight Commander uses the mouse\n- The plugin name and description show in your language\n\n### Fixed\n\n- The Files button and Ctrl+right-click opened the file manager in the home folder instead of the shell's current folder\n- The mouse wheel over a tmux session walked shell history instead of scrolling; it now scrolls tmux's own history\n- Option+Left and Option+Right on macOS move the cursor by word again. Alt+Arrow only leaves the terminal when there is a split pane to move to\n- Tab inside tmux, vim or less showed a short list of history entries instead of going to the app, and keys typed there were saved to command history",
+          "publishedAt": "2026-10-18T05:12:26.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -1610,8 +1661,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.2",
-          "notes": "### Fixed\n\n- The mouse wheel walked shell history instead of doing nothing when there was nothing to scroll back\n- Fast scroll with a modifier key no longer scrolls the page behind the terminal\n- Password autofill now knows a macOS or BSD sudo `Password:` prompt is from sudo, so it follows the sudo autofill setting and fills the sudo password\n- Passwords typed at a password prompt are no longer saved to command history",
-          "publishedAt": "2026-10-12T16:15:39.000Z"
+          "publishedAt": "2026-10-12T16:15:39.000Z",
+          "notes": "### Fixed\n\n- The mouse wheel walked shell history instead of doing nothing when there was nothing to scroll back\n- Fast scroll with a modifier key no longer scrolls the page behind the terminal\n- Password autofill now knows a macOS or BSD sudo `Password:` prompt is from sudo, so it follows the sudo autofill setting and fills the sudo password\n- Passwords typed at a password prompt are no longer saved to command history"
         },
         {
           "version": "1.0.1",
@@ -1655,8 +1706,7 @@
           "publishedAt": "2026-10-10T05:57:19.000Z",
           "notes": "### Added\n\n- First release\n- SSH terminals with tabs, split screen, jump hosts and host key checks\n- Sessions stay alive after a disconnect and reconnect on their own, with tmux and Mosh support\n- Themes, fonts, syntax highlighting and a toolbar with live stats\n- Command history with autocomplete, macros and keystrokes sent to several terminals at once\n- Shared sessions keep read-only viewers read-only, even after they leave\n- A local terminal in the desktop app"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=rpUYOa-n9YI"
+      ]
     },
     {
       "id": "sso",
