@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T05:06:27.183Z",
+  "updatedAt": "2026-10-18T05:08:24.068Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -788,6 +788,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-LDAP",
       "icon": "Server",
+      "video": "https://www.youtube.com/watch?v=i7zpAXs2mAk",
       "features": [
         "Sign in against LDAP or Active Directory",
         "More than one directory, each with its own login button",
@@ -796,6 +797,24 @@
       ],
       "docs": "https://docs.termix.site/plugins/ldap",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-LDAP/releases/download/v1.0.2/ldap-1.0.2.tmxplug",
+          "sha256": "9ef269ad281f1c68cea53e0d43ccb7a5d4f949f11b30b22eac3d01047b20eb03",
+          "signature": "M4S9IKJfz1+WMEh+MdaUp+vUjaEtdNXGMRHeUPYUqXn3rRHfAOt/PoxewmF8FIqRDVOMhpzh+d+sSgmzvLV/Ag==",
+          "size": 367610,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.2",
+          "notes": "### Added\n\n- Default roles and group roles per LDAP directory, so new users get their custom roles at their first sign in\n\n### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T05:07:57.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -811,8 +830,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-LDAP/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:29:37.000Z"
+          "publishedAt": "2026-10-11T22:29:37.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -832,8 +851,7 @@
           "publishedAt": "2026-10-10T02:56:48.000Z",
           "notes": "### Added\n\n- First release\n- Sign in against LDAP or Active Directory\n- More than one directory, each with its own login button\n- LDAPS checks the server certificate, with a CA field and a skip check switch\n- Make members of an admin group Termix admins"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=i7zpAXs2mAk"
+      ]
     },
     {
       "id": "network-topology",
@@ -2539,6 +2557,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Web-Endpoint",
       "icon": "Globe",
+      "video": "https://www.youtube.com/watch?v=1eVUCFcnlXw",
       "features": [
         "Open a web UI in a Termix tab or its own desktop window",
         "Connect directly, or over an SSH tunnel through the host",
@@ -2546,6 +2565,26 @@
       ],
       "docs": "https://docs.termix.site/plugins/web-endpoint",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.0.2/web-endpoint-1.0.2.tmxplug",
+          "sha256": "0326edb1052d1debd083004c2dd1711d21a902cfacb55ce74d1a8856a5122477",
+          "signature": "owrucg04Pv6fMOWAf/4UVuv4INAx8Q/FukOdciI6ydpuHkUi9/1EVli2FNGMtrtrWxeJ1yB8o3w6JLdz/vLkCg==",
+          "size": 289367,
+          "capabilities": [
+            "hosts:read",
+            "network:serve",
+            "ui:surface",
+            "desktop:window"
+          ],
+          "dependencies": {
+            "tunnels": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- In the browser, tunnel endpoints now open through Termix itself, behind your login, and the tunnel only listens on 127.0.0.1\n- Bind Host is ignored unless an admin turns on Allow tunnels on other addresses\n- The plugin name and description show in your language\n\n### Fixed\n\n- Setting Bind Host to an address like 0.0.0.0 published the endpoint's web UI to anyone who could reach the port, with no Termix login (GHSA-ccmp-2wpj-x458)",
+          "publishedAt": "2026-10-18T05:07:38.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -2563,8 +2602,8 @@
             "tunnels": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:30:24.000Z"
+          "publishedAt": "2026-10-11T22:30:24.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -2586,8 +2625,7 @@
           "publishedAt": "2026-10-09T21:42:36.000Z",
           "notes": "### Added\n\n- First release\n- Open a web UI in a Termix tab or its own desktop window\n- Connect directly, or over an SSH tunnel through the host\n- Embedded pages never see your Termix login"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=1eVUCFcnlXw"
+      ]
     },
     {
       "id": "webauthn",
