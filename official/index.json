@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T04:47:39.261Z",
+  "updatedAt": "2026-10-18T04:51:46.617Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -164,6 +164,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Alerts",
       "icon": "Bell",
+      "video": "https://www.youtube.com/watch?v=NKtTox5jfP4",
       "features": [
         "One inbox for alerts from every part of Termix",
         "Popups for new alerts",
@@ -173,6 +174,28 @@
       ],
       "docs": "https://docs.termix.site/plugins/alerts",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.0.2/alerts-1.0.2.tmxplug",
+          "sha256": "50768e77019276343a5d162c85d081659fb89d1cc3733ac45cd0db4436918faa",
+          "signature": "7PVDn/1Lnv0n5CTBvBEAj8lHqFmbrr6e6cQbL9sf/4lwdsaJ++r2uSI/PcMaPaxVE0P2wZUVK1nlRtzY9q+aDw==",
+          "size": 542235,
+          "capabilities": [
+            "db:core-refs",
+            "db:own",
+            "events:core",
+            "network:outbound",
+            "network:serve",
+            "notify:hub",
+            "secrets:own",
+            "settings:read-core",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- ntfy alerts with non-ASCII titles or links arrived garbled or were not sent",
+          "publishedAt": "2026-10-18T04:51:12.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -192,8 +215,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:28:09.000Z"
+          "publishedAt": "2026-10-11T22:28:09.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -217,8 +240,7 @@
           "publishedAt": "2026-10-10T05:56:26.000Z",
           "notes": "### Added\n\n- First release\n- One inbox for alerts from every part of Termix\n- Popups for new alerts\n- Send alerts to Discord, ntfy, email or a webhook\n- Rules that pick which alerts go where\n- Optional news from the Termix team, like security notices and releases, with buttons and a popup for important ones\n- New accounts only get news from after they joined"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=NKtTox5jfP4"
+      ]
     },
     {
       "id": "automations",
