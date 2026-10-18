@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T04:58:37.682Z",
+  "updatedAt": "2026-10-18T05:00:43.027Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -594,6 +594,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
       "icon": "Activity",
+      "video": "https://www.youtube.com/watch?v=90al7mSOsUc",
       "features": [
         "CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, ports and logins",
         "History charts for each host",
@@ -604,6 +605,29 @@
       ],
       "docs": "https://docs.termix.site/plugins/host-metrics",
       "versions": [
+        {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/download/v1.0.3/host-metrics-1.0.3.tmxplug",
+          "sha256": "8f6022568349fc4318d509781bdb9d5b40973c010a9e27f720eed6baf68b881e",
+          "signature": "xHzAY06Bi++Ux/m9c8cnmaYmKk5GlPbAo6nuQSfVus3XxCeKi8dBDqNCUDfivAFPVUQvQ16DSeOXRKQwencOAg==",
+          "size": 557257,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate",
+            "notify:send"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.3",
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n- The METRICS_POLL_CONCURRENCY environment variable is now listed in the docs\n\n### Fixed\n\n- Saving metrics history failed on Postgres and MySQL once a host had moved more than 2 GB of network traffic\n- Long translated labels like Festplatte made the dashboard's usage bars overlap the host status badge",
+          "publishedAt": "2026-10-18T05:00:05.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -624,8 +648,8 @@
             "notify:send"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.2",
-          "notes": "### Fixed\n\n- macOS disk gauge uses the data volume instead of the sealed system volume\n- macOS disk percent now matches df instead of using the whole APFS container size",
-          "publishedAt": "2026-10-11T22:29:44.000Z"
+          "publishedAt": "2026-10-11T22:29:44.000Z",
+          "notes": "### Fixed\n\n- macOS disk gauge uses the data volume instead of the sealed system volume\n- macOS disk percent now matches df instead of using the whole APFS container size"
         },
         {
           "version": "1.0.1",
@@ -673,8 +697,7 @@
           "publishedAt": "2026-10-10T02:56:58.000Z",
           "notes": "### Added\n\n- First release\n- CPU, memory, disk, network, temperature, NVIDIA GPU, processes, ports and logins\n- History charts for each host\n- Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard, with changes needing edit access on a shared host\n- Health checks for your hosts and services\n- A layout you can rearrange per host, and live stats in the terminal toolbar"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=90al7mSOsUc"
+      ]
     },
     {
       "id": "ldap",
@@ -1879,6 +1902,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Termix-Identity",
       "icon": "Fingerprint",
+      "video": "https://www.youtube.com/watch?v=2F_A99YzjNw",
       "features": [
         "Publish your public keys under a handle",
         "Add your keys to any server with one command",
@@ -1887,6 +1911,25 @@
       ],
       "docs": "https://docs.termix.site/plugins/termix-identity",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/download/v1.0.2/termix-identity-1.0.2.tmxplug",
+          "sha256": "ac6c90a48b4f1e9cff6773a5fd267b2bf7319d2fc7e2aa2cd4004cec82f0f927",
+          "signature": "4Cay22HBcpBMh/MnCPUDQXCLpdOP3/6zo/l2cKwVDSThNRdIAKLlB/IwLmUlkP83EGhvjF7OdkRyHQvatUr7BA==",
+          "size": 186956,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "credentials:use",
+            "credentials:write",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T05:00:14.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1903,8 +1946,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Termix-Identity/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:30:12.000Z"
+          "publishedAt": "2026-10-11T22:30:12.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -1925,8 +1968,7 @@
           "publishedAt": "2026-10-10T19:12:16.000Z",
           "notes": "### Added\n\n- First release\n- Publish your public keys under a handle\n- Add your keys to any server with one command\n- Generate new keys or import saved ones\n- Your own SSH certificate authority"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=2F_A99YzjNw"
+      ]
     },
     {
       "id": "tmux-monitor",
