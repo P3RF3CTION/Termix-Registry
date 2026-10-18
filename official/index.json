@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T05:22:56.015Z",
+  "updatedAt": "2026-10-18T07:30:43.036Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -280,7 +280,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Automations",
       "icon": "Workflow",
-      "video": "https://www.youtube.com/watch?v=h5JJJv56U-4",
+      "video": "https://www.youtube.com/watch?v=mHCil45TCB8",
       "features": [
         "Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks",
         "Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts",
