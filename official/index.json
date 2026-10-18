@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-15T22:22:18.692Z",
+  "updatedAt": "2026-10-18T04:24:48.676Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -14,6 +14,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-ACME-SSL",
       "icon": "Lock",
+      "video": "https://www.youtube.com/watch?v=nJ6jDhurJRo",
       "features": [
         "Certificates from Let's Encrypt or any ACME directory",
         "HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed",
@@ -22,6 +23,26 @@
       ],
       "docs": "https://docs.termix.site/plugins/acme-ssl",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/download/v1.0.2/acme-ssl-1.0.2.tmxplug",
+          "sha256": "157d0f96dc42136ff64e618b6904db7862079cd31c1f1cf5f19846b1d127b00f",
+          "signature": "mnoLxDWrihnm4m7H5gTMcL3Q/5phnzFOtdhK9Z8gANemG5WxmKX03H0awdY8ltk0VX2R2+9ysTRB5CLoUzLDBg==",
+          "size": 789855,
+          "capabilities": [
+            "system:tls",
+            "kv:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "notify:send",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:24:12.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -39,8 +60,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:27:55.000Z"
+          "publishedAt": "2026-10-11T22:27:55.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -62,8 +83,7 @@
           "publishedAt": "2026-10-10T02:56:33.000Z",
           "notes": "### Added\n\n- First release\n- Certificates from Let's Encrypt or any ACME directory\n- HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed\n- Renews before the certificate expires and alerts admins when a renewal fails\n- Swaps in the new certificate without a restart"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=nJ6jDhurJRo"
+      ]
     },
     {
       "id": "ai",
