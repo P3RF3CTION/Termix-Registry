@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T05:13:01.518Z",
+  "updatedAt": "2026-10-18T05:17:53.476Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1122,21 +1122,43 @@
     {
       "id": "remote-desktop",
       "name": "Remote Desktop",
-      "description": "RDP, VNC and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording.",
+      "description": "RDP, VNC, Apple Remote Desktop and Telnet sessions in your browser, with clipboard, file transfer, sharing and recording.",
       "author": "Termix",
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Remote-Desktop",
       "icon": "Monitor",
+      "video": "https://www.youtube.com/watch?v=xCO13Fnzpe8",
       "features": [
-        "RDP, VNC and Telnet from any browser",
+        "RDP, VNC, Apple Remote Desktop and Telnet from any browser, with nothing else to install",
         "Tabs and split screen like any other session",
-        "Clipboard sync and file transfer through RDP drives",
+        "Clipboard sync, audio, printing and file transfer through RDP drives",
         "Jump host support",
         "Session sharing and recording",
         "Open a host in the native Windows Remote Desktop client from the desktop app"
       ],
       "docs": "https://docs.termix.site/plugins/remote-desktop",
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.1.0/remote-desktop-1.1.0.tmxplug",
+          "sha256": "6f74f1d26f91a43b2d2203417d744211f366c335d5fff7bed34bfce33874dd01",
+          "signature": "AF7Wgun0OoN/taf4quwumcIgWGVkZsNsYbS+BcdnqrqBj6jG5++PrXKrNO79wQKpyIfc1k1vK5TZAAbqsv+nDg==",
+          "size": 3912875,
+          "capabilities": [
+            "hosts:read",
+            "credentials:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "desktop:window",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- A built-in remote desktop engine: RDP, VNC and Telnet run inside Termix with no guacd container, on Docker, bare metal and the desktop app\n- RDP with NLA, TLS, clipboard, drive redirection with a Download folder, audio, printing to PDF and resizing without a reconnect\n- VNC with VncAuth, VeNCrypt, Tight security, UltraVNC MS-Logon II and Apple Remote Desktop logins, Tight, ZRLE, Hextile, RRE and CopyRect, and 8, 16 or 24 bit color\n- Telnet with guacd's auto login patterns, color schemes, scrollback and copy on select\n- Use an external guacd setting and REMOTE_DESKTOP_ENGINE to keep using guacd\n- RDP_DRIVE_PATH for where the built-in engine keeps drive files\n- More RDP keyboard layouts: Latin American Spanish, Portuguese, Swiss French, Danish, Norwegian, Polish, Hungarian, Romanian and Turkish\n- RemoteApp, console sessions, Wake-on-LAN and clipboard line ending settings work in the built-in engine\n- Apple Remote Desktop as a host type, with Force Quit, Lock screen and Spotlight in the toolbar\n\n### Changed\n\n- The toolbar sits along the top or bottom edge instead of floating over the desktop. Each host can pick its position, icons or names, and which buttons show in what order, and buttons that don't fit go in a More menu\n- The desktop app runs remote desktop on this device for hosts left on Default, like SSH\n- VNC sessions are recorded too\n- Read only viewers of a shared session can no longer send clipboard or files\n- Revoking a share disconnects the viewers who joined through it\n- RDP hosts behind an RD Gateway use the external guacd when one is set up\n- guacd Proxy is marked optional, and host settings that only work with an external guacd say so\n- The plugin name and description show in your language\n\n### Fixed\n\n- Saved RDP hosts failed with \"Failed to generate connection token\" when the Session Recording plugin was turned off\n- RDP sessions on some touch screens in Chrome kept resizing as a scrollbar showed and hid\n- Presenting an RDP, VNC or Telnet host in a collab room never started\n- The failsafe keyboard layout was sent under its translated name in other languages\n- Remote desktop never connected under npm run dev, since the display socket skipped the dev server's proxy\n- A tab could open two connections at once and get stuck on connecting\n- Remote desktop on the desktop app follows its local server when it moves off port 30001\n- With an external guacd, a VNC session to a slow server like macOS Screen Sharing could hang on connecting\n- Cmd+C and Cmd+V from a browser reached a Mac as a plain c and v",
+          "publishedAt": "2026-10-18T05:17:19.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -1155,8 +1177,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.0.2",
-          "notes": "### Fixed\n\n- VNC without a username and hosts behind jump hosts hung at \"Negotiating VNC handshake\" on Kubernetes. Without GUACD_TUNNEL_HOST set, guacd now reaches Termix by its pod IP",
-          "publishedAt": "2026-10-12T16:15:10.000Z"
+          "publishedAt": "2026-10-12T16:15:10.000Z",
+          "notes": "### Fixed\n\n- VNC without a username and hosts behind jump hosts hung at \"Negotiating VNC handshake\" on Kubernetes. Without GUACD_TUNNEL_HOST set, guacd now reaches Termix by its pod IP"
         },
         {
           "version": "1.0.1",
@@ -1200,8 +1222,7 @@
           "publishedAt": "2026-10-09T21:42:06.000Z",
           "notes": "### Added\n\n- First release\n- RDP, VNC and Telnet from any browser, in tabs and split screen like any other session\n- Clipboard sync and file transfer through RDP drives\n- Jump host support\n- Session sharing and recording\n- Open a host in the native Windows Remote Desktop client from the desktop app\n- Connections need the remote desktop permission, only the server decides guacd paths, drive folders and VNC listen mode, and only admins set a host's own guacd"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=xCO13Fnzpe8"
+      ]
     },
     {
       "id": "secret-sources",
