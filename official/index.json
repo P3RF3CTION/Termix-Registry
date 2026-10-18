@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T04:36:22.090Z",
+  "updatedAt": "2026-10-18T04:39:24.343Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -870,6 +870,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Proxmox",
       "icon": "Server",
+      "video": "https://www.youtube.com/watch?v=FCDouJdgYRk",
       "features": [
         "Find and import VMs and LXC containers from a node",
         "Keep imported hosts in sync on a schedule",
@@ -878,6 +879,28 @@
       ],
       "docs": "https://docs.termix.site/plugins/proxmox",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/download/v1.0.2/proxmox-1.0.2.tmxplug",
+          "sha256": "b92be2644b0c8121732103b922069a6cb3cf00caad4e6549f7a8cb471bda5e4e",
+          "signature": "XcsvzCJXNbzkewfTTOF5DjSycyMyKCg0o4tBrqgXAFJ38/i7mH91iR1b6PpHMAXo0fb0t7680zc5A5SDwgAEDw==",
+          "size": 290173,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:38:49.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -897,8 +920,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.0.1",
-          "notes": "### Fixed\n\n- Stats, guests and discovery work when the SSH user is not root, using sudo with the saved sudo password or passwordless sudo",
-          "publishedAt": "2026-10-11T22:29:49.000Z"
+          "publishedAt": "2026-10-11T22:29:49.000Z",
+          "notes": "### Fixed\n\n- Stats, guests and discovery work when the SSH user is not root, using sudo with the saved sudo password or passwordless sudo"
         },
         {
           "version": "1.0.0",
@@ -922,8 +945,7 @@
           "publishedAt": "2026-10-10T02:56:59.000Z",
           "notes": "### Added\n\n- First release\n- Find and import VMs and LXC containers from a node\n- Keep imported hosts in sync on a schedule\n- Set up Windows guests for RDP and turn on Docker for guests by name\n- Node, guest, storage and cluster stats in their own tab"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=FCDouJdgYRk"
+      ]
     },
     {
       "id": "remote-desktop",
