@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T05:02:42.392Z",
+  "updatedAt": "2026-10-18T05:03:40.409Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -327,6 +327,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Docker",
       "icon": "Box",
+      "video": "https://www.youtube.com/watch?v=bbIE8ZcFSBo",
       "features": [
         "Start, stop, restart, pause and remove containers",
         "Live CPU, memory, network and disk stats",
@@ -336,6 +337,26 @@
       ],
       "docs": "https://docs.termix.site/plugins/docker",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.0.2/docker-1.0.2.tmxplug",
+          "sha256": "0e1c722682faac6a027fd9b01e6910eb53ce5acb13332c6c8d8868554f3701ab",
+          "signature": "xshjqA/DjlFZIZt3bLQpIS12mFXNoj7jMq3P/a5TFgO61Lw96rBldN0BkgpJdXp+TEdu6EGY9/9Ht5rLvpcLBQ==",
+          "size": 975817,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- The container console started at the wrong width, so the first prompt wrapped and the shell got the wrong size\n- Opening Docker could connect twice and show no containers until the next refresh",
+          "publishedAt": "2026-10-18T05:03:12.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -353,8 +374,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:28:11.000Z"
+          "publishedAt": "2026-10-11T22:28:11.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -376,8 +397,7 @@
           "publishedAt": "2026-10-10T02:56:43.000Z",
           "notes": "### Added\n\n- First release\n- Start, stop, restart, pause and remove containers\n- Live CPU, memory, network and disk stats\n- Read and download container logs\n- Open a shell inside a container\n- Works with Docker and Podman"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=bbIE8ZcFSBo"
+      ]
     },
     {
       "id": "file-manager",
