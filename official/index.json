@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T04:31:57.111Z",
+  "updatedAt": "2026-10-18T04:36:22.090Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -717,6 +717,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Network-Topology",
       "icon": "Network",
+      "video": "https://www.youtube.com/watch?v=g_4SRBmA_hw",
       "features": [
         "Add hosts and draw links between them",
         "Live status for each host",
@@ -726,6 +727,22 @@
       ],
       "docs": "https://docs.termix.site/plugins/network-topology",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/download/v1.0.2/network-topology-1.0.2.tmxplug",
+          "sha256": "8d32340a0d0f9674b872da5d3d53e90f529b80dfe0d73ab294eed00e565fbb56",
+          "signature": "khX2+n8jyD/0rmk1DJpD4uK3gJAOBSLKLC3SmBA+XQE/VH1aDG2jTAQ03h/y9UT7eJ/LEDwA32cvcdpwLhArBQ==",
+          "size": 761655,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:35:47.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -739,8 +756,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Network-Topology/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:29:38.000Z"
+          "publishedAt": "2026-10-11T22:29:38.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -758,8 +775,7 @@
           "publishedAt": "2026-10-09T21:41:48.000Z",
           "notes": "### Added\n\n- First release\n- Add hosts and draw links between them\n- Live status for each host\n- Nested, colored groups\n- Import and export as JSON\n- A dashboard card for the graph"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=g_4SRBmA_hw"
+      ]
     },
     {
       "id": "opkssh",
