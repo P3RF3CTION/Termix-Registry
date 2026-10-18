@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T04:39:24.343Z",
+  "updatedAt": "2026-10-18T04:47:39.261Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1422,6 +1422,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-SSO",
       "icon": "KeyRound",
+      "video": "https://www.youtube.com/watch?v=OjUt_a8j9lI",
       "features": [
         "Any OpenID Connect provider, plus GitHub and Google",
         "More than one provider, each with its own login button",
@@ -1431,6 +1432,25 @@
       ],
       "docs": "https://docs.termix.site/plugins/sso",
       "versions": [
+        {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.0.3/sso-1.0.3.tmxplug",
+          "sha256": "87b03c0789d981dbc806162d73dfcc2c624150375277efd2ae40ab9d7657d48e",
+          "signature": "t3D+y3n7YwdDfK4QOazmucGLGXrdJUiR8aoQHM/2RtMPRxIxrSW+OdtZAiwrYSfYWpSftTNXL7pGqnJ3hSovCA==",
+          "size": 889281,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.3",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:47:04.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -1447,8 +1467,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:29:47.000Z"
+          "publishedAt": "2026-10-11T22:29:47.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.1",
@@ -1488,8 +1508,7 @@
           "publishedAt": "2026-10-10T02:57:03.000Z",
           "notes": "### Added\n\n- First release\n- Sign in with any OpenID Connect provider, GitHub or Google\n- More than one provider, each with its own login button\n- Make members of an admin group Termix admins, and map groups to roles\n- Limit sign in to certain users\n- Back-channel logout"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=OjUt_a8j9lI"
+      ]
     },
     {
       "id": "step-ca",
