@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T04:56:01.860Z",
+  "updatedAt": "2026-10-18T04:58:37.682Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1284,6 +1284,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Session-Sharing",
       "icon": "Presentation",
+      "video": "https://www.youtube.com/watch?v=7VUOXIKlR5Q",
       "features": [
         "Share terminal, RDP, VNC and Telnet sessions",
         "Share by link with anyone, or with a Termix user",
@@ -1294,6 +1295,28 @@
       ],
       "docs": "https://docs.termix.site/plugins/session-sharing",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/download/v1.0.2/session-sharing-1.0.2.tmxplug",
+          "sha256": "6408e7949a9549ac5ec94b35205729099138e730df1598d50f4bb618d8d90804",
+          "signature": "XKVgWBTclb3f02YxgIohPEbKymcrSl6h1ppAnTzJvrx5iud+/1lLFCw/BXsXRSaYHQGQt11JDcwUAWM26bb7DQ==",
+          "size": 1623832,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs"
+          ],
+          "dependencies": {
+            "ssh-terminal": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/tag/v1.0.2",
+          "notes": "### Added\n\n- Public URL for guest links, an admin setting for servers that guests reach at a different address, like a public proxy in front of a VPN-only server\n\n### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- Revoking a remote desktop share now disconnects the viewers who joined through it, and ending a shared remote desktop session ends it for everyone\n- Presenting an RDP, VNC or Telnet host in a meeting room never started when Remote Desktop used guacd",
+          "publishedAt": "2026-10-18T04:57:56.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1313,8 +1336,8 @@
             "ssh-terminal": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:30:06.000Z"
+          "publishedAt": "2026-10-11T22:30:06.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -1338,8 +1361,7 @@
           "publishedAt": "2026-10-09T21:42:25.000Z",
           "notes": "### Added\n\n- First release\n- Share terminal, RDP, VNC and Telnet sessions by link or with a Termix user\n- Read-only or read and write, with links that expire or can be revoked\n- Meeting rooms where a presenter shows a session and can hand over control\n- Guest links for people without an account"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=7VUOXIKlR5Q"
+      ]
     },
     {
       "id": "snippets",
@@ -1349,6 +1371,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Snippets",
       "icon": "Play",
+      "video": "https://www.youtube.com/watch?v=g2TJdWLKhJI",
       "features": [
         "Save commands and notes in folders",
         "Run them in one or more terminals, or straight on a set of hosts",
@@ -1359,6 +1382,28 @@
       ],
       "docs": "https://docs.termix.site/plugins/snippets",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Snippets/releases/download/v1.0.2/snippets-1.0.2.tmxplug",
+          "sha256": "cc1f5d74cf97f9a9c8f800fccf481c8a000e6fa516bc260ce24a7249d4f4c8e5",
+          "signature": "1jdllIjsXPkI8V0rCDFVVjqPNW2A25S5lcNVsRlkCpnt2jwn2i7lNGgDVp0HR7uh6/24FbLd6mZZSlb5LMN0Ag==",
+          "size": 375113,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ssh:connect",
+            "credentials:use",
+            "credentials:read",
+            "hosts:write",
+            "ui:surface",
+            "events:core",
+            "db:core-refs"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.2",
+          "notes": "### Added\n\n- Other plugins can read each snippet's command, so Fleets can run a snippet on a whole fleet\n- Fill sudo password setting: snippets run on hosts without a terminal answer sudo's prompt with the host's sudo password\n\n### Changed\n\n- The plugin name and description show in your language\n- Snippets now asks for permission to read host credentials, for the sudo password\n\n### Fixed\n\n- Running a snippet on a host now says why the connection failed instead of a generic error: failed authentication, an unreachable host, a timeout or a rejected host key each get their own status and message\n- A snippet that runs past the execution timeout answers with a timeout status and the output it printed so far, instead of a generic error",
+          "publishedAt": "2026-10-18T04:57:57.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1377,8 +1422,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.1",
-          "notes": "### Fixed\n\n- Folders that only exist on snippets now show in the folder picker when creating or editing a snippet",
-          "publishedAt": "2026-10-11T22:30:05.000Z"
+          "publishedAt": "2026-10-11T22:30:05.000Z",
+          "notes": "### Fixed\n\n- Folders that only exist on snippets now show in the folder picker when creating or editing a snippet"
         },
         {
           "version": "1.0.0",
@@ -1401,8 +1446,7 @@
           "publishedAt": "2026-10-10T19:12:16.000Z",
           "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=g2TJdWLKhJI"
+      ]
     },
     {
       "id": "ssh-terminal",
@@ -1596,6 +1640,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Step-CA",
       "icon": "ShieldCheck",
+      "video": "https://www.youtube.com/watch?v=Sc4bfeCAYEo",
       "features": [
         "Adds the Step CA auth type to hosts",
         "Sign in with your identity provider in the browser",
@@ -1604,6 +1649,25 @@
       ],
       "docs": "https://docs.termix.site/plugins/step-ca",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/download/v1.0.2/step-ca-1.0.2.tmxplug",
+          "sha256": "685b644fe44c2d3fa007baee16e8ea8a7d5204f039ebc8aa65e8093ad93adf8a",
+          "signature": "iiTH5PIWB/FpLG6VY26hCGO/hOFjEeZno3qCbh3abTBKw+PtA+Vq2rDzz4A6U/AI57UeD2f06yJYYGqqz279Dg==",
+          "size": 697590,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/tag/v1.0.2",
+          "notes": "### Added\n\n- Require the host username in the certificate, an admin setting that is on by default. Turn it off for a CA that puts other principals in the certificate and lets the server map them\n\n### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:58:10.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1620,8 +1684,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Step-CA/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:30:05.000Z"
+          "publishedAt": "2026-10-11T22:30:05.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -1642,8 +1706,7 @@
           "publishedAt": "2026-10-10T02:57:20.000Z",
           "notes": "### Added\n\n- First release\n- Adds the Step CA auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates are kept until they expire\n- No `step` binary needed\n- Several Termix servers can share sign in state through Redis"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=Sc4bfeCAYEo"
+      ]
     },
     {
       "id": "tailscale",
@@ -1653,6 +1716,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Tailscale",
       "icon": "Network",
+      "video": "https://www.youtube.com/watch?v=EONHzTO1mFQ",
       "features": [
         "Add tailnet devices as hosts in a couple of clicks",
         "Connect with Tailscale SSH, with no credentials stored",
@@ -1661,6 +1725,27 @@
       ],
       "docs": "https://docs.termix.site/plugins/tailscale",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/download/v1.0.2/tailscale-1.0.2.tmxplug",
+          "sha256": "5c7b00d6b6b0186d833302e39a9d31b92ea92d4542e9e2dab550b95837a59d97",
+          "signature": "XNiJHefq4OACfckYiapIGY8/jE+DjmN7J2N6++OoG3Gh5MmcdRvDRphPxvNZ4D52WjTmBCiOyjxu0fjJ1PnVDw==",
+          "size": 128199,
+          "capabilities": [
+            "hosts:read",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ssh:connect",
+            "credentials:use",
+            "credentials:read",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:58:14.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1679,8 +1764,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:30:09.000Z"
+          "publishedAt": "2026-10-11T22:30:09.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -1703,8 +1788,7 @@
           "publishedAt": "2026-10-09T21:42:17.000Z",
           "notes": "### Added\n\n- First release\n- Add tailnet devices as hosts in a couple of clicks\n- Connect with Tailscale SSH, with no credentials stored\n- Works with Headscale\n- A Tailscale card in Host Metrics"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=EONHzTO1mFQ"
+      ]
     },
     {
       "id": "telemetry",
@@ -1714,6 +1798,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Telemetry",
       "icon": "ChartNoAxesColumn",
+      "video": "https://www.youtube.com/watch?v=qbKqZ1bzpvQ",
       "features": [
         "Never sends usernames, hostnames or credentials",
         "Choose what the report includes, or turn it off",
@@ -1721,6 +1806,27 @@
       ],
       "docs": "https://docs.termix.site/plugins/telemetry",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/download/v1.0.2/telemetry-1.0.2.tmxplug",
+          "sha256": "5ffdc58b05cd8b37fd0a207f99d2d3a256164130c950032501c499f869edb9ec",
+          "signature": "GH63op70VdSv92/gqD+rPm8UD83aMfCH+a+Mz2vRN9FPTtzGK6VxPtbfuJWArdDCj7QsQinu/iei0FHcnfTpDg==",
+          "size": 100909,
+          "capabilities": [
+            "db:core-refs",
+            "network:outbound",
+            "network:serve",
+            "events:core",
+            "db:own",
+            "kv:own",
+            "plugins:read",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:58:05.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1739,8 +1845,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Telemetry/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:30:06.000Z"
+          "publishedAt": "2026-10-11T22:30:06.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -1763,8 +1869,7 @@
           "publishedAt": "2026-10-09T21:42:20.000Z",
           "notes": "### Added\n\n- First release\n- Sends a small anonymous report once a day\n- Never sends usernames, hostnames or credentials\n- Choose what the report includes, or turn it off\n- Preview the exact report before it is sent\n- ENABLE_TELEMETRY locks the setting from the environment"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=qbKqZ1bzpvQ"
+      ]
     },
     {
       "id": "termix-identity",
@@ -1909,6 +2014,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-TOTP",
       "icon": "ShieldCheck",
+      "video": "https://www.youtube.com/watch?v=nla4ArQGpfU",
       "features": [
         "Works with any authenticator app",
         "Backup codes in case you lose your phone",
@@ -1916,6 +2022,25 @@
       ],
       "docs": "https://docs.termix.site/plugins/totp",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-TOTP/releases/download/v1.0.2/totp-1.0.2.tmxplug",
+          "sha256": "94a0772660fa8e4dfd9afc15b68d5bc9fe02fe28a1acfd35e65a57c304d460c0",
+          "signature": "P6/cedH6qUl9BdUT9tD7pj1wX+bElqb1q0jwBBb0b0WI769mhMb2atIM1XTgS4ppzJoEt81fDYwtUMNd8Z8FDw==",
+          "size": 183806,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "db:core-refs"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-TOTP/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:57:57.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1932,8 +2057,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-TOTP/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:30:04.000Z"
+          "publishedAt": "2026-10-11T22:30:04.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -1954,8 +2079,7 @@
           "publishedAt": "2026-10-09T21:42:12.000Z",
           "notes": "### Added\n\n- First release\n- Two-factor sign in with a code from any authenticator app\n- Each code works once, and wrong codes are rate limited\n- Backup codes in case you lose your phone\n- More than one device"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=nla4ArQGpfU"
+      ]
     },
     {
       "id": "tunnels",
