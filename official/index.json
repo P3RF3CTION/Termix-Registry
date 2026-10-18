@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T04:54:14.698Z",
+  "updatedAt": "2026-10-18T04:56:01.860Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1061,6 +1061,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-Secret-Sources",
       "icon": "KeyRound",
+      "video": "https://www.youtube.com/watch?v=5b_fTbM-sz4",
       "features": [
         "Works with a self-hosted 1Password Connect server",
         "Use op://vault/item/field references in a host's password or key fields",
@@ -1068,6 +1069,26 @@
       ],
       "docs": "https://docs.termix.site/plugins/secret-sources",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/download/v1.0.2/secret-sources-1.0.2.tmxplug",
+          "sha256": "82e2b1e95b0837dd3e5fee277be4eea2d1ce68567b0e204941c48150f415d134",
+          "signature": "i4i1vG4ISmJcGruvEfU+/nnd5EQGvpqv5tverT5QtahU0OwWI6SX3OjCKEIqo/x/B7m9yrd5wAnmZmtV+QXPBg==",
+          "size": 87843,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:55:27.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1085,8 +1106,8 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Secret-Sources/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:29:48.000Z"
+          "publishedAt": "2026-10-11T22:29:48.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -1108,8 +1129,7 @@
           "publishedAt": "2026-10-09T21:41:59.000Z",
           "notes": "### Added\n\n- First release\n- Works with a self-hosted 1Password Connect server\n- Use `op://vault/item/field` references in a host's password or key fields\n- Secrets are fetched each time you connect and never stored in Termix"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=5b_fTbM-sz4"
+      ]
     },
     {
       "id": "serial",
@@ -1119,6 +1139,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Serial",
       "icon": "Usb",
+      "video": "https://www.youtube.com/watch?v=DGVwYJlFDgw",
       "features": [
         "Set the baud rate, data bits, stop bits and parity",
         "The desktop app talks to the device directly",
@@ -1126,6 +1147,22 @@
       ],
       "docs": "https://docs.termix.site/plugins/serial",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Serial/releases/download/v1.0.2/serial-1.0.2.tmxplug",
+          "sha256": "6ede7e8726a7312429473f34a46f93ba6657c5b7ebc12bed18f80ec62c211715",
+          "signature": "6UuL+4uFQozS5H1eu/lhK8yAlbSCeG22BryixkQOBd91feYmDxM7bUQiVuZjS29YgL5+zXNrmFKvVs/8XNjUCw==",
+          "size": 766549,
+          "capabilities": [
+            "network:serve",
+            "device:serial",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Serial/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:55:25.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1139,8 +1176,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Serial/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:29:50.000Z"
+          "publishedAt": "2026-10-11T22:29:50.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -1158,8 +1195,7 @@
           "publishedAt": "2026-10-09T21:42:04.000Z",
           "notes": "### Added\n\n- First release\n- Serial console to a router, switch or other device plugged into your computer\n- Set the baud rate, data bits, stop bits and parity\n- The desktop app talks to the device directly\n- Browsers use the Web Serial API (Chrome, Edge or Firefox 151 and newer)"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=DGVwYJlFDgw"
+      ]
     },
     {
       "id": "session-recording",
