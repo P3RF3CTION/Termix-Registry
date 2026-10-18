@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T05:03:40.409Z",
+  "updatedAt": "2026-10-18T05:04:43.395Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2038,6 +2038,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor",
       "icon": "Layers",
+      "video": "https://www.youtube.com/watch?v=d0PwHYi1hDM",
       "features": [
         "Every host's tmux sessions in one place",
         "Live pane previews",
@@ -2048,6 +2049,25 @@
       ],
       "docs": "https://docs.termix.site/plugins/tmux-monitor",
       "versions": [
+        {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/download/v1.0.3/tmux-monitor-1.0.3.tmxplug",
+          "sha256": "f152d64f433d3f1de7c3fdf172e752ea7e333909f0fdda77336a6b8dddb9f242",
+          "signature": "qOkXhYdVuEmvVWS20CwcB7lni9/u5AZnLstN6T8a7xDBPlIn+/80OEqQWMSrF6nGrxNhV+jPxWk9wZxOW8jeBg==",
+          "size": 237108,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.0.3",
+          "notes": "### Changed\n\n- Attach opens the session in a new Termix tab, and on the web you can pick a new browser tab instead. Needs SSH Terminal 1.0.3\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T05:03:40.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -2064,8 +2084,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.0.2",
-          "notes": "### Fixed\n\n- Windows hosts running psmux showed \"tmux is not installed\". Hosts without /bin/sh now run tmux straight from cmd.exe or PowerShell",
-          "publishedAt": "2026-10-12T16:15:15.000Z"
+          "publishedAt": "2026-10-12T16:15:15.000Z",
+          "notes": "### Fixed\n\n- Windows hosts running psmux showed \"tmux is not installed\". Hosts without /bin/sh now run tmux straight from cmd.exe or PowerShell"
         },
         {
           "version": "1.0.1",
@@ -2105,8 +2125,7 @@
           "publishedAt": "2026-10-09T21:42:26.000Z",
           "notes": "### Added\n\n- First release\n- Every host's tmux sessions in one place, with live pane previews\n- Resource use for each session\n- Search across every pane\n- Create, rename, split and kill sessions, windows and panes\n- Attach a terminal in one click"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=d0PwHYi1hDM"
+      ]
     },
     {
       "id": "totp",
@@ -2191,6 +2210,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Tunnels",
       "icon": "ArrowLeftRight",
+      "video": "https://www.youtube.com/watch?v=RJu5gzn8_fo",
       "features": [
         "Local, remote and dynamic SOCKS5 forwarding",
         "Reconnects on its own when a tunnel drops",
@@ -2200,6 +2220,27 @@
       ],
       "docs": "https://docs.termix.site/plugins/tunnels",
       "versions": [
+        {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.0.3/tunnels-1.0.3.tmxplug",
+          "sha256": "d0de9e59ccc9e1a0f2817dd1ec9951021f2d7e89304894bb1e8cefd65aebff0b",
+          "signature": "UaWRDz3vOjdPyBpIrCq50g4Bk9yQPWgvvS2fT3khOYUtHXpGQphL7T1+Yt2CEpFgylBF+0g8Go89HGm7ys/4CA==",
+          "size": 316466,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.0.3",
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- When the endpoint host could not reach a client tunnel's target, the error did not say which address it tried. It now names it, like 127.0.0.1:8443, which is what an empty remote address means\n- Starting or stopping a server tunnel from the Tunnels tab said \"Client tunnel started\" or \"Client tunnel stopped\"",
+          "publishedAt": "2026-10-18T05:03:44.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -2218,8 +2259,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.0.2",
-          "notes": "### Fixed\n\n- Client tunnels stopped with \"Endpoint SSH connection closed\" when a reverse proxy dropped their idle connection. The relay now pings to keep it open",
-          "publishedAt": "2026-10-12T16:15:03.000Z"
+          "publishedAt": "2026-10-12T16:15:03.000Z",
+          "notes": "### Fixed\n\n- Client tunnels stopped with \"Endpoint SSH connection closed\" when a reverse proxy dropped their idle connection. The relay now pings to keep it open"
         },
         {
           "version": "1.0.1",
@@ -2263,8 +2304,7 @@
           "publishedAt": "2026-10-10T02:57:45.000Z",
           "notes": "### Added\n\n- First release\n- Local, remote and dynamic SOCKS5 forwarding\n- Reconnects on its own when a tunnel drops\n- Start tunnels on boot\n- Route a tunnel through a second host\n- Client tunnels on your own computer from the desktop app, with presets you can save to the server"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=RJu5gzn8_fo"
+      ]
     },
     {
       "id": "vault",
@@ -2536,6 +2576,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-WebAuthn",
       "icon": "Fingerprint",
+      "video": "https://www.youtube.com/watch?v=u8isRJFMPwE",
       "features": [
         "Passkeys and security keys",
         "Counts as a second factor when it checks your PIN or fingerprint",
@@ -2543,6 +2584,25 @@
       ],
       "docs": "https://docs.termix.site/plugins/webauthn",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/download/v1.0.2/webauthn-1.0.2.tmxplug",
+          "sha256": "8269f6e407897332648c8526b65383c4db071ea782bf1e58aa7c7c00627f3f4b",
+          "signature": "NzcqOrGyq1ejoh/eLcqiDHU0ZssGQxSA2YutnOOCHKgTO6aVuzzppgwb1LOVc7GY0Dagc7cKwLn1DFjvMMSrBA==",
+          "size": 457566,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "auth:provide",
+            "settings:read-core",
+            "ui:surface",
+            "db:core-refs"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T05:04:03.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -2559,8 +2619,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-WebAuthn/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:30:27.000Z"
+          "publishedAt": "2026-10-11T22:30:27.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -2581,8 +2641,7 @@
           "publishedAt": "2026-10-10T02:57:37.000Z",
           "notes": "### Added\n\n- First release\n- Sign in with a passkey or security key instead of a password\n- Counts as a second factor when it checks your PIN or fingerprint\n- More than one passkey, including synced ones"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=u8isRJFMPwE"
+      ]
     },
     {
       "id": "workspaces",
