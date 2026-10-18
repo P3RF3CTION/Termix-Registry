@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T04:51:46.617Z",
+  "updatedAt": "2026-10-18T04:54:14.698Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1169,6 +1169,7 @@
       "category": "Terminal",
       "repository": "https://github.com/Termix-SSH/Plugin-Session-Recording",
       "icon": "ScrollText",
+      "video": "https://www.youtube.com/watch?v=fmYg3wqMHC0",
       "features": [
         "Record SSH, RDP and VNC sessions",
         "Play recordings back at any speed",
@@ -1177,6 +1178,26 @@
       ],
       "docs": "https://docs.termix.site/plugins/session-recording",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/download/v1.0.2/session-recording-1.0.2.tmxplug",
+          "sha256": "55ace6897710ce9a63f24e3d736a9e533cac557be0f3d98974956c94cf417d1c",
+          "signature": "dA9ODqNU9hy/tKD6Nnz2IyyapqmcPFXG43cPus9cRHVvwwOMM7SZowzGeSLWUuRT8YXkkOC2x1hrV9oGIWGFCg==",
+          "size": 770036,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "files:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "db:core-refs"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T04:53:40.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -1194,8 +1215,8 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.0.1",
-          "notes": "### Fixed\n\n- Recordings broke after upgrading from 2.8 because the old table had no username column",
-          "publishedAt": "2026-10-11T22:29:56.000Z"
+          "publishedAt": "2026-10-11T22:29:56.000Z",
+          "notes": "### Fixed\n\n- Recordings broke after upgrading from 2.8 because the old table had no username column"
         },
         {
           "version": "1.0.0",
@@ -1217,8 +1238,7 @@
           "publishedAt": "2026-10-10T05:56:32.000Z",
           "notes": "### Added\n\n- First release\n- Record SSH, RDP and VNC sessions\n- Play recordings back at any speed\n- Download a recording as a file or plain text\n- Old recordings are removed after a number of days you choose\n- Only admins can delete a recording"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=fmYg3wqMHC0"
+      ]
     },
     {
       "id": "session-sharing",
