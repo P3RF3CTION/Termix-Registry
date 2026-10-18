@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T04:24:48.676Z",
+  "updatedAt": "2026-10-18T04:31:57.111Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -769,6 +769,7 @@
       "category": "Access & Security",
       "repository": "https://github.com/Termix-SSH/Plugin-OPKSSH",
       "icon": "ShieldCheck",
+      "video": "https://www.youtube.com/watch?v=FOkHBcaO2YU",
       "features": [
         "Adds the OPKSSH auth type to hosts",
         "Sign in with your identity provider in the browser",
@@ -777,6 +778,28 @@
       ],
       "docs": "https://docs.termix.site/plugins/opkssh",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/download/v1.0.2/opkssh-1.0.2.tmxplug",
+          "sha256": "4bb8f1ac5d39bd18ac3d0fe82ddbf2f26ab4c01bd75e6f7a073d65c2e9aef219",
+          "signature": "+mQ+LO4pEfS7IV5bNBiKY6zt34Y/TAD+JTjgHGd/SRfukvCx+D0h9gc3VwRWf+W3vP6YCqQeH+E/KGkVgv4LCg==",
+          "size": 181164,
+          "capabilities": [
+            "db:own",
+            "files:own",
+            "secrets:own",
+            "hosts:read",
+            "process:spawn",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- Signing in never showed the browser dialog when the config had a default_provider or a single provider, since OPKSSH then skips its provider chooser",
+          "publishedAt": "2026-10-18T04:31:22.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -796,8 +819,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-OPKSSH/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:29:40.000Z"
+          "publishedAt": "2026-10-11T22:29:40.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -821,8 +844,7 @@
           "publishedAt": "2026-10-10T02:56:53.000Z",
           "notes": "### Added\n\n- First release\n- Adds the OPKSSH auth type to hosts\n- Sign in with your identity provider in the browser\n- Certificates last 24 hours, so you sign in once a day\n- Uses a pinned, checksum verified `opkssh` release"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=FOkHBcaO2YU"
+      ]
     },
     {
       "id": "proxmox",
