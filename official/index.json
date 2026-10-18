@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-18T05:04:43.395Z",
+  "updatedAt": "2026-10-18T05:06:27.183Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -520,6 +520,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Fleets",
       "icon": "Boxes",
+      "video": "https://www.youtube.com/watch?v=WnQLS1N6oIA",
       "features": [
         "Group hosts by hand or with tag rules, so new hosts join on their own",
         "Run one command on every host and see each result",
@@ -530,6 +531,27 @@
       ],
       "docs": "https://docs.termix.site/plugins/fleets",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Fleets/releases/download/v1.0.2/fleets-1.0.2.tmxplug",
+          "sha256": "50dab38e1c6c95fdb4d0544ce50cdf84dae84789e64aa34ea9d04fdac3a38c59",
+          "signature": "IHb7j8AuFprgkXvJ324X9fjL7jNwdtA2/B1ina0iadY322KvROT0TtVT7ILU/qh06Tuqkqyp+z8Gv5Z9IZMxCg==",
+          "size": 474894,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.0.2",
+          "notes": "### Added\n\n- Pick a snippet in a fleet's Run command tab to run it on every host in the fleet\n\n### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T05:06:02.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -548,8 +570,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Fleets/releases/tag/v1.0.1",
-          "notes": "### Fixed\n\n- Fleet commands, package actions and file transfers no longer time out after 30 seconds\n- Fleet commands can run for up to an hour per host",
-          "publishedAt": "2026-10-11T22:29:33.000Z"
+          "publishedAt": "2026-10-11T22:29:33.000Z",
+          "notes": "### Fixed\n\n- Fleet commands, package actions and file transfers no longer time out after 30 seconds\n- Fleet commands can run for up to an hour per host"
         },
         {
           "version": "1.0.0",
@@ -572,8 +594,7 @@
           "publishedAt": "2026-10-10T05:56:29.000Z",
           "notes": "### Added\n\n- First release\n- Group hosts by hand or with tag rules, so new hosts join on their own\n- Run one command on every host and see each result\n- Install, remove or upgrade packages across the fleet\n- Push and pull files on every host\n- Collect an inventory of OS, kernel, architecture and uptime\n- Share a fleet with users or roles"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=WnQLS1N6oIA"
+      ]
     },
     {
       "id": "homepage",
@@ -2651,6 +2672,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Workspaces",
       "icon": "LayoutTemplate",
+      "video": "https://www.youtube.com/watch?v=bcvDoszTJzQ",
       "features": [
         "Save your tabs and split layout as a named workspace",
         "Reopen it in one click",
@@ -2659,6 +2681,22 @@
       ],
       "docs": "https://docs.termix.site/plugins/workspaces",
       "versions": [
+        {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/download/v1.0.2/workspaces-1.0.2.tmxplug",
+          "sha256": "97519a01fbb2eb2eecf21d7b9ab9028c740457bcff9fc6b075fb6facbc5ccb6b",
+          "signature": "XCuvV04691SaZQQFY76XzorvdBEy4eYs3ReJA3rcEA/LHmrcUlAy7vGQt+XXvwDNw9TqgaVjZv/Al3pYXA89Cg==",
+          "size": 134694,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.0.2",
+          "notes": "### Changed\n\n- The plugin name and description show in your language",
+          "publishedAt": "2026-10-18T05:05:52.000Z"
+        },
         {
           "version": "1.0.1",
           "api": "1",
@@ -2672,8 +2710,8 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.0.1",
-          "notes": "### Changed\n\n- Translated into every supported language",
-          "publishedAt": "2026-10-11T22:30:29.000Z"
+          "publishedAt": "2026-10-11T22:30:29.000Z",
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -2691,8 +2729,7 @@
           "publishedAt": "2026-10-10T05:56:35.000Z",
           "notes": "### Added\n\n- First release\n- Save your tabs and split layout as a named workspace\n- Reopen it in one click\n- Recover your last session\n- Syncs between the desktop app and a Termix server"
         }
-      ],
-      "video": "https://www.youtube.com/watch?v=bcvDoszTJzQ"
+      ]
     }
   ]
 }
