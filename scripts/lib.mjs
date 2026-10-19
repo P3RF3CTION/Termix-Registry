@@ -4,6 +4,7 @@ import path from "node:path";
 import process from "node:process";
 import zlib from "node:zlib";
 import { fileURLToPath } from "node:url";
+import semver from "semver";
 
 export const root = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -258,6 +259,7 @@ export function versionEntry({
     signature,
     size: buffer.length,
     capabilities: manifest.capabilities ?? [],
+    ...engineOf(manifest),
     ...(manifest.dependencies && Object.keys(manifest.dependencies).length
       ? { dependencies: manifest.dependencies }
       : {}),
@@ -307,6 +309,70 @@ export function listing(manifest, repository, docsBase) {
       ? { features: manifest.features }
       : {}),
     ...docsLink(manifest, docsBase),
+    ...contributesOf(manifest),
+  };
+}
+
+/** The manifest's engine ranges, for Termix builds that check them. */
+export function engineOf(manifest) {
+  const { api, termix } = manifest.engine ?? {};
+  if (typeof api !== "string" || typeof termix !== "string") return {};
+  return { engine: { api, termix } };
+}
+
+/** What kinds of things the plugin adds, so Termix can filter by them. */
+export function contributesOf(manifest) {
+  const kinds = Object.keys(manifest.contributes ?? {}).filter((kind) =>
+    /^[A-Za-z]+$/.test(kind),
+  );
+  return kinds.length > 0 ? { contributes: kinds.sort() } : {};
+}
+
+/**
+ * The newest Termix that lists registry releases without checking
+ * engine.termix. A release it can't run goes in gated, a list it never reads.
+ */
+export const LAST_UNCHECKED_CORE = "26.10.2";
+
+export function needsNewerCore(entry) {
+  const range = entry.engine?.termix;
+  if (!range || semver.validRange(range) === null) return false;
+  return !semver.satisfies(LAST_UNCHECKED_CORE, range);
+}
+
+/** Every release an index entry lists, in any of its lists. */
+export function allReleases(plugin) {
+  return [
+    ...(plugin.versions ?? []),
+    ...(plugin.prereleases ?? []),
+    ...(plugin.gated ?? []),
+  ];
+}
+
+/**
+ * Sorts an entry's releases into versions, prereleases and gated. Betas are
+ * kept only while newer than the newest stable.
+ */
+export function placeReleases(plugin) {
+  const releases = allReleases(plugin).sort((a, b) =>
+    compareVersions(b.version, a.version),
+  );
+  const newestStable = releases.find((r) => !isPrerelease(r.version));
+  const kept = releases.filter(
+    (r) =>
+      !isPrerelease(r.version) ||
+      !newestStable ||
+      compareVersions(r.version, newestStable.version) > 0,
+  );
+  const open = kept.filter((r) => !needsNewerCore(r));
+  const gated = kept.filter((r) => needsNewerCore(r));
+  const prereleases = open.filter((r) => isPrerelease(r.version));
+  const { versions: _v, prereleases: _p, gated: _g, ...rest } = plugin;
+  return {
+    ...rest,
+    versions: open.filter((r) => !isPrerelease(r.version)),
+    ...(prereleases.length > 0 ? { prereleases } : {}),
+    ...(gated.length > 0 ? { gated } : {}),
   };
 }
 

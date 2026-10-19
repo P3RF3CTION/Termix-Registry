@@ -5,6 +5,8 @@
     "Termix-SSH/Plugin-AI",
     "Termix-SSH/Plugin-Alerts",
     "Termix-SSH/Plugin-Automations",
+    "Termix-SSH/Plugin-Classic-Layout",
+    "Termix-SSH/Plugin-Classic-Themes",
     "Termix-SSH/Plugin-Docker",
     "Termix-SSH/Plugin-File-Manager",
     "Termix-SSH/Plugin-Fleets",

@@ -3,6 +3,7 @@
  *
  * - the index matches registry-index-schema.json
  * - plugin ids and versions are unique, versions newest first
+ * - gated holds exactly the releases the last unchecking Termix can't run
  * - each version's .tmxplug exists, and its size, sha256 and signature
  *   match (skipped with --offline). Read from the GitHub API digest when
  *   there is one, so the download count stays untouched
@@ -23,6 +24,7 @@ import process from "node:process";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import {
+  allReleases,
   assetSha256,
   compareVersions,
   findReleaseAsset,
@@ -30,6 +32,7 @@ import {
   isSigned,
   keysFor,
   loadKeys,
+  needsNewerCore,
   readSubmissions,
   root,
 } from "./lib.mjs";
@@ -141,7 +144,7 @@ function checkSubmissions(dir, index, problems) {
       problems.push(`${rel}: ${plugin.id} has no submission`);
       continue;
     }
-    for (const entry of [...plugin.versions, ...(plugin.prereleases ?? [])]) {
+    for (const entry of allReleases(plugin)) {
       if (pins.get(entry.version) !== entry.sha256) {
         problems.push(
           `${rel}: ${plugin.id}@${entry.version} is not a reviewed file`,
@@ -206,12 +209,27 @@ async function main() {
       if (other) problems.push(`${rel}: ${plugin.id} is also in ${other}`);
 
       const prereleases = plugin.prereleases ?? [];
-      if (plugin.versions.length === 0 && prereleases.length === 0) {
+      const gated = plugin.gated ?? [];
+      if (allReleases(plugin).length === 0) {
         problems.push(`${rel}: ${plugin.id} has no releases`);
+      }
+      for (const entry of allReleases(plugin)) {
+        if (needsNewerCore(entry) !== gated.includes(entry)) {
+          problems.push(
+            `${rel}: ${plugin.id}@${entry.version} ${
+              gated.includes(entry) ? "does not belong" : "belongs"
+            } in gated`,
+          );
+        }
+      }
+      const every = allReleases(plugin).map((entry) => entry.version);
+      if (new Set(every).size !== every.length) {
+        problems.push(`${rel}: ${plugin.id} lists a version in two lists`);
       }
       for (const [list, entries] of [
         ["versions", plugin.versions],
         ["prereleases", prereleases],
+        ["gated", gated],
       ]) {
         const names = entries.map((entry) => entry.version);
         if (new Set(names).size !== names.length) {
@@ -221,7 +239,7 @@ async function main() {
         if (sorted.join() !== names.join()) {
           problems.push(`${rel}: ${plugin.id} ${list} must be newest first`);
         }
-        for (const name of names) {
+        for (const name of list === "gated" ? [] : names) {
           if (isPrerelease(name) !== (list === "prereleases")) {
             problems.push(
               `${rel}: ${plugin.id}@${name} belongs in ${
@@ -245,7 +263,7 @@ async function main() {
         problems.push(`keys/${index.registry}.pub is missing`);
         break;
       }
-      for (const version of [...plugin.versions, ...prereleases]) {
+      for (const version of allReleases(plugin)) {
         await checkArtifact(
           `${rel}: ${plugin.id}@${version.version}`,
           version,

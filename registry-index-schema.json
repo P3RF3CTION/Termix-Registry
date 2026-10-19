@@ -89,6 +89,17 @@
           "description": "Betas newer than the newest stable release, newest first. Kept apart so older Termix builds never offer them.",
           "type": "array",
           "items": { "$ref": "#/$defs/version" }
+        },
+        "gated": {
+          "description": "Stable and beta releases that need a newer Termix than 26.10.2, newest first. Builds up to 26.10.2 never read this list, so they never offer these.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/version" }
+        },
+        "contributes": {
+          "description": "The manifest's contributes keys, so Termix can filter by what a plugin adds.",
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[A-Za-z]+$" },
+          "uniqueItems": true
         }
       }
     },
@@ -132,6 +143,16 @@
           "type": "array",
           "items": { "type": "string", "pattern": "^[a-z]+:[a-z-]+$" },
           "uniqueItems": true
+        },
+        "engine": {
+          "description": "The manifest's engine ranges. api is kept as a major above for older Termix builds.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["api", "termix"],
+          "properties": {
+            "api": { "type": "string", "minLength": 1 },
+            "termix": { "type": "string", "minLength": 1 }
+          }
         },
         "dependencies": {
           "description": "Plugins this version needs, by id, with a semver range.",

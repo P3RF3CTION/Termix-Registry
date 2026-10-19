@@ -17,7 +17,9 @@
  * - a plugin whose file is removed is dropped
  *
  * In both, betas (semver prerelease versions) go in prereleases, and only
- * while they are newer than the newest stable.
+ * while they are newer than the newest stable. A release whose engine.termix
+ * the last Termix that doesn't check it can't satisfy goes in gated instead,
+ * so those builds never list it.
  *
  * A plugin whose release files all still have the sha256 the index lists
  * (read from the GitHub API digest) is kept as listed without downloading,
@@ -34,7 +36,10 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import {
+  allReleases,
   assetSha256,
+  contributesOf,
+  engineOf,
   compareVersions,
   download,
   github,
@@ -46,6 +51,7 @@ import {
   listing,
   loadKeys,
   loadPrivateKey,
+  placeReleases,
   readSubmissions,
   root,
   sha256,
@@ -63,8 +69,10 @@ const full = process.argv.includes("--full");
  */
 function unchanged(old, repository, files, keys) {
   if (full || !old || old.repository !== repository) return null;
-  const listed = [...old.versions, ...(old.prereleases ?? [])];
-  const newestStable = old.versions[0]?.version;
+  const listed = allReleases(old);
+  const newestStable = listed.find(
+    (entry) => !isPrerelease(entry.version),
+  )?.version;
   let matched = 0;
   for (const { version, asset } of files) {
     const entry = listed.find((item) => item.version === version);
@@ -134,8 +142,60 @@ function keep(list, entries) {
     );
     if (!kept) return version;
     const { notes, ...rest } = kept;
-    return version.notes ? { ...rest, notes: version.notes } : rest;
+    return {
+      ...rest,
+      ...(version.engine ? { engine: version.engine } : {}),
+      ...(version.notes ? { notes: version.notes } : {}),
+    };
   });
+}
+
+/**
+ * Fills in engine and contributes for entries listed before the index had
+ * them. Reads the manifest at each tag through the API, never the .tmxplug.
+ */
+async function backfill(entry, repo, problems) {
+  const releases = allReleases(entry);
+  if (entry.contributes && releases.every((r) => r.engine)) return entry;
+  const manifests = new Map();
+  const manifestAt = async (version) => {
+    if (!manifests.has(version)) {
+      const file = await github(
+        `/repos/${repo}/contents/manifest.json?ref=v${version}`,
+      );
+      manifests.set(
+        version,
+        JSON.parse(Buffer.from(file.content, "base64").toString()),
+      );
+    }
+    return manifests.get(version);
+  };
+  try {
+    const fill = async (list) =>
+      list &&
+      Promise.all(
+        list.map(async (r) =>
+          r.engine ? r : { ...r, ...engineOf(await manifestAt(r.version)) },
+        ),
+      );
+    const next = {
+      ...entry,
+      versions: await fill(entry.versions),
+      ...(entry.prereleases
+        ? { prereleases: await fill(entry.prereleases) }
+        : {}),
+      ...(entry.gated ? { gated: await fill(entry.gated) } : {}),
+    };
+    const newest =
+      releases.find((r) => !isPrerelease(r.version)) ?? releases[0];
+    if (!next.contributes && newest) {
+      Object.assign(next, contributesOf(await manifestAt(newest.version)));
+    }
+    return next;
+  } catch (error) {
+    problems.push(`${repo}: could not read old manifests (${error.message})`);
+    return entry;
+  }
 }
 
 async function officialPlugins(dir, previous, keys, problems) {
@@ -165,7 +225,15 @@ async function officialPlugins(dir, previous, keys, problems) {
       keys,
     );
     if (kept) {
-      plugins.push(await withMainVideo(kept, repo, problems));
+      plugins.push(
+        placeReleases(
+          await withMainVideo(
+            await backfill(kept, repo, problems),
+            repo,
+            problems,
+          ),
+        ),
+      );
       continue;
     }
 
@@ -186,17 +254,20 @@ async function officialPlugins(dir, previous, keys, problems) {
     }
 
     const old = previous.get(latest.id);
-    const versions = keep(old?.versions, stable);
-    const prereleases = keep(old?.prereleases, betas);
+    const listed = old ? allReleases(old) : [];
+    const versions = keep(listed, stable);
+    const prereleases = keep(listed, betas);
     plugins.push(
-      await withMainVideo(
-        {
-          ...listing(latest, repository, sources.docsBase),
-          versions,
-          ...(prereleases.length > 0 ? { prereleases } : {}),
-        },
-        repo,
-        problems,
+      placeReleases(
+        await withMainVideo(
+          {
+            ...listing(latest, repository, sources.docsBase),
+            versions,
+            ...(prereleases.length > 0 ? { prereleases } : {}),
+          },
+          repo,
+          problems,
+        ),
       ),
     );
   }
@@ -252,7 +323,7 @@ async function readPinned({ repo, id, pin, keys, signer, old, problems }) {
     return null;
   }
 
-  const listed = [...(old?.versions ?? []), ...(old?.prereleases ?? [])].find(
+  const listed = (old ? allReleases(old) : []).find(
     (entry) => entry.version === pin.version && entry.sha256 === pin.sha256,
   );
   let signature = listed?.signature;
@@ -279,7 +350,7 @@ async function readPinned({ repo, id, pin, keys, signer, old, problems }) {
 /** Like unchanged(), for a reviewed submission whose pins all still match. */
 async function keptSubmission(old, repo, submission, pins, keys) {
   if (full || !old) return null;
-  const listed = [...old.versions, ...(old.prereleases ?? [])];
+  const listed = allReleases(old);
   if (
     pins.some((pin) => !listed.some((entry) => entry.sha256 === pin.sha256))
   ) {
@@ -313,7 +384,7 @@ async function reviewedPlugins(dir, registry, previous, keys, problems) {
     const pins = submission.versions ?? [];
     const kept = await keptSubmission(old, repo, submission, pins, keys);
     if (kept) {
-      plugins.push(kept);
+      plugins.push(placeReleases(await backfill(kept, repo, problems)));
       continue;
     }
 
@@ -339,11 +410,13 @@ async function reviewedPlugins(dir, registry, previous, keys, problems) {
     const { stable, betas } = splitChannels(found);
     const latest = (stable[0] ?? found[0]).manifest;
     const prereleases = betas.map(({ version }) => version);
-    plugins.push({
-      ...listing(latest, `https://github.com/${repo}`, null),
-      versions: stable.map(({ version }) => version),
-      ...(prereleases.length > 0 ? { prereleases } : {}),
-    });
+    plugins.push(
+      placeReleases({
+        ...listing(latest, `https://github.com/${repo}`, null),
+        versions: stable.map(({ version }) => version),
+        ...(prereleases.length > 0 ? { prereleases } : {}),
+      }),
+    );
   }
   return plugins;
 }
