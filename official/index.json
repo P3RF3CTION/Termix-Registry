@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T19:40:06.441Z",
+  "updatedAt": "2026-10-20T19:46:42.401Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1010,7 +1010,8 @@
         "Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard",
         "Health checks for your hosts and services",
         "A layout you can rearrange per host",
-        "Live stats in the terminal toolbar"
+        "Live stats in the terminal toolbar",
+        "A live metrics panel beside any SSH terminal"
       ],
       "docs": "https://docs.termix.site/plugins/host-metrics",
       "contributes": [
@@ -1042,12 +1043,12 @@
             "notify:send"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.3",
-          "notes": "### Changed\n\n- The plugin name and description show in your language\n- The METRICS_POLL_CONCURRENCY environment variable is now listed in the docs\n\n### Fixed\n\n- Saving metrics history failed on Postgres and MySQL once a host had moved more than 2 GB of network traffic\n- Long translated labels like Festplatte made the dashboard's usage bars overlap the host status badge",
           "publishedAt": "2026-10-18T05:00:05.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n- The METRICS_POLL_CONCURRENCY environment variable is now listed in the docs\n\n### Fixed\n\n- Saving metrics history failed on Postgres and MySQL once a host had moved more than 2 GB of network traffic\n- Long translated labels like Festplatte made the dashboard's usage bars overlap the host status badge"
         },
         {
           "version": "1.0.2",
@@ -1070,11 +1071,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.2",
           "publishedAt": "2026-10-11T22:29:44.000Z",
-          "notes": "### Fixed\n\n- macOS disk gauge uses the data volume instead of the sealed system volume\n- macOS disk percent now matches df instead of using the whole APFS container size",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- macOS disk gauge uses the data volume instead of the sealed system volume\n- macOS disk percent now matches df instead of using the whole APFS container size"
         },
         {
           "version": "1.0.1",
@@ -1097,11 +1098,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T02:17:32.000Z",
-          "notes": "### Added\n\n- AMD GPUs in the GPU card, read from the amdgpu driver\n\n### Fixed\n\n- Metrics now work on OPKSSH hosts\n- Firewall card no longer runs sudo without a saved sudo password, which sent \"a password is required\" emails\n- Firewall tools are run by full path so sudoers rules match",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- AMD GPUs in the GPU card, read from the amdgpu driver\n\n### Fixed\n\n- Metrics now work on OPKSSH hosts\n- Firewall card no longer runs sudo without a saved sudo password, which sent \"a password is required\" emails\n- Firewall tools are run by full path so sudoers rules match"
         },
         {
           "version": "1.0.0",
@@ -1124,11 +1125,40 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T02:56:58.000Z",
-          "notes": "### Added\n\n- First release\n- CPU, memory, disk, network, temperature, NVIDIA GPU, processes, ports and logins\n- History charts for each host\n- Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard, with changes needing edit access on a shared host\n- Health checks for your hosts and services\n- A layout you can rearrange per host, and live stats in the terminal toolbar",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- CPU, memory, disk, network, temperature, NVIDIA GPU, processes, ports and logins\n- History charts for each host\n- Manage services, packages, cron jobs, firewall rules, users, SSL certificates, logs and WireGuard, with changes needing edit access on a shared host\n- Health checks for your hosts and services\n- A layout you can rearrange per host, and live stats in the terminal toolbar"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/download/v1.1.0/host-metrics-1.1.0.tmxplug",
+          "sha256": "4f1d422ec1d0565c79f94fa814ee0864d556d7367793b11035e68239e49e297f",
+          "signature": "ZwsPsS0ZIt+ZHr5rMQObzFUeRkgRIBez2Pr05dfFVzfau7WdbC/VD7SkhoF1KppHWQpjcj/l3R/8XlF6TdO+Cg==",
+          "size": 598254,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Metrics/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- A metrics panel beside any SSH terminal with live CPU, memory, disk, temperature, uptime and the busiest processes, so you can watch a host while you work on it\n- Settings for the panel: open it with new terminals, which side it sits on, its size and the edge button\n- Show metrics panel in terminals, per host, in the host's Host Metrics section",
+          "publishedAt": "2026-10-20T19:45:57.000Z"
         }
       ]
     },
