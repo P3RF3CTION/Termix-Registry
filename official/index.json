@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-19T01:16:32.691Z",
+  "updatedAt": "2026-10-20T19:16:54.036Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1443,12 +1443,12 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- A built-in remote desktop engine: RDP, VNC and Telnet run inside Termix with no guacd container, on Docker, bare metal and the desktop app\n- RDP with NLA, TLS, clipboard, drive redirection with a Download folder, audio, printing to PDF and resizing without a reconnect\n- VNC with VncAuth, VeNCrypt, Tight security, UltraVNC MS-Logon II and Apple Remote Desktop logins, Tight, ZRLE, Hextile, RRE and CopyRect, and 8, 16 or 24 bit color\n- Telnet with guacd's auto login patterns, color schemes, scrollback and copy on select\n- Use an external guacd setting and REMOTE_DESKTOP_ENGINE to keep using guacd\n- RDP_DRIVE_PATH for where the built-in engine keeps drive files\n- More RDP keyboard layouts: Latin American Spanish, Portuguese, Swiss French, Danish, Norwegian, Polish, Hungarian, Romanian and Turkish\n- RemoteApp, console sessions, Wake-on-LAN and clipboard line ending settings work in the built-in engine\n- Apple Remote Desktop as a host type, with Force Quit, Lock screen and Spotlight in the toolbar\n\n### Changed\n\n- The toolbar sits along the top or bottom edge instead of floating over the desktop. Each host can pick its position, icons or names, and which buttons show in what order, and buttons that don't fit go in a More menu\n- The desktop app runs remote desktop on this device for hosts left on Default, like SSH\n- VNC sessions are recorded too\n- Read only viewers of a shared session can no longer send clipboard or files\n- Revoking a share disconnects the viewers who joined through it\n- RDP hosts behind an RD Gateway use the external guacd when one is set up\n- guacd Proxy is marked optional, and host settings that only work with an external guacd say so\n- The plugin name and description show in your language\n\n### Fixed\n\n- Saved RDP hosts failed with \"Failed to generate connection token\" when the Session Recording plugin was turned off\n- RDP sessions on some touch screens in Chrome kept resizing as a scrollbar showed and hid\n- Presenting an RDP, VNC or Telnet host in a collab room never started\n- The failsafe keyboard layout was sent under its translated name in other languages\n- Remote desktop never connected under npm run dev, since the display socket skipped the dev server's proxy\n- A tab could open two connections at once and get stuck on connecting\n- Remote desktop on the desktop app follows its local server when it moves off port 30001\n- With an external guacd, a VNC session to a slow server like macOS Screen Sharing could hang on connecting\n- Cmd+C and Cmd+V from a browser reached a Mac as a plain c and v",
           "publishedAt": "2026-10-18T05:17:19.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- A built-in remote desktop engine: RDP, VNC and Telnet run inside Termix with no guacd container, on Docker, bare metal and the desktop app\n- RDP with NLA, TLS, clipboard, drive redirection with a Download folder, audio, printing to PDF and resizing without a reconnect\n- VNC with VncAuth, VeNCrypt, Tight security, UltraVNC MS-Logon II and Apple Remote Desktop logins, Tight, ZRLE, Hextile, RRE and CopyRect, and 8, 16 or 24 bit color\n- Telnet with guacd's auto login patterns, color schemes, scrollback and copy on select\n- Use an external guacd setting and REMOTE_DESKTOP_ENGINE to keep using guacd\n- RDP_DRIVE_PATH for where the built-in engine keeps drive files\n- More RDP keyboard layouts: Latin American Spanish, Portuguese, Swiss French, Danish, Norwegian, Polish, Hungarian, Romanian and Turkish\n- RemoteApp, console sessions, Wake-on-LAN and clipboard line ending settings work in the built-in engine\n- Apple Remote Desktop as a host type, with Force Quit, Lock screen and Spotlight in the toolbar\n\n### Changed\n\n- The toolbar sits along the top or bottom edge instead of floating over the desktop. Each host can pick its position, icons or names, and which buttons show in what order, and buttons that don't fit go in a More menu\n- The desktop app runs remote desktop on this device for hosts left on Default, like SSH\n- VNC sessions are recorded too\n- Read only viewers of a shared session can no longer send clipboard or files\n- Revoking a share disconnects the viewers who joined through it\n- RDP hosts behind an RD Gateway use the external guacd when one is set up\n- guacd Proxy is marked optional, and host settings that only work with an external guacd say so\n- The plugin name and description show in your language\n\n### Fixed\n\n- Saved RDP hosts failed with \"Failed to generate connection token\" when the Session Recording plugin was turned off\n- RDP sessions on some touch screens in Chrome kept resizing as a scrollbar showed and hid\n- Presenting an RDP, VNC or Telnet host in a collab room never started\n- The failsafe keyboard layout was sent under its translated name in other languages\n- Remote desktop never connected under npm run dev, since the display socket skipped the dev server's proxy\n- A tab could open two connections at once and get stuck on connecting\n- Remote desktop on the desktop app follows its local server when it moves off port 30001\n- With an external guacd, a VNC session to a slow server like macOS Screen Sharing could hang on connecting\n- Cmd+C and Cmd+V from a browser reached a Mac as a plain c and v"
         },
         {
           "version": "1.0.2",
@@ -1469,11 +1469,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.0.2",
           "publishedAt": "2026-10-12T16:15:10.000Z",
-          "notes": "### Fixed\n\n- VNC without a username and hosts behind jump hosts hung at \"Negotiating VNC handshake\" on Kubernetes. Without GUACD_TUNNEL_HOST set, guacd now reaches Termix by its pod IP",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- VNC without a username and hosts behind jump hosts hung at \"Negotiating VNC handshake\" on Kubernetes. Without GUACD_TUNNEL_HOST set, guacd now reaches Termix by its pod IP"
         },
         {
           "version": "1.0.1",
@@ -1494,11 +1494,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:29:59.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -1519,11 +1519,38 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:06.000Z",
-          "notes": "### Added\n\n- First release\n- RDP, VNC and Telnet from any browser, in tabs and split screen like any other session\n- Clipboard sync and file transfer through RDP drives\n- Jump host support\n- Session sharing and recording\n- Open a host in the native Windows Remote Desktop client from the desktop app\n- Connections need the remote desktop permission, only the server decides guacd paths, drive folders and VNC listen mode, and only admins set a host's own guacd",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- RDP, VNC and Telnet from any browser, in tabs and split screen like any other session\n- Clipboard sync and file transfer through RDP drives\n- Jump host support\n- Session sharing and recording\n- Open a host in the native Windows Remote Desktop client from the desktop app\n- Connections need the remote desktop permission, only the server decides guacd paths, drive folders and VNC listen mode, and only admins set a host's own guacd"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.2.0/remote-desktop-1.2.0.tmxplug",
+          "sha256": "0de40896bfeb4b1a702c3ce815355b7b7b0bb4bfe424f33e905bb5a0209d02f6",
+          "signature": "zhzqX1s6tt65gmC4DPo3L9iCI1szqigv/eWDFlZcZwyj7JANVGKqMWorXF++FLMCbOEejd96J/v9dqm7L2H6CQ==",
+          "size": 3916418,
+          "capabilities": [
+            "hosts:read",
+            "credentials:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "desktop:local",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.2.0",
+          "notes": "### Changed\n\n- Opening a host in Windows Remote Desktop now runs inside this plugin instead of the desktop app itself, so fixes to it no longer need a new desktop build\n- Debug logs now show whether the built-in RDP engine negotiates audio and receives any sound from the server\n- Needs Termix 26.10.3 or newer",
+          "publishedAt": "2026-10-20T19:16:22.000Z"
         }
       ]
     },
@@ -2679,6 +2706,29 @@
       ],
       "versions": [
         {
+          "version": "1.0.4",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/download/v1.0.4/tmux-monitor-1.0.4.tmxplug",
+          "sha256": "42b8a2284e68a321c1736984f5c641b1857c87c6a65ce8cf694c6bc946de2444",
+          "signature": "lFduCx5IKLwAHLH4te+/CgsiUbHtCM4Cbpi+5963WxInHTpSXi159LBWZFvFkWDYg/HNouA7Lb8FQvkiGGwiBQ==",
+          "size": 241029,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.0.4",
+          "notes": "### Fixed\n\n- Mouse mode and the history limit are applied when Termix attaches to a tmux session, so clicking windows and panes in tmux works again",
+          "publishedAt": "2026-10-20T19:16:18.000Z"
+        },
+        {
           "version": "1.0.3",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/download/v1.0.3/tmux-monitor-1.0.3.tmxplug",
@@ -2694,12 +2744,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.0.3",
-          "notes": "### Changed\n\n- Attach opens the session in a new Termix tab, and on the web you can pick a new browser tab instead. Needs SSH Terminal 1.0.3\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T05:03:40.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Attach opens the session in a new Termix tab, and on the web you can pick a new browser tab instead. Needs SSH Terminal 1.0.3\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.2",
@@ -2718,11 +2768,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.0.2",
           "publishedAt": "2026-10-12T16:15:15.000Z",
-          "notes": "### Fixed\n\n- Windows hosts running psmux showed \"tmux is not installed\". Hosts without /bin/sh now run tmux straight from cmd.exe or PowerShell",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- Windows hosts running psmux showed \"tmux is not installed\". Hosts without /bin/sh now run tmux straight from cmd.exe or PowerShell"
         },
         {
           "version": "1.0.1",
@@ -2741,11 +2791,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:18.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -2764,11 +2814,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tmux-Monitor/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:26.000Z",
-          "notes": "### Added\n\n- First release\n- Every host's tmux sessions in one place, with live pane previews\n- Resource use for each session\n- Search across every pane\n- Create, rename, split and kill sessions, windows and panes\n- Attach a terminal in one click",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Every host's tmux sessions in one place, with live pane previews\n- Resource use for each session\n- Search across every pane\n- Create, rename, split and kill sessions, windows and panes\n- Attach a terminal in one click"
         }
       ]
     },
@@ -2907,12 +2957,12 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.0.3",
-          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- When the endpoint host could not reach a client tunnel's target, the error did not say which address it tried. It now names it, like 127.0.0.1:8443, which is what an empty remote address means\n- Starting or stopping a server tunnel from the Tunnels tab said \"Client tunnel started\" or \"Client tunnel stopped\"",
           "publishedAt": "2026-10-18T05:03:44.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- When the endpoint host could not reach a client tunnel's target, the error did not say which address it tried. It now names it, like 127.0.0.1:8443, which is what an empty remote address means\n- Starting or stopping a server tunnel from the Tunnels tab said \"Client tunnel started\" or \"Client tunnel stopped\""
         },
         {
           "version": "1.0.2",
@@ -2933,11 +2983,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.0.2",
           "publishedAt": "2026-10-12T16:15:03.000Z",
-          "notes": "### Fixed\n\n- Client tunnels stopped with \"Endpoint SSH connection closed\" when a reverse proxy dropped their idle connection. The relay now pings to keep it open",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- Client tunnels stopped with \"Endpoint SSH connection closed\" when a reverse proxy dropped their idle connection. The relay now pings to keep it open"
         },
         {
           "version": "1.0.1",
@@ -2958,11 +3008,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:21.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -2983,11 +3033,39 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T02:57:45.000Z",
-          "notes": "### Added\n\n- First release\n- Local, remote and dynamic SOCKS5 forwarding\n- Reconnects on its own when a tunnel drops\n- Start tunnels on boot\n- Route a tunnel through a second host\n- Client tunnels on your own computer from the desktop app, with presets you can save to the server",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Local, remote and dynamic SOCKS5 forwarding\n- Reconnects on its own when a tunnel drops\n- Start tunnels on boot\n- Route a tunnel through a second host\n- Client tunnels on your own computer from the desktop app, with presets you can save to the server"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.1.0/tunnels-1.1.0.tmxplug",
+          "sha256": "b1e4f1b6dd2bbd15a9a240ae1c1d381111c3609258c8946d19493a83f861ea1e",
+          "signature": "tieipPKUD3FMgZJCT7uaQrOQlOA/dvPuLHU7R+K7IQEMxHyv5V1oH26Qs0MQPmcaZwEQLVGctJkdj7bPmNsiBQ==",
+          "size": 347949,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs",
+            "desktop:local"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- Client tunnels on your own computer now run inside this plugin instead of the desktop app itself, so fixes to them no longer need a new desktop build\n- Needs Termix 26.10.3 or newer\n\n### Fixed\n\n- Client tunnel sign in prompts are answered through the plugin, and a prompt that has no open window to show it is refused instead of hanging",
+          "publishedAt": "2026-10-20T19:16:29.000Z"
         }
       ]
     },
@@ -3268,6 +3346,30 @@
       ],
       "versions": [
         {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.0.3/web-endpoint-1.0.3.tmxplug",
+          "sha256": "014cbf23c82cab20e485bc4f4c9b8baa779aee9bb3ed644b41f22a9b1be95687",
+          "signature": "fDG9DDDKYZtLNhOuGlKWTVtp+7Ib+EwHZdeToVTdCo++CgpI2ZkTHNES8I/Uak0f94CJNYxpT29VQQGr+/MaCg==",
+          "size": 293705,
+          "capabilities": [
+            "hosts:read",
+            "network:serve",
+            "ui:surface",
+            "desktop:window"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.0"
+          },
+          "dependencies": {
+            "tunnels": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.0.3",
+          "notes": "### Changed\n\n- In the desktop app, pages open in a native view instead of a sandboxed iframe, so sites that need storage, sign-in popups or their own cookies work\n\n### Fixed\n\n- The port field in the host editor can be cleared and retyped, so ports like 8006 can be set",
+          "publishedAt": "2026-10-20T19:16:15.000Z"
+        },
+        {
           "version": "1.0.2",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.0.2/web-endpoint-1.0.2.tmxplug",
@@ -3284,12 +3386,12 @@
             "tunnels": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- In the browser, tunnel endpoints now open through Termix itself, behind your login, and the tunnel only listens on 127.0.0.1\n- Bind Host is ignored unless an admin turns on Allow tunnels on other addresses\n- The plugin name and description show in your language\n\n### Fixed\n\n- Setting Bind Host to an address like 0.0.0.0 published the endpoint's web UI to anyone who could reach the port, with no Termix login (GHSA-ccmp-2wpj-x458)",
           "publishedAt": "2026-10-18T05:07:38.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- In the browser, tunnel endpoints now open through Termix itself, behind your login, and the tunnel only listens on 127.0.0.1\n- Bind Host is ignored unless an admin turns on Allow tunnels on other addresses\n- The plugin name and description show in your language\n\n### Fixed\n\n- Setting Bind Host to an address like 0.0.0.0 published the endpoint's web UI to anyone who could reach the port, with no Termix login (GHSA-ccmp-2wpj-x458)"
         },
         {
           "version": "1.0.1",
@@ -3309,11 +3411,11 @@
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:24.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -3333,11 +3435,11 @@
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:36.000Z",
-          "notes": "### Added\n\n- First release\n- Open a web UI in a Termix tab or its own desktop window\n- Connect directly, or over an SSH tunnel through the host\n- Embedded pages never see your Termix login",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Open a web UI in a Termix tab or its own desktop window\n- Connect directly, or over an SSH tunnel through the host\n- Embedded pages never see your Termix login"
         }
       ]
     },
