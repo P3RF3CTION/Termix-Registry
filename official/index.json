@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T19:16:54.036Z",
+  "updatedAt": "2026-10-20T19:18:15.423Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -353,6 +353,38 @@
       ],
       "versions": [
         {
+          "version": "1.0.3",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.0.3/automations-1.0.3.tmxplug",
+          "sha256": "b5e5b39a053010b72ad1ba03ea6bb05afbbb2b789a86e0e98634d9ada543d02d",
+          "signature": "Oq0M5tK9JdpSZw7clu6d8Ie1NLZg1Ym+4NT8tX5gs+Cj5C0tKsE5H6h6JYDabXpXb277iIy9Eh+39DYn9rBaDQ==",
+          "size": 397639,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "events:core",
+            "notify:send",
+            "network:outbound",
+            "network:serve",
+            "settings:read-core",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "dependencies": {
+            "snippets": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.3",
+          "notes": "### Fixed\n\n- The run limit (`maxRunSeconds`) can be set when creating an automation over HTTP and changed afterwards; before, only the service could set it, once",
+          "publishedAt": "2026-10-20T19:16:36.000Z"
+        },
+        {
           "version": "1.0.2",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.0.2/automations-1.0.2.tmxplug",
@@ -377,12 +409,12 @@
             "snippets": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.2",
-          "notes": "### Added\n\n- `automations.access` `create` takes `concurrencyPolicy` and `maxRunSeconds`, so plugins can create automations with a longer run limit\n- Set a timeout per step for commands, snippets and HTTP calls (60 seconds by default)\n- Ask AI step, which has the AI Assistant look into a problem on your hosts and report back or propose a fix for approval\n\n### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- Metric triggers kept their hosts' metrics alive every 15 seconds and filled the audit log; they now check in once a minute\n- A step that timed out with Carry on set left the run marked as successful",
           "publishedAt": "2026-10-18T05:12:26.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- `automations.access` `create` takes `concurrencyPolicy` and `maxRunSeconds`, so plugins can create automations with a longer run limit\n- Set a timeout per step for commands, snippets and HTTP calls (60 seconds by default)\n- Ask AI step, which has the AI Assistant look into a problem on your hosts and report back or propose a fix for approval\n\n### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- Metric triggers kept their hosts' metrics alive every 15 seconds and filled the audit log; they now check in once a minute\n- A step that timed out with Carry on set left the run marked as successful"
         },
         {
           "version": "1.0.1",
@@ -410,11 +442,11 @@
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:28:13.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -442,11 +474,11 @@
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T05:56:35.000Z",
-          "notes": "### Added\n\n- First release\n- Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks\n- Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts, with values from triggers and variables always passed safely into shell commands\n- Conditions, waits and variables for more complex flows, and nested steps that only run automations you own\n- Run on one host, a fleet or every host\n- Test runs and a history of every run\n- Maintenance windows that pause automations while you work on a host",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks\n- Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts, with values from triggers and variables always passed safely into shell commands\n- Conditions, waits and variables for more complex flows, and nested steps that only run automations you own\n- Run on one host, a fleet or every host\n- Test runs and a history of every run\n- Maintenance windows that pause automations while you work on a host"
         }
       ]
     },
