@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T23:27:37.897Z",
+  "updatedAt": "2026-10-20T23:51:20.023Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -569,6 +569,7 @@
       "category": "Productivity",
       "repository": "https://github.com/Termix-SSH/Plugin-Classic-Layout",
       "icon": "PanelLeft",
+      "video": "https://www.youtube.com/watch?v=3rBEzMTCm-o",
       "features": [
         "Icon rail, resizable sidebar, tab bar and right dock",
         "Dashboard, Manage and Settings screens",
@@ -581,16 +582,15 @@
         "permissions",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=3rBEzMTCm-o",
       "versions": [],
       "gated": [
         {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.0.0/classic-layout-1.0.0.tmxplug",
-          "sha256": "aff01b91a28a17013cd4cf64b47dcc02cb85a35710e3382aa9adfe7d93e0fb3a",
-          "signature": "QgmsvDFTh0OKnddVDVMXRTCktuC1a9KNRO3geeZDyouc3MbB1AEsldEHThFraMlouvkI60gkunlxc/8lTiwnAg==",
-          "size": 1838826,
+          "sha256": "295e1a5aa457c5dca2f991b536bd6352e174194d580944978f6a16b76605fcf4",
+          "signature": "YFRVM8ExvcvA5skg9GN5WVfkT5/WEJi/UV9Z2KZn7fjFdZYMwZWL6dx46nNLgGIjaOF30HV7pgM3ZokUE6g0AA==",
+          "size": 1839020,
           "capabilities": [
             "files:own",
             "network:serve",
@@ -604,7 +604,7 @@
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.0.0",
           "notes": "### Added\n\n- A place in the profile row of the app rail where a plugin can put an account switcher\n- The Termix layout as a plugin: icon rail, sidebar, tab bar, right dock, mobile bottom bar, Dashboard, Manage, Settings and the command palette\n- The host list and the Dashboard as components other plugins can place\n- Admins set the app name, tagline and logo here. An existing setup keeps its branding\n- Hosts a plugin manages show a lock and open read only, and Add host is hidden when hosts can only come from that plugin\n- Admins can redirect HTTP to HTTPS from the general admin settings\n- The first run steps for the preset and for theme, accent, font and language",
-          "publishedAt": "2026-10-20T20:01:57.000Z"
+          "publishedAt": "2026-10-20T23:50:37.000Z"
         }
       ]
     },
