@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T19:30:22.280Z",
+  "updatedAt": "2026-10-20T19:40:06.441Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -496,7 +496,8 @@
         "Live CPU, memory, network and disk stats",
         "Read and download container logs",
         "Open a shell inside a container",
-        "Works with Docker and Podman"
+        "Works with Docker and Podman",
+        "A containers panel beside any SSH terminal"
       ],
       "docs": "https://docs.termix.site/plugins/docker",
       "contributes": [
@@ -524,12 +525,12 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- The container console started at the wrong width, so the first prompt wrapped and the shell got the wrong size\n- Opening Docker could connect twice and show no containers until the next refresh",
           "publishedAt": "2026-10-18T05:03:12.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- The container console started at the wrong width, so the first prompt wrapped and the shell got the wrong size\n- Opening Docker could connect twice and show no containers until the next refresh"
         },
         {
           "version": "1.0.1",
@@ -549,11 +550,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:28:11.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -573,11 +574,37 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T02:56:43.000Z",
-          "notes": "### Added\n\n- First release\n- Start, stop, restart, pause and remove containers\n- Live CPU, memory, network and disk stats\n- Read and download container logs\n- Open a shell inside a container\n- Works with Docker and Podman",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Start, stop, restart, pause and remove containers\n- Live CPU, memory, network and disk stats\n- Read and download container logs\n- Open a shell inside a container\n- Works with Docker and Podman"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.1.0/docker-1.1.0.tmxplug",
+          "sha256": "da32dfbe9d4cffec5d80c4a1037a79e7591a3d16c50f882db6a146322a50c2b7",
+          "signature": "O1aPV/1ytujN8Pb/qrAC6SJiWH+blkJx4OwYXF091N3xNpHHZlvGio2a31CtLwGRsLIvg7zEAxORE+erHHnsDw==",
+          "size": 1010118,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- A containers panel beside any SSH terminal on a host with Docker on. See and start, stop or restart containers, and open their logs, stats and console, without leaving the terminal\n- Settings for the panel: open it with new terminals, which side it sits on, its size and the edge button\n- Show containers panel in terminals, per host",
+          "publishedAt": "2026-10-20T19:39:15.000Z"
         }
       ]
     },
