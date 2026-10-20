@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T19:56:43.704Z",
+  "updatedAt": "2026-10-20T20:02:46.814Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -479,6 +479,52 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Triggers for metrics, hosts going up or down, health checks, schedules, container events and webhooks\n- Steps that run commands and snippets, control containers and tunnels, wake hosts, call URLs and send alerts, with values from triggers and variables always passed safely into shell commands\n- Conditions, waits and variables for more complex flows, and nested steps that only run automations you own\n- Run on one host, a fleet or every host\n- Test runs and a history of every run\n- Maintenance windows that pause automations while you work on a host"
+        }
+      ]
+    },
+    {
+      "id": "classic-layout",
+      "name": "Classic Layout",
+      "description": "The classic Termix layout with an icon rail, sidebar, tab bar and dock.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Classic-Layout",
+      "icon": "PanelLeft",
+      "features": [
+        "Icon rail, resizable sidebar, tab bar and right dock",
+        "Dashboard, Manage and Settings screens",
+        "Host and credential lists with the host editor",
+        "Command palette and mobile bottom bar"
+      ],
+      "docs": "https://docs.termix.site/plugins/classic-layout",
+      "contributes": [
+        "layouts",
+        "permissions",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.0.0/classic-layout-1.0.0.tmxplug",
+          "sha256": "aff01b91a28a17013cd4cf64b47dcc02cb85a35710e3382aa9adfe7d93e0fb3a",
+          "signature": "QgmsvDFTh0OKnddVDVMXRTCktuC1a9KNRO3geeZDyouc3MbB1AEsldEHThFraMlouvkI60gkunlxc/8lTiwnAg==",
+          "size": 1838826,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "settings:read-core",
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.6",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A place in the profile row of the app rail where a plugin can put an account switcher\n- The Termix layout as a plugin: icon rail, sidebar, tab bar, right dock, mobile bottom bar, Dashboard, Manage, Settings and the command palette\n- The host list and the Dashboard as components other plugins can place\n- Admins set the app name, tagline and logo here. An existing setup keeps its branding\n- Hosts a plugin manages show a lock and open read only, and Add host is hidden when hosts can only come from that plugin\n- Admins can redirect HTTP to HTTPS from the general admin settings\n- The first run steps for the preset and for theme, accent, font and language",
+          "publishedAt": "2026-10-20T20:01:57.000Z"
         }
       ]
     },
