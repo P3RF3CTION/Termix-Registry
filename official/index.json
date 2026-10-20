@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T19:18:15.423Z",
+  "updatedAt": "2026-10-20T19:21:00.003Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -862,12 +862,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Homepage/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T05:01:47.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -884,11 +884,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Homepage/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:29:35.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -905,11 +905,35 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Homepage/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:41:48.000Z",
-          "notes": "### Added\n\n- First release\n- Drag, resize and arrange widgets on a canvas\n- Widgets for host status, pings, service links, bookmarks, search, clocks, calendars, weather, RSS, notes, images, iframes, custom APIs and a live terminal\n- Other features add their own widgets, like Docker, Tunnels and Host Metrics\n- Service links and a homepage preview on the dashboard\n- Syncs between the desktop app and a Termix server",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Drag, resize and arrange widgets on a canvas\n- Widgets for host status, pings, service links, bookmarks, search, clocks, calendars, weather, RSS, notes, images, iframes, custom APIs and a live terminal\n- Other features add their own widgets, like Docker, Tunnels and Host Metrics\n- Service links and a homepage preview on the dashboard\n- Syncs between the desktop app and a Termix server"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Homepage/releases/download/v1.1.0/homepage-1.1.0.tmxplug",
+          "sha256": "5a9d5d2cc337fcee5590ea957e35ddeea5a71596aeb59410bf1420065b9b5b00",
+          "signature": "h5fyG5glyKDnaiuD+qv6cdgpwjTI3cjh6NAjP6NGktqgL0JyCCPLItKkTW2+AR+9A1FtrEh6tVQH5YKLhvXSCQ==",
+          "size": 439456,
+          "capabilities": [
+            "db:own",
+            "hosts:activity-provide",
+            "network:serve",
+            "network:outbound",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Homepage/releases/tag/v1.1.0",
+          "notes": "### Changed\n\n- The dashboard's recent activity list is stored by this plugin instead of Termix itself. Existing entries are kept\n- Needs Termix 26.10.3 or newer",
+          "publishedAt": "2026-10-20T19:20:15.000Z"
         }
       ]
     },
