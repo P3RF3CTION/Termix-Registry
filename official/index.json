@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T20:02:46.814Z",
+  "updatedAt": "2026-10-20T20:07:28.764Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -328,6 +328,51 @@
       ]
     },
     {
+      "id": "audit-tools",
+      "name": "Audit Tools",
+      "description": "Send the audit log to your SIEM and export it as CSV or NDJSON.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-Audit-Tools",
+      "icon": "ClipboardList",
+      "features": [
+        "Forward every audit entry to an HTTP collector as it happens",
+        "Catch up on entries written while the collector or Termix was down",
+        "Export the audit log as CSV or NDJSON with the same filters as the viewer",
+        "Spreadsheet formula guard on CSV export"
+      ],
+      "docs": "https://docs.termix.site/plugins/audit-tools",
+      "contributes": [
+        "permissions",
+        "settings"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Audit-Tools/releases/download/v1.0.0/audit-tools-1.0.0.tmxplug",
+          "sha256": "131479c294d692b1c0ed4d6cec273730a3a67a28ecd44825ffd36bade9aa863b",
+          "signature": "qpj33Ioq8B5/Exr/caUkZdtEiJCuzG/wMhM0GkVepMLU+OkDv+uBY/XgOivbUdSfEzftfCqkIB/nRWj/FgR7BQ==",
+          "size": 40823,
+          "capabilities": [
+            "audit:read",
+            "network:outbound",
+            "network:serve",
+            "kv:own",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Audit-Tools/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Forward every audit entry to an HTTP collector as it happens, with an optional bearer token\n- Entries written while the collector or Termix was down are sent when it is back\n- Export the audit log as CSV or NDJSON from the audit log section, with the viewer's filters\n- Move the forwarding settings and the export out of Termix core. Existing forwarding settings and the token are copied over on upgrade",
+          "publishedAt": "2026-10-20T19:59:37.000Z"
+        }
+      ]
+    },
+    {
       "id": "automations",
       "name": "Automations",
       "description": "Run steps on your hosts on a schedule or when something happens.",
@@ -563,6 +608,52 @@
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Themes/releases/tag/v1.0.0",
           "notes": "### Added\n\n- The Termix color themes as a plugin: light, dark, Dracula, Catppuccin, Nord, Solarized, Tokyo Night, One Dark and Gruvbox",
           "publishedAt": "2026-10-20T19:56:08.000Z"
+        }
+      ]
+    },
+    {
+      "id": "credential-tools",
+      "name": "Credential Tools",
+      "description": "Generate SSH keys, check them and copy a public key to a host.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-Credential-Tools",
+      "icon": "KeyRound",
+      "features": [
+        "Generate Ed25519, RSA and ECDSA key pairs",
+        "Detect a key's type and get the public key from a private key",
+        "Check that a public and private key match",
+        "Copy a saved public key to a host's authorized keys"
+      ],
+      "docs": "https://docs.termix.site/plugins/credential-tools",
+      "contributes": [
+        "http",
+        "permissions"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/download/v1.0.0/credential-tools-1.0.0.tmxplug",
+          "sha256": "413eff710b5c832a2575a890bbab1c90d28ea55f10cd7a7b94b851d51dd77dce",
+          "signature": "YRd9Jux4yJ+dTxfPk/mUeSej5m/4ROpDYmIdqo7fGeefd08XImOx/388yy7QesZ6DfV6O6ReOPhats+ZVDacAQ==",
+          "size": 61924,
+          "capabilities": [
+            "network:serve",
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Credential-Tools/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Generate Ed25519, ECDSA and RSA key pairs in the credential editor\n- Get the public key from a private key, detect key types and check that a key pair matches\n- Deploy a key credential's public key to a host's authorized keys, written to the audit log",
+          "publishedAt": "2026-10-20T19:56:43.000Z"
         }
       ]
     },
@@ -1247,6 +1338,151 @@
       ]
     },
     {
+      "id": "host-status",
+      "name": "Host Status",
+      "description": "Shows if each host is online with a dot in the host list, checked by connecting to its port.",
+      "author": "Termix",
+      "category": "Monitoring",
+      "repository": "https://github.com/Termix-SSH/Plugin-Host-Status",
+      "icon": "Activity",
+      "features": [
+        "An online or offline dot for every host",
+        "Checks the host's port and never logs in",
+        "Checks through jump hosts",
+        "An open session or a working login counts as online",
+        "Set the check interval for everyone or for one host"
+      ],
+      "docs": "https://docs.termix.site/plugins/host-status",
+      "contributes": [
+        "settings"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/download/v1.0.0/host-status-1.0.0.tmxplug",
+          "sha256": "1ba62577dc7373a2a2787bab7efdb89b544a30a8003b1de91ce51f372fc4f170",
+          "signature": "sMc/C8uzPM+QQAuKtjfnSkYB69TK+Qyz/FAalS3NtzRID/8FkpXe7XEhw5HNk0UWSCq7J3g1k5ymmVEMBQFuDQ==",
+          "size": 29948,
+          "capabilities": [
+            "hosts:read",
+            "hosts:status-provide",
+            "network:probe",
+            "network:serve",
+            "ssh:connect",
+            "events:core",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Host-Status/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- The online or offline dot in the host list now comes from this plugin\n- Checks use the host's port and never log in, so devices with two factor logins get no prompt\n- Hosts behind jump hosts are checked through the chain\n- An open session or a working login counts as online\n- Check interval setting for everyone, with a different interval per host",
+          "publishedAt": "2026-10-20T19:23:13.000Z"
+        }
+      ]
+    },
+    {
+      "id": "hosts-config",
+      "name": "Hosts Config",
+      "description": "Keep hosts, folders and sharing in a YAML or JSON file. Termix loads them as read only hosts and reloads when the file changes.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Hosts-Config",
+      "icon": "FileCode",
+      "features": [
+        "SSH, RDP, VNC, Telnet and any plugin protocol from one YAML or JSON file",
+        "Hosts from the file are read only, while pins and order stay with each user",
+        "Secrets from env vars, files or saved credentials, never written in the file",
+        "Shares with users and roles, per host or per folder",
+        "Turn plugin features on or off per host",
+        "Reloads when the file changes, with clear errors when it can't apply",
+        "Strict mode so every host comes from the file"
+      ],
+      "docs": "https://docs.termix.site/plugins/hosts-config",
+      "contributes": [
+        "permissions",
+        "settings"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/download/v1.0.0/hosts-config-1.0.0.tmxplug",
+          "sha256": "60a2b2a6d9ba13bad12a511c93af70a30a10fbc560066b6419acf533d806a3ad",
+          "signature": "3TfGgvyuv2EwJbCP79bGY+VwnSAtFMz0wItvNnrpNYltZ/kss4KLVB7YKQYT583vdRXE3LfwwxiGrS+ZYQxqDA==",
+          "size": 213272,
+          "capabilities": [
+            "db:own",
+            "hosts:read",
+            "hosts:write",
+            "hosts:lock",
+            "credentials:use",
+            "users:impersonate",
+            "network:serve",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.6",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Hosts-Config/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Load hosts, folders and sharing from the YAML or JSON file named by TERMIX_HOSTS_CONFIG\n- Hosts from the file are read only in Termix and keep their id across reloads\n- Secrets from env vars, files or saved credentials by name\n- Per host plugin switches and settings\n- Reload when the file changes or from the admin settings, with every problem listed\n- Strict mode that blocks adding hosts by hand",
+          "publishedAt": "2026-10-20T19:57:49.000Z"
+        }
+      ]
+    },
+    {
+      "id": "import-export",
+      "name": "Import and Export",
+      "description": "Import hosts from a JSON file or an SSH config file and export them to share or back up.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Import-Export",
+      "icon": "ArrowDownUp",
+      "features": [
+        "Import hosts from a Termix JSON file",
+        "Import hosts from an SSH config file",
+        "Skip or overwrite hosts that already exist",
+        "Export all or some hosts and pick which fields to include",
+        "Share an export without any passwords or keys"
+      ],
+      "docs": "https://docs.termix.site/plugins/import-export",
+      "contributes": [
+        "http",
+        "permissions"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/download/v1.0.0/import-export-1.0.0.tmxplug",
+          "sha256": "6670b6c147e81eed0ddfd249f9a7c9564f1ab50e45f2771161d2e30c47f6fd58",
+          "signature": "pLqoWzFmRUzur2YZwkz6kl/vtFaUJkhfCbVljegh8Hfk05P/2tnnBwQqnT5KpeQq/Uva0ajiGV2416NsG+A9AA==",
+          "size": 86349,
+          "capabilities": [
+            "network:serve",
+            "hosts:read",
+            "hosts:write",
+            "hosts:export",
+            "credentials:write",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Import-Export/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Import hosts from a Termix JSON file or an SSH config file, skipping or overwriting hosts that already exist\n- Export all or some hosts, choose the fields to include, and share an export without secrets\n- Export selected hosts from the Hosts panel\n- Download a sample import file",
+          "publishedAt": "2026-10-20T19:55:55.000Z"
+        }
+      ]
+    },
+    {
       "id": "ldap",
       "name": "LDAP",
       "description": "Sign in with your LDAP or Active Directory username and password.",
@@ -1333,6 +1569,51 @@
             "api": "^1.2",
             "termix": ">=26.10.0"
           }
+        }
+      ]
+    },
+    {
+      "id": "login-security",
+      "name": "Login Security",
+      "description": "Sign people out when idle, limit session length, turn off remember me and require a second factor at login.",
+      "author": "Termix",
+      "category": "Access & Security",
+      "repository": "https://github.com/Termix-SSH/Plugin-Login-Security",
+      "icon": "ShieldCheck",
+      "features": [
+        "Sign out after a set time without activity, in the browser and on the server",
+        "Limit how long a session can last",
+        "Turn off remember me and remembered devices",
+        "Require a second factor at every login or on a new device",
+        "Works with any installed second factor, like an authenticator app or a security key",
+        "People without a second factor are asked to set one up before they can use Termix"
+      ],
+      "docs": "https://docs.termix.site/plugins/login-security",
+      "contributes": [
+        "permissions",
+        "settings"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Login-Security/releases/download/v1.0.0/login-security-1.0.0.tmxplug",
+          "sha256": "b21dff5722e72a02022d563ef27130e8b56a53e273f1668fade4ec7d030374aa",
+          "signature": "/Lu2pWxkinr6D065ot1Ttq8OR9Sz9UQKrAbpOEV5Cf9wnhZW8RL5UQTXQfEd+Lhs+Pg3w0PSltltlkbN0h/MBA==",
+          "size": 87495,
+          "capabilities": [
+            "auth:policy",
+            "network:serve",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.7",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Login-Security/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Sign out after a set time without activity, in the browser and on the server\n- Limit how long a session can last\n- Turn off remember me and remembered devices\n- Require a second factor at every login or on a new device, using any installed second factor\n- People without a second factor are asked to set one up after they sign in\n- A warning in the settings when no second factor plugin is installed",
+          "publishedAt": "2026-10-20T19:53:56.000Z"
         }
       ]
     },
