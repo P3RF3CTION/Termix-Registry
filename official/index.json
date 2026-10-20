@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T23:51:20.023Z",
+  "updatedAt": "2026-10-20T23:57:13.462Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -585,6 +585,28 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.0.1/classic-layout-1.0.1.tmxplug",
+          "sha256": "6b2d9acd77ef4b33fa0761c1aea7ed3c6171c325ee8febcedff94b5b2bc7be34",
+          "signature": "gg2n01w9qai5USOqZAB/QWK6g7d3Odouk6P3/7evVPr33joiXyxc3IQ3LWQkr71HShAjPSoyW8E5jwIx1gVKCg==",
+          "size": 1839033,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "settings:read-core",
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.6",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.0.1",
+          "notes": "### Fixed\n\n- The bottom of the app was cut off under the title bar in the desktop app",
+          "publishedAt": "2026-10-20T23:56:28.000Z"
+        },
+        {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.0.0/classic-layout-1.0.0.tmxplug",
@@ -603,8 +625,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- A place in the profile row of the app rail where a plugin can put an account switcher\n- The Termix layout as a plugin: icon rail, sidebar, tab bar, right dock, mobile bottom bar, Dashboard, Manage, Settings and the command palette\n- The host list and the Dashboard as components other plugins can place\n- Admins set the app name, tagline and logo here. An existing setup keeps its branding\n- Hosts a plugin manages show a lock and open read only, and Add host is hidden when hosts can only come from that plugin\n- Admins can redirect HTTP to HTTPS from the general admin settings\n- The first run steps for the preset and for theme, accent, font and language",
-          "publishedAt": "2026-10-20T23:50:37.000Z"
+          "publishedAt": "2026-10-20T23:50:37.000Z",
+          "notes": "### Added\n\n- A place in the profile row of the app rail where a plugin can put an account switcher\n- The Termix layout as a plugin: icon rail, sidebar, tab bar, right dock, mobile bottom bar, Dashboard, Manage, Settings and the command palette\n- The host list and the Dashboard as components other plugins can place\n- Admins set the app name, tagline and logo here. An existing setup keeps its branding\n- Hosts a plugin manages show a lock and open read only, and Add host is hidden when hosts can only come from that plugin\n- Admins can redirect HTTP to HTTPS from the general admin settings\n- The first run steps for the preset and for theme, accent, font and language"
         }
       ]
     },
