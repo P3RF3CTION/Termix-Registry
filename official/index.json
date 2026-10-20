@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T22:14:44.073Z",
+  "updatedAt": "2026-10-20T22:28:57.071Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1215,7 +1215,7 @@
       "category": "Monitoring",
       "repository": "https://github.com/Termix-SSH/Plugin-Host-Metrics",
       "icon": "Activity",
-      "video": "https://www.youtube.com/watch?v=90al7mSOsUc",
+      "video": "https://www.youtube.com/watch?v=_psvlU-s7D4",
       "features": [
         "CPU, memory, disk, network, temperature, NVIDIA and AMD GPUs, processes, ports and logins",
         "History charts for each host",
