@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T19:46:42.401Z",
+  "updatedAt": "2026-10-20T19:51:23.136Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2238,12 +2238,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.3",
-          "notes": "### Added\n\n- A keyboard shortcut to open a new local terminal, set in Settings, Keyboard Shortcuts\n- Pasting a copied image with Ctrl+V or Cmd+V uploads it to the host, the same as the paste image button\n- Connect to hosts behind a Cloudflare Tunnel, with an optional Access service token, from the host's Terminal tab\n- Other plugins can open a terminal tab attached to a tmux session\n- Keep tab open on exit, in a host's Terminal tab, keeps the output on screen when the shell exits or the connection closes; press Enter to reconnect\n- Copy selected text automatically and right-click paste now work in the local terminal too\n\n### Changed\n\n- The terminal toolbar uses the same background as the tab bar, so its border matches the rest of the app\n- The local terminal uses your terminal look from host defaults (theme, font, cursor and spacing)\n- On macOS, Option+drag selects text even while an app like Midnight Commander uses the mouse\n- The plugin name and description show in your language\n\n### Fixed\n\n- The Files button and Ctrl+right-click opened the file manager in the home folder instead of the shell's current folder\n- The mouse wheel over a tmux session walked shell history instead of scrolling; it now scrolls tmux's own history\n- Option+Left and Option+Right on macOS move the cursor by word again. Alt+Arrow only leaves the terminal when there is a split pane to move to\n- Tab inside tmux, vim or less showed a short list of history entries instead of going to the app, and keys typed there were saved to command history",
           "publishedAt": "2026-10-18T05:12:26.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- A keyboard shortcut to open a new local terminal, set in Settings, Keyboard Shortcuts\n- Pasting a copied image with Ctrl+V or Cmd+V uploads it to the host, the same as the paste image button\n- Connect to hosts behind a Cloudflare Tunnel, with an optional Access service token, from the host's Terminal tab\n- Other plugins can open a terminal tab attached to a tmux session\n- Keep tab open on exit, in a host's Terminal tab, keeps the output on screen when the shell exits or the connection closes; press Enter to reconnect\n- Copy selected text automatically and right-click paste now work in the local terminal too\n\n### Changed\n\n- The terminal toolbar uses the same background as the tab bar, so its border matches the rest of the app\n- The local terminal uses your terminal look from host defaults (theme, font, cursor and spacing)\n- On macOS, Option+drag selects text even while an app like Midnight Commander uses the mouse\n- The plugin name and description show in your language\n\n### Fixed\n\n- The Files button and Ctrl+right-click opened the file manager in the home folder instead of the shell's current folder\n- The mouse wheel over a tmux session walked shell history instead of scrolling; it now scrolls tmux's own history\n- Option+Left and Option+Right on macOS move the cursor by word again. Alt+Arrow only leaves the terminal when there is a split pane to move to\n- Tab inside tmux, vim or less showed a short list of history entries instead of going to the app, and keys typed there were saved to command history"
         },
         {
           "version": "1.0.2",
@@ -2264,11 +2264,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.2",
           "publishedAt": "2026-10-12T16:15:39.000Z",
-          "notes": "### Fixed\n\n- The mouse wheel walked shell history instead of doing nothing when there was nothing to scroll back\n- Fast scroll with a modifier key no longer scrolls the page behind the terminal\n- Password autofill now knows a macOS or BSD sudo `Password:` prompt is from sudo, so it follows the sudo autofill setting and fills the sudo password\n- Passwords typed at a password prompt are no longer saved to command history",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- The mouse wheel walked shell history instead of doing nothing when there was nothing to scroll back\n- Fast scroll with a modifier key no longer scrolls the page behind the terminal\n- Password autofill now knows a macOS or BSD sudo `Password:` prompt is from sudo, so it follows the sudo autofill setting and fills the sudo password\n- Passwords typed at a password prompt are no longer saved to command history"
         },
         {
           "version": "1.0.1",
@@ -2289,11 +2289,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:33.000Z",
-          "notes": "### Fixed\n\n- Terminal links opened straight from a URL no longer crash with a command history error",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- Terminal links opened straight from a URL no longer crash with a command history error"
         },
         {
           "version": "1.0.0",
@@ -2314,11 +2314,39 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T05:57:19.000Z",
-          "notes": "### Added\n\n- First release\n- SSH terminals with tabs, split screen, jump hosts and host key checks\n- Sessions stay alive after a disconnect and reconnect on their own, with tmux and Mosh support\n- Themes, fonts, syntax highlighting and a toolbar with live stats\n- Command history with autocomplete, macros and keystrokes sent to several terminals at once\n- Shared sessions keep read-only viewers read-only, even after they leave\n- A local terminal in the desktop app",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- SSH terminals with tabs, split screen, jump hosts and host key checks\n- Sessions stay alive after a disconnect and reconnect on their own, with tmux and Mosh support\n- Themes, fonts, syntax highlighting and a toolbar with live stats\n- Command history with autocomplete, macros and keystrokes sent to several terminals at once\n- Shared sessions keep read-only viewers read-only, even after they leave\n- A local terminal in the desktop app"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/download/v1.1.0/ssh-terminal-1.1.0.tmxplug",
+          "sha256": "dacdbadb3c6a0d7014b1de4f62b499f80abf358c7799a6e6326674660b055e4a",
+          "signature": "DF8ZjLRpIfEaVv3IOuLbrjUh7YQOLkq0wIA8ifFAcXWv5L27SrRYADDT8msNZ6UfjmmLm5tu8XQhiQYhxi3sDg==",
+          "size": 2080392,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "events:core",
+            "ui:surface",
+            "desktop:local"
+          ],
+          "engine": {
+            "api": "^1.11",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- A Panels card in the host Terminal tab turns the panel bar on or off, picks the side and sets which panels show and in what order, with defaults like the toolbar\n- Panels from other plugins can read the terminal's current folder, which the files panel uses to stay in sync\n- The terminal finds its current folder from /proc, so it works on hosts with a minimal ps such as busybox\n- A Clear console keybinding action wipes the screen and scrollback without sending anything to the shell\n- With Auto-Tmux, a host with exactly one tmux session attaches to it directly instead of asking which one\n\n### Fixed\n\n- The sudo password prompt is found on hosts whose prompt ends in a color reset or a window title\n- A tab that reconnects to its live session no longer leaves an extra connection open on the jump host\n\n### Changed\n\n- The local terminal now runs in the plugin instead of the desktop app, so fixes to it no longer need a new desktop build\n- Needs Termix 26.10.3 or newer",
+          "publishedAt": "2026-10-20T19:50:37.000Z"
         }
       ]
     },
