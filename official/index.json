@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T22:28:57.071Z",
+  "updatedAt": "2026-10-20T22:31:17.001Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -702,7 +702,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Docker",
       "icon": "Box",
-      "video": "https://www.youtube.com/watch?v=bbIE8ZcFSBo",
+      "video": "https://www.youtube.com/watch?v=V7F5w_dd0eM",
       "features": [
         "Start, stop, restart, pause and remove containers",
         "Live CPU, memory, network and disk stats",
@@ -828,7 +828,7 @@
       "category": "Files & Transfer",
       "repository": "https://github.com/Termix-SSH/Plugin-File-Manager",
       "icon": "FolderSearch",
-      "video": "https://www.youtube.com/watch?v=t68pal4I0dY",
+      "video": "https://www.youtube.com/watch?v=0JMZny47MiI",
       "features": [
         "Browse, upload, download, rename, move and delete files, with sudo support",
         "Edit files in a built-in code editor",
