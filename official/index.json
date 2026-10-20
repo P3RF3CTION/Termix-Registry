@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T20:07:28.764Z",
+  "updatedAt": "2026-10-20T20:22:14.543Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2923,6 +2923,61 @@
             "api": "^1.2",
             "termix": ">=26.10.0"
           }
+        }
+      ]
+    },
+    {
+      "id": "sync",
+      "name": "Sync",
+      "description": "Sync the desktop app with one or more servers, and manage other Termix servers as remote sites from a master.",
+      "author": "Termix",
+      "category": "Infrastructure",
+      "repository": "https://github.com/Termix-SSH/Plugin-Sync",
+      "icon": "RefreshCw",
+      "features": [
+        "Link the desktop app to a server and keep hosts, credentials and settings in sync, with an offline copy",
+        "Link several servers and accounts and switch between them, each with its own copy",
+        "Add other Termix servers as remote sites with an API key",
+        "The hosts of other Termix servers appear as real hosts in your own list, read only and kept up to date",
+        "Open a session on one of them like on any host, with the remote server doing the connecting",
+        "A documented sync protocol that other clients can use"
+      ],
+      "docs": "https://docs.termix.site/plugins/sync",
+      "contributes": [
+        "panels",
+        "permissions",
+        "settings"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Sync/releases/download/v1.0.0/sync-1.0.0.tmxplug",
+          "sha256": "12ced05523f7c1a9151b5e680726bd31f53888e8bb0047d7bd12a2570ea168bf",
+          "signature": "KMtvtrlaZhh4+vaKLsENMcO+wbRhrkiDS2XL2VsakVb/9aNSveUwOPwG298c+mM1Tl/XXTYaE77y8RY2CsUNCg==",
+          "size": 437895,
+          "capabilities": [
+            "sync:provide",
+            "db:own",
+            "hosts:read",
+            "hosts:write",
+            "hosts:lock",
+            "ssh:transport",
+            "users:impersonate",
+            "network:outbound",
+            "network:serve",
+            "kv:own",
+            "secrets:own",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.10",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Sync/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- Sync the desktop app with a server, with an offline copy of its data\n- The Sync screen, the link wizard and the first run step for the desktop app\n- Link several servers and accounts, each with its own copy, and switch between them from the profile row in the rail\n- Add other Termix servers as remote sites with an API key. Their SSH hosts appear as real, read only hosts in a managed folder of your own list, with their logins, so the terminal, files, Docker and tunnels all work\n- Open a session on a mirrored host like on any host, connecting through the remote server\n- Link to a server that asks for a client certificate (mutual TLS), with a .pfx or .p12 file or a certificate from the system store\n- Client type and device id in the sync handshake, and documented sync endpoints",
+          "publishedAt": "2026-10-20T20:21:25.000Z"
         }
       ]
     },
