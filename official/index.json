@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-20T19:21:00.003Z",
+  "updatedAt": "2026-10-20T19:30:22.280Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -596,6 +596,7 @@
         "Preview images, PDFs, audio and video",
         "A trash you can restore deleted files from",
         "Copy files between two hosts, with the fastest route picked for you and an integrity check",
+        "A files panel beside any SSH terminal that follows its folder, with a history of your folders",
         "A side by side local and remote view in the desktop app"
       ],
       "docs": "https://docs.termix.site/plugins/file-manager",
@@ -629,12 +630,12 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.0.3",
-          "notes": "### Changed\n\n- Sorting moved out of the New menu into its own Sort By button\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T05:02:01.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Sorting moved out of the New menu into its own Sort By button\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.2",
@@ -657,11 +658,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.0.2",
           "publishedAt": "2026-10-12T16:15:17.000Z",
-          "notes": "### Fixed\n\n- On the desktop app, the file manager now connects from the server when the host or the desktop is set to start connections there, like the terminal does",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- On the desktop app, the file manager now connects from the server when the host or the desktop is set to start connections there, like the terminal does"
         },
         {
           "version": "1.0.1",
@@ -684,11 +685,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:28:38.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -711,11 +712,41 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T19:32:31.000Z",
-          "notes": "### Added\n\n- First release\n- Browse, upload, download, rename, move and delete files, with sudo support\n- Edit files in a built-in code editor and preview images, PDFs, audio and video\n- A trash you can restore deleted files from\n- Copy files between two hosts, with the fastest route picked for you and an integrity check\n- A side by side local and remote view in the desktop app\n- Each file session belongs to the user who opened it, so another user cannot end or take it over",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Browse, upload, download, rename, move and delete files, with sudo support\n- Edit files in a built-in code editor and preview images, PDFs, audio and video\n- A trash you can restore deleted files from\n- Copy files between two hosts, with the fastest route picked for you and an integrity check\n- A side by side local and remote view in the desktop app\n- Each file session belongs to the user who opened it, so another user cannot end or take it over"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/download/v1.1.0/file-manager-1.1.0.tmxplug",
+          "sha256": "807e9ffa80d6054a5911522721a555e0daa3e50f6edffdebe97efe7c91aea7a2",
+          "signature": "Vd3TUZ0ngoMRtiGTAX0ymk1EGBiE8fiFphnRae5K60l8SpRjfOgRFFqIKHXL2Vy54POvi09Q1Zb6Xl0BxjCADQ==",
+          "size": 7819610,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "kv:own",
+            "users:impersonate",
+            "desktop:local"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- A files panel beside any SSH terminal, so you can manage files without leaving the terminal. It connects on its own, opens in the terminal's folder and can follow it as you cd\n- Go to the terminal's folder, or change the terminal to the panel's folder, with one click\n- A history of the folders you visit on each host, with the ones you use most at the top\n- Settings for the panel: open it with new terminals, which side it sits on, its size, the edge button, following the terminal, how often to check, and how much history to keep\n- Open a text file in your external editor from the right click menu in the desktop app\n\n### Fixed\n\n- The gap between rows in the grid view changed on its own after a refresh or when going back into a folder. Rows now keep one fixed size\n- Pressing Enter or Escape while renaming or creating an item no longer also triggers the grid shortcuts\n\n### Changed\n\n- Grid items have a light border\n- Uploads are faster, up to four files upload at once and one progress box shows file count, speed and a cancel button\n- Downloading many small files is faster because they share one channel\n- The side by side local view, local transfers and the external editor now run in the plugin instead of the desktop app, so fixes to them no longer need a new desktop build\n- Needs Termix 26.10.3 or newer",
+          "publishedAt": "2026-10-20T19:29:35.000Z"
         }
       ]
     },
