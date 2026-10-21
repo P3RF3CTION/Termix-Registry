@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-21T02:42:01.121Z",
+  "updatedAt": "2026-10-21T05:06:44.443Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -432,6 +432,38 @@
       ],
       "versions": [
         {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.1.0/automations-1.1.0.tmxplug",
+          "sha256": "b386c48b3f03ced2040c960c470b146dba6f218d37b1a273e004dfd8c9a92a8f",
+          "signature": "yLDc4aDWXJ/TqpDU3R7eBGa8LR9w7oC24zixn6HKBIrBYF7i7EqFx/w26Z0pC9s1LlXs2ynKCI3Dpw3GHMCiAA==",
+          "size": 400265,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "events:core",
+            "notify:send",
+            "network:outbound",
+            "network:serve",
+            "settings:read-core",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "dependencies": {
+            "snippets": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- A per host Enable maintenance switch in the host editor, off by default\n\n### Changed\n\n- The Maintenance button only shows on hosts that have the switch on",
+          "publishedAt": "2026-10-21T05:05:57.000Z"
+        },
+        {
           "version": "1.0.3",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.0.3/automations-1.0.3.tmxplug",
@@ -460,8 +492,8 @@
             "snippets": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.0.3",
-          "notes": "### Fixed\n\n- The run limit (`maxRunSeconds`) can be set when creating an automation over HTTP and changed afterwards; before, only the service could set it, once",
-          "publishedAt": "2026-10-20T19:16:36.000Z"
+          "publishedAt": "2026-10-20T19:16:36.000Z",
+          "notes": "### Fixed\n\n- The run limit (`maxRunSeconds`) can be set when creating an automation over HTTP and changed afterwards; before, only the service could set it, once"
         },
         {
           "version": "1.0.2",
