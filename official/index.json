@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-21T23:37:51.497Z",
+  "updatedAt": "2026-10-21T23:41:33.870Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -751,6 +751,7 @@
         "permissions",
         "tabs"
       ],
+      "video": "https://www.youtube.com/watch?v=fgVkd6761qg",
       "versions": [],
       "gated": [
         {
@@ -1762,6 +1763,7 @@
         "uiPresets",
         "uses"
       ],
+      "video": "https://www.youtube.com/watch?v=cuOnAbfsO3I",
       "versions": [],
       "gated": [
         {
@@ -2393,6 +2395,7 @@
         "settings",
         "tabs"
       ],
+      "video": "https://www.youtube.com/watch?v=yvk_JjcTKsM",
       "versions": [],
       "gated": [
         {
