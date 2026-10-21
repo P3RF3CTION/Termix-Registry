@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-21T05:08:01.356Z",
+  "updatedAt": "2026-10-21T05:09:25.060Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -3660,7 +3660,7 @@
     {
       "id": "tunnels",
       "name": "Tunnels",
-      "description": "SSH port forwarding that reconnects on its own, plus client tunnels from the desktop app.",
+      "description": "SSH port forwarding that reconnects on its own, WireGuard gateways that publish private services, and client tunnels from the desktop app.",
       "author": "Termix",
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Tunnels",
@@ -3671,6 +3671,8 @@
         "Reconnects on its own when a tunnel drops",
         "Start tunnels on boot",
         "Route a tunnel through a second host",
+        "WireGuard gateways that forward public ports to services on a private host",
+        "Finds listening ports on its own, with a switch for each one",
         "Client tunnels on your own computer from the desktop app, with presets you can save to the server"
       ],
       "docs": "https://docs.termix.site/plugins/tunnels",
@@ -3681,6 +3683,7 @@
         "permissions",
         "settings",
         "tabs",
+        "uiPresets",
         "uses"
       ],
       "versions": [
@@ -3787,6 +3790,33 @@
       ],
       "gated": [
         {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.2.0/tunnels-1.2.0.tmxplug",
+          "sha256": "79435b0f121bc95468c99b2889088e31daca22ca6f6cdc530ec722cddf601459",
+          "signature": "oE4Uzpdg0M0rPj1bgESSigyJBxy17Kjxd1jat5oFvSVhmZ1nu7qS/jkQqRWbdwHDgxMA0JzfKyHdBs8IXXc7Bw==",
+          "size": 531106,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs",
+            "desktop:local",
+            "secrets:own"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Gateways: link a private host to a public host over WireGuard and forward public ports to services on the private side, for game servers and other things behind a home network\n- Termix sets up WireGuard and the forwarding rules on both hosts over SSH, keeps them in their own interface and rule table, and puts them back if they go missing\n- Gateway health shows the last handshake, missing rules, and whether each target answers\n- Optional port scan on the private host and extra hosts, with a switch for each port it finds. On a Proxmox host it also scans running VMs and containers\n- A list of public ports to open in your cloud firewall\n\n### Changed\n\n- Server tunnels are now set up in the Tunnels tab instead of the host editor, which keeps the on/off switch for each host (off unless the host defaults turn it on). Tunnels you already saved move over on their own\n- The Tunnels tab has an Add tunnel button and an Edit button on each tunnel",
+          "publishedAt": "2026-10-21T05:08:40.000Z"
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/download/v1.1.0/tunnels-1.1.0.tmxplug",
@@ -3809,8 +3839,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tunnels/releases/tag/v1.1.0",
-          "notes": "### Changed\n\n- Client tunnels on your own computer now run inside this plugin instead of the desktop app itself, so fixes to them no longer need a new desktop build\n- Needs Termix 26.10.3 or newer\n\n### Fixed\n\n- Client tunnel sign in prompts are answered through the plugin, and a prompt that has no open window to show it is refused instead of hanging",
-          "publishedAt": "2026-10-20T19:16:29.000Z"
+          "publishedAt": "2026-10-20T19:16:29.000Z",
+          "notes": "### Changed\n\n- Client tunnels on your own computer now run inside this plugin instead of the desktop app itself, so fixes to them no longer need a new desktop build\n- Needs Termix 26.10.3 or newer\n\n### Fixed\n\n- Client tunnel sign in prompts are answered through the plugin, and a prompt that has no open window to show it is refused instead of hanging"
         }
       ]
     },
