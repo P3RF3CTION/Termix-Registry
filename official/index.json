@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-21T05:06:44.443Z",
+  "updatedAt": "2026-10-21T05:08:01.356Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -135,6 +135,37 @@
       ],
       "versions": [
         {
+          "version": "1.2.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.2.1/ai-1.2.1.tmxplug",
+          "sha256": "3aae6ec21135e7c283b089c341b7f07f1123312381d06d54f89f4a2902114b75",
+          "signature": "KBlJjClwz5kc++ORvbEVW098SYtRGt+Jg8jq+6Qg1mPXMCizPEUk2GeENOqtVeO6f0tycstD9FFv7611aExqBQ==",
+          "size": 2877807,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "ssh:connect",
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "notify:send",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "users:read",
+            "events:core",
+            "process:spawn"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.2.1",
+          "notes": "### Fixed\n\n- The AI Agents button no longer shows on hosts where the AI assistant is turned off",
+          "publishedAt": "2026-10-21T05:06:23.000Z"
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-AI/releases/download/v1.2.0/ai-1.2.0.tmxplug",
@@ -162,8 +193,8 @@
             "termix": ">=26.10.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-AI/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Asset inventory: an Assets view in the AI tab lists hosts, Proxmox guests, containers and the external addresses they talk to, collected daily, on host changes or on request by one read-only script per host; zones come from built-in and your own CIDR rules, hosts in more than one zone are marked, and the new `ai.assets.view` and `ai.assets.manage` permissions are admins only by default\n- Asset annotations: after each collection a model writes each changed asset's role, importance (with who depends on it) and business system in the collector's language, a host and its containers in one call and several hosts per call; only assets whose summary changed and their neighbours are sent, never external addresses, environments or command lines\n- The model can suggest `depends_on` relations, kept only when they cite a connection, a container port or a `runs_on` the collector saw\n- Edit role, importance and system yourself to lock them against later runs, and unlock them to hand them back; the table shows each with an AI or Locked mark\n- A Graph view of the inventory, grouped by zone and sized by importance, with containers folded into their host and edge type filters; a node's panel shows its annotations, facts and edges\n- Impact analysis: what fails with an asset, through `runs_on` and `depends_on` and, weaker, `connects_to`, with the path to each and counts by importance, highlighted on the graph\n- Annotation runs are recorded with their tokens, counted as Asset annotation usage, stop at their own token budget and when auto-ops is paused, and use a provider and model you can pick for assets, by default the collector's auto-ops choice\n- Internet entries in the Assets view: a read-only list, for hosts you manage, of services that may be reachable from the internet, found from listening ports, Docker published ports, port forwards and reverse proxies or tunnels. Each entry shows its evidence path and a review priority with the reasons, nothing is probed from outside",
-          "publishedAt": "2026-10-20T20:42:58.000Z"
+          "publishedAt": "2026-10-20T20:42:58.000Z",
+          "notes": "### Added\n\n- Asset inventory: an Assets view in the AI tab lists hosts, Proxmox guests, containers and the external addresses they talk to, collected daily, on host changes or on request by one read-only script per host; zones come from built-in and your own CIDR rules, hosts in more than one zone are marked, and the new `ai.assets.view` and `ai.assets.manage` permissions are admins only by default\n- Asset annotations: after each collection a model writes each changed asset's role, importance (with who depends on it) and business system in the collector's language, a host and its containers in one call and several hosts per call; only assets whose summary changed and their neighbours are sent, never external addresses, environments or command lines\n- The model can suggest `depends_on` relations, kept only when they cite a connection, a container port or a `runs_on` the collector saw\n- Edit role, importance and system yourself to lock them against later runs, and unlock them to hand them back; the table shows each with an AI or Locked mark\n- A Graph view of the inventory, grouped by zone and sized by importance, with containers folded into their host and edge type filters; a node's panel shows its annotations, facts and edges\n- Impact analysis: what fails with an asset, through `runs_on` and `depends_on` and, weaker, `connects_to`, with the path to each and counts by importance, highlighted on the graph\n- Annotation runs are recorded with their tokens, counted as Asset annotation usage, stop at their own token budget and when auto-ops is paused, and use a provider and model you can pick for assets, by default the collector's auto-ops choice\n- Internet entries in the Assets view: a read-only list, for hosts you manage, of services that may be reachable from the internet, found from listening ports, Docker published ports, port forwards and reverse proxies or tunnels. Each entry shows its evidence path and a review priority with the reasons, nothing is probed from outside"
         },
         {
           "version": "1.1.0",
