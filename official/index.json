@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T18:02:56.887Z",
+  "updatedAt": "2026-10-22T18:04:43.402Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -702,6 +702,28 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.0.2",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.0.2/classic-layout-1.0.2.tmxplug",
+          "sha256": "cf54f9b2e81c33b7e58cd3a21e203805f08ba37b3bc78412a08eb21b9fef8f14",
+          "signature": "aVXA4QnFqHPe1IoQDdtnTe4zu8Mk/GGc8Ta0yb/Ndf+1J7QE/zYhZvn2yT3QxNWGF9tBDJbVqHf8Xx1JMPSfAw==",
+          "size": 1839110,
+          "capabilities": [
+            "files:own",
+            "network:serve",
+            "settings:read-core",
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.6",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.0.2",
+          "notes": "### Fixed\n\n- Cloning a host now keeps which settings are custom and which follow the defaults",
+          "publishedAt": "2026-10-22T18:02:39.000Z"
+        },
+        {
           "version": "1.0.1",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/download/v1.0.1/classic-layout-1.0.1.tmxplug",
@@ -720,8 +742,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Classic-Layout/releases/tag/v1.0.1",
-          "notes": "### Fixed\n\n- The bottom of the app was cut off under the title bar in the desktop app",
-          "publishedAt": "2026-10-20T23:56:28.000Z"
+          "publishedAt": "2026-10-20T23:56:28.000Z",
+          "notes": "### Fixed\n\n- The bottom of the app was cut off under the title bar in the desktop app"
         },
         {
           "version": "1.0.0",
