@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T17:51:43.434Z",
+  "updatedAt": "2026-10-22T17:56:02.250Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1199,6 +1199,34 @@
       ],
       "gated": [
         {
+          "version": "1.1.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/download/v1.1.1/file-manager-1.1.1.tmxplug",
+          "sha256": "ebba0b7d14facb3354f22a00e059e9f5a69e233458cb24985bf4ed5e5f8d2abd",
+          "signature": "746p98TESrXSfLa7dxxUDTMdZ4bUqC64lqr0cS8JDAzXQEyHHE0BUU+pFw1upvIlEKWgTiQM/LXh2ldo410aCw==",
+          "size": 7837343,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "kv:own",
+            "users:impersonate",
+            "desktop:local"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.1.1",
+          "notes": "### Fixed\n\n- Deleting many files at once is faster, shows progress, can be cancelled and no longer lets a paste or upload race it",
+          "publishedAt": "2026-10-22T17:55:01.000Z"
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/download/v1.1.0/file-manager-1.1.0.tmxplug",
@@ -1223,8 +1251,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-File-Manager/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- A files panel beside any SSH terminal, so you can manage files without leaving the terminal. It connects on its own, opens in the terminal's folder and can follow it as you cd\n- Go to the terminal's folder, or change the terminal to the panel's folder, with one click\n- A history of the folders you visit on each host, with the ones you use most at the top\n- Settings for the panel: open it with new terminals, which side it sits on, its size, the edge button, following the terminal, how often to check, and how much history to keep\n- Open a text file in your external editor from the right click menu in the desktop app\n\n### Fixed\n\n- The gap between rows in the grid view changed on its own after a refresh or when going back into a folder. Rows now keep one fixed size\n- Pressing Enter or Escape while renaming or creating an item no longer also triggers the grid shortcuts\n\n### Changed\n\n- Grid items have a light border\n- Uploads are faster, up to four files upload at once and one progress box shows file count, speed and a cancel button\n- Downloading many small files is faster because they share one channel\n- The side by side local view, local transfers and the external editor now run in the plugin instead of the desktop app, so fixes to them no longer need a new desktop build\n- Needs Termix 26.10.3 or newer",
-          "publishedAt": "2026-10-20T19:29:35.000Z"
+          "publishedAt": "2026-10-20T19:29:35.000Z",
+          "notes": "### Added\n\n- A files panel beside any SSH terminal, so you can manage files without leaving the terminal. It connects on its own, opens in the terminal's folder and can follow it as you cd\n- Go to the terminal's folder, or change the terminal to the panel's folder, with one click\n- A history of the folders you visit on each host, with the ones you use most at the top\n- Settings for the panel: open it with new terminals, which side it sits on, its size, the edge button, following the terminal, how often to check, and how much history to keep\n- Open a text file in your external editor from the right click menu in the desktop app\n\n### Fixed\n\n- The gap between rows in the grid view changed on its own after a refresh or when going back into a folder. Rows now keep one fixed size\n- Pressing Enter or Escape while renaming or creating an item no longer also triggers the grid shortcuts\n\n### Changed\n\n- Grid items have a light border\n- Uploads are faster, up to four files upload at once and one progress box shows file count, speed and a cancel button\n- Downloading many small files is faster because they share one channel\n- The side by side local view, local transfers and the external editor now run in the plugin instead of the desktop app, so fixes to them no longer need a new desktop build\n- Needs Termix 26.10.3 or newer"
         }
       ]
     },
