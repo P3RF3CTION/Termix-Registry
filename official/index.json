@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T04:05:06.691Z",
+  "updatedAt": "2026-10-22T04:23:32.528Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2938,6 +2938,26 @@
       "versions": [],
       "gated": [
         {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Simple-Layout/releases/download/v1.0.1/simple-layout-1.0.1.tmxplug",
+          "sha256": "838f08050335b44b62295b87006b50d1db1029699bfe6a35fa75808d4aea2cde",
+          "signature": "Y4ntXDE5y4007tw7sivamhYK6MgJuXXtudhFL29V5W3LEldsXqaIjAKjBTsWa1zuSXUpkFWaUVls5uE1OcolAQ==",
+          "size": 199414,
+          "capabilities": [
+            "settings:read-core",
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.6",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Simple-Layout/releases/tag/v1.0.1",
+          "notes": "### Fixed\n\n- The Hosts tab was named Manage in the top bar",
+          "publishedAt": "2026-10-22T04:22:44.000Z"
+        },
+        {
           "version": "1.0.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Simple-Layout/releases/download/v1.0.0/simple-layout-1.0.0.tmxplug",
@@ -2954,8 +2974,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Simple-Layout/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- A simple layout for small setups: top bar, Home screen with a card for each host, short host and credential forms, and a short Settings screen\n- A search window that finds hosts, tabs and plugin actions\n- A bottom bar on phones",
-          "publishedAt": "2026-10-22T04:02:57.000Z"
+          "publishedAt": "2026-10-22T04:02:57.000Z",
+          "notes": "### Added\n\n- A simple layout for small setups: top bar, Home screen with a card for each host, short host and credential forms, and a short Settings screen\n- A search window that finds hosts, tabs and plugin actions\n- A bottom bar on phones"
         }
       ]
     },
