@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T18:04:43.402Z",
+  "updatedAt": "2026-10-22T18:06:42.679Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -4620,14 +4620,37 @@
       "features": [
         "Wake a host in one click",
         "Wake a host before a remote desktop connection",
-        "Wake a host from an automation"
+        "Wake a host from an automation",
+        "A dashboard card to wake any host with a MAC address"
       ],
       "docs": "https://docs.termix.site/plugins/wake-on-lan",
       "contributes": [
+        "dashboardCards",
         "permissions",
         "settings"
       ],
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/download/v1.1.0/wake-on-lan-1.1.0.tmxplug",
+          "sha256": "1afb708c12631ededec40938aed3ab587bc9a519215fa5e93350b1f0a843d2a8",
+          "signature": "Q1uMhCyxBhT1+R8JAJJosICqiGZxsqD2DVf7+jjtjGdH69vTYqH5MeBc43IZSjwQk32oy7KT1VGyAlqlwHRwCQ==",
+          "size": 44849,
+          "capabilities": [
+            "hosts:read",
+            "network:broadcast",
+            "network:serve",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Wake-on-LAN dashboard card: wake any host with a MAC address in one click",
+          "publishedAt": "2026-10-22T18:05:46.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -4642,12 +4665,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T05:02:18.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -4664,11 +4687,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:18.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -4685,11 +4708,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Wake-On-LAN/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:21.000Z",
-          "notes": "### Added\n\n- First release\n- Wake a host in one click from its menu\n- Wake a host before a remote desktop connection\n- Wake a host from an automation\n- Per-host MAC address and subnet broadcast address",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Wake a host in one click from its menu\n- Wake a host before a remote desktop connection\n- Wake a host from an automation\n- Per-host MAC address and subnet broadcast address"
         }
       ]
     },
