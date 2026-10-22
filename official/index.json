@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T17:58:38.032Z",
+  "updatedAt": "2026-10-22T18:00:23.209Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2769,6 +2769,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Service-Manager",
       "icon": "ServerCog",
+      "video": "https://www.youtube.com/watch?v=uVoLykPpvWk",
       "features": [
         "List systemd services, sockets, targets and timers with their state",
         "Start, stop, restart, reload, enable, disable and mask units",
@@ -2780,17 +2781,43 @@
         "Browse, search, follow and download log files in /var/log",
         "Get an alert when a watched service fails, and when it is back",
         "A services panel beside any SSH terminal",
+        "A dashboard card with every watched service and whether it is up",
         "Basic OpenRC support for list, start, stop and boot"
       ],
       "docs": "https://docs.termix.site/plugins/service-manager",
       "contributes": [
+        "dashboardCards",
         "permissions",
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=uVoLykPpvWk",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/download/v1.1.0/service-manager-1.1.0.tmxplug",
+          "sha256": "82b1c70abd97ed535f217535c667fe6c48e5e01e2bf8037a89b58b80d35206bf",
+          "signature": "Mkkr2xxYxtFAPFGvmrIpDKyzrJHq9kIxxj+lY2hXkUr3xUxyGRYoTSZUrVr/aVSvmaStwv0wZGyqaEOUVVe7Aw==",
+          "size": 422280,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Watched services dashboard card: every service you watch, on every host, with whether it is up",
+          "publishedAt": "2026-10-22T17:59:04.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -2813,8 +2840,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Service-Manager/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- A Services tab for each host to manage systemd services over SSH\n- Start, stop, restart, reload, enable, disable, mask and revert units\n- Unit details with memory, CPU, tasks, restarts, files and recent logs\n- Unit file and override editor, checked with systemd-analyze before saving\n- A form to create a new service or a scheduled job with a timer\n- Timers with the last and next run, run now and turn on or off\n- A journal viewer with filters, live follow and download\n- Log files from /var/log with search, live follow and download\n- Alerts when a watched service fails or stops, and when it runs again\n- A services panel beside the SSH terminal\n- Basic OpenRC support",
-          "publishedAt": "2026-10-21T23:17:35.000Z"
+          "publishedAt": "2026-10-21T23:17:35.000Z",
+          "notes": "### Added\n\n- A Services tab for each host to manage systemd services over SSH\n- Start, stop, restart, reload, enable, disable, mask and revert units\n- Unit details with memory, CPU, tasks, restarts, files and recent logs\n- Unit file and override editor, checked with systemd-analyze before saving\n- A form to create a new service or a scheduled job with a timer\n- Timers with the last and next run, run now and turn on or off\n- A journal viewer with filters, live follow and download\n- Log files from /var/log with search, live follow and download\n- Alerts when a watched service fails or stops, and when it runs again\n- A services panel beside the SSH terminal\n- Basic OpenRC support"
         }
       ]
     },
@@ -2831,16 +2858,42 @@
         "Record SSH, RDP and VNC sessions",
         "Play recordings back at any speed",
         "Download a recording as a file or plain text",
-        "Old recordings are removed after a number of days you choose"
+        "Old recordings are removed after a number of days you choose",
+        "A dashboard card with your latest recordings"
       ],
       "docs": "https://docs.termix.site/plugins/session-recording",
       "contributes": [
+        "dashboardCards",
         "hostCapability",
         "permissions",
         "settings",
         "tabs"
       ],
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/download/v1.1.0/session-recording-1.1.0.tmxplug",
+          "sha256": "31cd78d67e061242f8776849a2fae5f84ab48c7c765d487b32c5e1693c54b46a",
+          "signature": "lctMfOd5OZQVNV3RLYBnbdiWDDifbt8Rmp27xoz+/9Jv5ZaPEDtp546o0/mE3sMxFcFD1E+AkXuYtGc/yEVuBQ==",
+          "size": 777794,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "files:own",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "db:core-refs"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Recent recordings dashboard card: your latest recordings, one click to play one",
+          "publishedAt": "2026-10-22T17:58:26.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -2858,12 +2911,12 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:53:40.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -2883,11 +2936,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:29:56.000Z",
-          "notes": "### Fixed\n\n- Recordings broke after upgrading from 2.8 because the old table had no username column",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- Recordings broke after upgrading from 2.8 because the old table had no username column"
         },
         {
           "version": "1.0.0",
@@ -2907,11 +2960,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Recording/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T05:56:32.000Z",
-          "notes": "### Added\n\n- First release\n- Record SSH, RDP and VNC sessions\n- Play recordings back at any speed\n- Download a recording as a file or plain text\n- Old recordings are removed after a number of days you choose\n- Only admins can delete a recording",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Record SSH, RDP and VNC sessions\n- Play recordings back at any speed\n- Download a recording as a file or plain text\n- Old recordings are removed after a number of days you choose\n- Only admins can delete a recording"
         }
       ]
     },
