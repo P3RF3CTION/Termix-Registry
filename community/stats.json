@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-21T08:52:07.935Z",
+  "updatedAt": "2026-10-22T08:54:59.358Z",
   "plugins": {
     "pve-power": {
-      "downloads": 52,
+      "downloads": 58,
       "versions": {
         "0.6.9": {
-          "downloads": 35
+          "downloads": 41
         },
         "0.6.8": {
           "downloads": 9
