@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T18:10:52.796Z",
+  "updatedAt": "2026-10-22T18:12:39.489Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -506,16 +506,50 @@
         "Conditions, waits and variables for more complex flows",
         "Run on one host, a fleet or every host",
         "Test runs and a history of every run",
-        "Maintenance windows that pause automations while you work on a host"
+        "Maintenance windows that pause automations while you work on a host",
+        "An automations panel beside any SSH terminal, plus upcoming and recent run dashboard cards"
       ],
       "docs": "https://docs.termix.site/plugins/automations",
       "contributes": [
+        "dashboardCards",
         "permissions",
         "settings",
         "tabs",
         "uses"
       ],
       "versions": [
+        {
+          "version": "1.2.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Automations/releases/download/v1.2.0/automations-1.2.0.tmxplug",
+          "sha256": "2ec9c718d73a094be3b59121aea049f0237e5783f53d193c4ea24a524584aeea",
+          "signature": "nX55lCt96uYrcDW9eSr1bn+RoY/tXFrMfBMjHRhO/CuebAhyCj+Lj49Aad49xpPDUpwB/6B5ZGP7A/Cr10phAg==",
+          "size": 445212,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "events:core",
+            "notify:send",
+            "network:outbound",
+            "network:serve",
+            "settings:read-core",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "dependencies": {
+            "snippets": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.2.0",
+          "notes": "### Added\n\n- Automations panel beside an SSH terminal: the host's maintenance state, the automations that use the host with Run now, and their latest runs\n- Upcoming automations dashboard card: scheduled automations in the order they run next\n- Automation runs dashboard card: the latest runs and how they went",
+          "publishedAt": "2026-10-22T18:11:00.000Z"
+        },
         {
           "version": "1.1.0",
           "api": "1",
@@ -545,8 +579,8 @@
             "snippets": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Automations/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- A per host Enable maintenance switch in the host editor, off by default\n\n### Changed\n\n- The Maintenance button only shows on hosts that have the switch on",
-          "publishedAt": "2026-10-21T05:05:57.000Z"
+          "publishedAt": "2026-10-21T05:05:57.000Z",
+          "notes": "### Added\n\n- A per host Enable maintenance switch in the host editor, off by default\n\n### Changed\n\n- The Maintenance button only shows on hosts that have the switch on"
         },
         {
           "version": "1.0.3",
