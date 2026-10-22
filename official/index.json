@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T17:56:02.250Z",
+  "updatedAt": "2026-10-22T17:58:38.032Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -766,20 +766,49 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Cloud-Providers",
       "icon": "Cloud",
+      "video": "https://www.youtube.com/watch?v=fgVkd6761qg",
       "features": [
         "Works with AWS EC2 and Lightsail, Azure, Google Cloud, DigitalOcean, Hetzner, Linode, Vultr, Oracle Cloud, Scaleway and UpCloud",
         "Pick instances to import, or sync a whole account on a timer",
         "Follows IP and name changes and can mark or remove hosts that are gone",
-        "Cloud keys are stored encrypted and never shown again"
+        "Cloud keys are stored encrypted and never shown again",
+        "A dashboard card with each account and when it last synced"
       ],
       "docs": "https://docs.termix.site/plugins/cloud-providers",
       "contributes": [
+        "dashboardCards",
         "permissions",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=fgVkd6761qg",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/download/v1.1.0/cloud-providers-1.1.0.tmxplug",
+          "sha256": "7f61eafc3b99bdf1328fffa95791db1d27f8e1b683e5a5925603b5840057a9c7",
+          "signature": "2iUO82tMhl5TGyWlhZqUvDcWctKLqoXuuCTVn69WU5yLnDl6a5Lay3dd7BBEe9fSR+9CDqFi9basH9HiHaD/Bg==",
+          "size": 183690,
+          "capabilities": [
+            "db:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "ui:surface",
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "users:impersonate",
+            "notify:send"
+          ],
+          "engine": {
+            "api": "^1.10",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Cloud accounts dashboard card: each account with when it last synced or why it failed, and Sync now",
+          "publishedAt": "2026-10-22T17:57:39.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -804,8 +833,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Cloud-Providers/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Cloud accounts for AWS (EC2 and Lightsail), Azure, Google Cloud, DigitalOcean, Hetzner, Linode, Vultr, Oracle Cloud, Scaleway and UpCloud\n- Import chosen servers as hosts, or sync a whole account by hand or on a timer\n- Hosts follow name and IP changes, with an option to keep, tag or delete hosts whose server is gone",
-          "publishedAt": "2026-10-21T22:52:21.000Z"
+          "publishedAt": "2026-10-21T22:52:21.000Z",
+          "notes": "### Added\n\n- Cloud accounts for AWS (EC2 and Lightsail), Azure, Google Cloud, DigitalOcean, Hetzner, Linode, Vultr, Oracle Cloud, Scaleway and UpCloud\n- Import chosen servers as hosts, or sync a whole account by hand or on a timer\n- Hosts follow name and IP changes, with an option to keep, tag or delete hosts whose server is gone"
         }
       ]
     },
