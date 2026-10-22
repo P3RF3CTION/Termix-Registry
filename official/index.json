@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T18:08:49.147Z",
+  "updatedAt": "2026-10-22T18:10:52.796Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -1003,10 +1003,12 @@
         "Works with Docker and Podman",
         "A containers panel beside any SSH terminal",
         "Optional stack management for compose projects",
-        "Check images for updates and update containers"
+        "Check images for updates and update containers",
+        "A dashboard card with running and stopped containers on each host"
       ],
       "docs": "https://docs.termix.site/plugins/docker",
       "contributes": [
+        "dashboardCards",
         "permissions",
         "settings",
         "tabs",
@@ -1089,6 +1091,30 @@
       ],
       "gated": [
         {
+          "version": "1.2.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.2.1/docker-1.2.1.tmxplug",
+          "sha256": "b2ca797465d88cfb549a04c3f0161708669def22a5ca73cb107879847c2db8ff",
+          "signature": "7JqGiRvuNxqbVsIWesrFElWUY++I7Dhy8U/fsUQAAotZW5+fDTuZieBrSdWaAONtwwGjNkmFGEKpSVRptzJEDA==",
+          "size": 1180882,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.2.1",
+          "notes": "### Added\n\n- Docker hosts dashboard card: running, stopped and unhealthy containers on each host with Docker on\n\n### Changed\n\n- The container grid fits as many cards as the tab has room for, or pick how many per row next to the grid and list switch",
+          "publishedAt": "2026-10-22T18:09:06.000Z"
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Docker/releases/download/v1.2.0/docker-1.2.0.tmxplug",
@@ -1109,8 +1135,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Docker/releases/tag/v1.2.0",
-          "notes": "### Added\n\n- Optional stack management for compose projects, off until an admin turns it on in the plugin settings and a host turns on Stack management\n- A Containers | Stacks switcher in the Docker tab with a list of stacks, search, status filters and a status for each one\n- Create stacks from a compose file, edit the compose file and the environment file, check a file, and save and deploy\n- Deploy, pull, restart, pause, stop, take down or destroy a stack, or run most of these on a single service\n- Logs for a whole stack or one service, and a terminal into any running service\n- Compose projects that already run on the host show up as stacks\n- Update checks for container images, with an Update badge on containers that have a newer image\n- Update a container with one button. Compose containers pull and recreate their service, other containers pull the new image",
-          "publishedAt": "2026-10-21T02:41:16.000Z"
+          "publishedAt": "2026-10-21T02:41:16.000Z",
+          "notes": "### Added\n\n- Optional stack management for compose projects, off until an admin turns it on in the plugin settings and a host turns on Stack management\n- A Containers | Stacks switcher in the Docker tab with a list of stacks, search, status filters and a status for each one\n- Create stacks from a compose file, edit the compose file and the environment file, check a file, and save and deploy\n- Deploy, pull, restart, pause, stop, take down or destroy a stack, or run most of these on a single service\n- Logs for a whole stack or one service, and a terminal into any running service\n- Compose projects that already run on the host show up as stacks\n- Update checks for container images, with an Update badge on containers that have a newer image\n- Update a container with one button. Compose containers pull and recreate their service, other containers pull the new image"
         },
         {
           "version": "1.1.0",
@@ -1876,6 +1902,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Kubernetes",
       "icon": "ShipWheel",
+      "video": "https://www.youtube.com/watch?v=cuOnAbfsO3I",
       "features": [
         "Browse pods, deployments, statefulsets, daemonsets, jobs and cronjobs",
         "Scale, restart, roll back and change images of workloads",
@@ -1886,19 +1913,44 @@
         "CPU and memory from metrics-server",
         "Helm releases with history, values, rollback and uninstall",
         "Works with kubectl, k3s, MicroK8s and OpenShift",
-        "A pods panel beside any SSH terminal"
+        "A pods panel beside any SSH terminal",
+        "A dashboard card with ready nodes and failing pods on each cluster"
       ],
       "docs": "https://docs.termix.site/plugins/kubernetes",
       "contributes": [
+        "dashboardCards",
         "permissions",
         "settings",
         "tabs",
         "uiPresets",
         "uses"
       ],
-      "video": "https://www.youtube.com/watch?v=cuOnAbfsO3I",
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/download/v1.0.1/kubernetes-1.0.1.tmxplug",
+          "sha256": "31d6b200579d326d07244712713ae291ff473270d44b478a884d07c863a394f0",
+          "signature": "/4Clm6OOG7CFuV6RvKsJRhhMNTn1jAM5sGDWVhNRVmwQzTPU/4vq3ngnMf5PwUHVW8BPCOsyAG9jTEOxzZ9jDg==",
+          "size": 1251835,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface",
+            "events:core",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/tag/v1.0.1",
+          "notes": "### Added\n\n- Kubernetes clusters dashboard card: ready nodes and running and failing pods on each cluster\n\n### Changed\n\n- The resource and Helm grids fit as many cards as the tab has room for, or pick how many per row next to the grid and list switch",
+          "publishedAt": "2026-10-22T18:09:16.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -1920,8 +1972,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Kubernetes/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Browse pods, deployments, statefulsets, daemonsets, replicasets, jobs and cronjobs on a host's cluster over SSH\n- Services, ingresses, configmaps, secrets, volume claims, persistent volumes, nodes, namespaces and events\n- Scale, restart, roll back and change the image of workloads, with their rollout history\n- Suspend, resume and run cronjobs now\n- Cordon, uncordon and drain nodes\n- Pod logs with a container picker, the previous run, follow mode and download, plus logs for a whole workload\n- A shell inside a running pod\n- CPU and memory per pod, node and container from metrics-server\n- View, edit and apply YAML with a server side dry run and a diff first\n- Reveal secret values with the new Reveal Kubernetes secrets permission, written to the audit log\n- Helm releases with history, values, manifest, rollback and uninstall\n- kubectl, k3s, MicroK8s and OpenShift, with a kubeconfig path, context, namespace and sudo per host\n- A read only switch per host that blocks every change\n- A Kubernetes panel beside any SSH terminal and a homepage widget\n- kubernetes.workloads and kubernetes.events services for other plugins",
-          "publishedAt": "2026-10-21T23:17:00.000Z"
+          "publishedAt": "2026-10-21T23:17:00.000Z",
+          "notes": "### Added\n\n- Browse pods, deployments, statefulsets, daemonsets, replicasets, jobs and cronjobs on a host's cluster over SSH\n- Services, ingresses, configmaps, secrets, volume claims, persistent volumes, nodes, namespaces and events\n- Scale, restart, roll back and change the image of workloads, with their rollout history\n- Suspend, resume and run cronjobs now\n- Cordon, uncordon and drain nodes\n- Pod logs with a container picker, the previous run, follow mode and download, plus logs for a whole workload\n- A shell inside a running pod\n- CPU and memory per pod, node and container from metrics-server\n- View, edit and apply YAML with a server side dry run and a diff first\n- Reveal secret values with the new Reveal Kubernetes secrets permission, written to the audit log\n- Helm releases with history, values, manifest, rollback and uninstall\n- kubectl, k3s, MicroK8s and OpenShift, with a kubeconfig path, context, namespace and sudo per host\n- A read only switch per host that blocks every change\n- A Kubernetes panel beside any SSH terminal and a homepage widget\n- kubernetes.workloads and kubernetes.events services for other plugins"
         }
       ]
     },
@@ -2262,14 +2314,42 @@
         "Find and import VMs and LXC containers from a node",
         "Keep imported hosts in sync on a schedule",
         "Set up Windows guests for RDP and turn on Docker for guests by name",
-        "Node, guest, storage and cluster stats in their own tab"
+        "Node, guest, storage and cluster stats in their own tab",
+        "A dashboard card with CPU, memory, disk and guests for each node"
       ],
       "docs": "https://docs.termix.site/plugins/proxmox",
       "contributes": [
+        "dashboardCards",
         "settings",
         "tabs"
       ],
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/download/v1.1.0/proxmox-1.1.0.tmxplug",
+          "sha256": "8937d239ad40033d69fba59085fe8896ee25c61951c21f66ff98531fd4c63cbf",
+          "signature": "LeuCiDlwE4SRSouP7UlQtXSuDHqHIHsp89liT0fWRzL2tk6xX7rQw+HyEXsBwUh3cbK+J930ES0M5wI+KKjDCQ==",
+          "size": 301285,
+          "capabilities": [
+            "hosts:read",
+            "hosts:write",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Proxmox nodes dashboard card: CPU, memory, disk and running guests for every node with Proxmox Stats on",
+          "publishedAt": "2026-10-22T18:09:02.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -2289,12 +2369,12 @@
             "users:impersonate"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:38:49.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -2316,11 +2396,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:29:49.000Z",
-          "notes": "### Fixed\n\n- Stats, guests and discovery work when the SSH user is not root, using sudo with the saved sudo password or passwordless sudo",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- Stats, guests and discovery work when the SSH user is not root, using sudo with the saved sudo password or passwordless sudo"
         },
         {
           "version": "1.0.0",
@@ -2342,11 +2422,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Proxmox/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T02:56:59.000Z",
-          "notes": "### Added\n\n- First release\n- Find and import VMs and LXC containers from a node\n- Keep imported hosts in sync on a schedule\n- Set up Windows guests for RDP and turn on Docker for guests by name\n- Node, guest, storage and cluster stats in their own tab",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Find and import VMs and LXC containers from a node\n- Keep imported hosts in sync on a schedule\n- Set up Windows guests for RDP and turn on Docker for guests by name\n- Node, guest, storage and cluster stats in their own tab"
         }
       ]
     },
@@ -2540,22 +2620,50 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy",
       "icon": "Waypoints",
+      "video": "https://www.youtube.com/watch?v=yvk_JjcTKsM",
       "features": [
         "TCP, UDP, HTTP and HTTPS routes for each host, with status, search and filters",
         "Free Let's Encrypt certificates that renew on their own, plus self-signed and uploaded certificates",
         "Optional Termix login in front of any web route",
         "WebSocket support, forced HTTPS, custom headers and IP allow and deny lists",
-        "One overview of every route, its status and its certificate"
+        "One overview of every route, its status and its certificate",
+        "A dashboard card with routes that are down and certificates by expiry"
       ],
       "docs": "https://docs.termix.site/plugins/reverse-proxy",
       "contributes": [
+        "dashboardCards",
         "permissions",
         "settings",
         "tabs"
       ],
-      "video": "https://www.youtube.com/watch?v=yvk_JjcTKsM",
       "versions": [],
       "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/download/v1.1.0/reverse-proxy-1.1.0.tmxplug",
+          "sha256": "c8a9851da7ca6291c1f47cf6ab235da5057455a86b4ed0dc1c1a3026afb30aa7",
+          "signature": "yeX2zyERoGwP2sbIwQBD5IfqMTYWyWTcIOz7DyuFbZRl3Wbk9wmrEZQ0vRmNYhWQ5D4bpfKq2qd02aJiCMuqCA==",
+          "size": 1037961,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "network:serve",
+            "network:outbound",
+            "secrets:own",
+            "kv:own",
+            "notify:send",
+            "users:impersonate",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Reverse proxy dashboard card: how many routes are running, the ones that are not, and certificates by expiry",
+          "publishedAt": "2026-10-22T18:09:00.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -2579,8 +2687,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Reverse-Proxy/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- TCP, UDP, HTTP and HTTPS routes for your hosts, managed from each host\n- Host settings to turn routes off, set a target address and pick the default login\n- Let's Encrypt, self-signed and uploaded certificates, renewed automatically, plus a setting for another ACME certificate authority\n- Termix login in front of web routes\n- WebSocket support, HTTP to HTTPS redirect, custom headers and IP allow and block lists\n- A Reverse Proxy tab with every route, its status, traffic and certificates",
-          "publishedAt": "2026-10-21T23:06:42.000Z"
+          "publishedAt": "2026-10-21T23:06:42.000Z",
+          "notes": "### Added\n\n- TCP, UDP, HTTP and HTTPS routes for your hosts, managed from each host\n- Host settings to turn routes off, set a target address and pick the default login\n- Let's Encrypt, self-signed and uploaded certificates, renewed automatically, plus a setting for another ACME certificate authority\n- Termix login in front of web routes\n- WebSocket support, HTTP to HTTPS redirect, custom headers and IP allow and block lists\n- A Reverse Proxy tab with every route, its status, traffic and certificates"
         }
       ]
     },
@@ -3033,12 +3141,14 @@
         "Read-only or read and write",
         "Links that expire or can be revoked",
         "Meeting rooms where a presenter shows a session and can hand over control",
-        "Guest links for people without an account"
+        "Guest links for people without an account",
+        "A dashboard card with your live shares and meeting rooms"
       ],
       "docs": "https://docs.termix.site/plugins/session-sharing",
       "contributes": [
         "actionSlots",
         "actions",
+        "dashboardCards",
         "guest",
         "guestViews",
         "permissions",
@@ -3047,6 +3157,32 @@
         "uses"
       ],
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/download/v1.1.0/session-sharing-1.1.0.tmxplug",
+          "sha256": "2988b39221d93b3dbc5e2a81e104e5dc01ce264afb1e66df3407492658ab9fdc",
+          "signature": "uWULbQYEXf7cgo9eQc+vPuYJ9/kBwZranbKTxMSTN8Xo8tAkEPbpkl3Ue5xpNLgJDGzn8SV0ye6UZup+0TQjDA==",
+          "size": 1632687,
+          "capabilities": [
+            "hosts:read",
+            "db:own",
+            "network:serve",
+            "ui:surface",
+            "users:impersonate",
+            "db:core-refs"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "dependencies": {
+            "ssh-terminal": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Sharing dashboard card: your live shares on every host with revoke, and your meeting rooms",
+          "publishedAt": "2026-10-22T18:09:37.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -3066,12 +3202,12 @@
             "ssh-terminal": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/tag/v1.0.2",
-          "notes": "### Added\n\n- Public URL for guest links, an admin setting for servers that guests reach at a different address, like a public proxy in front of a VPN-only server\n\n### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- Revoking a remote desktop share now disconnects the viewers who joined through it, and ending a shared remote desktop session ends it for everyone\n- Presenting an RDP, VNC or Telnet host in a meeting room never started when Remote Desktop used guacd",
           "publishedAt": "2026-10-18T04:57:56.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- Public URL for guest links, an admin setting for servers that guests reach at a different address, like a public proxy in front of a VPN-only server\n\n### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- Revoking a remote desktop share now disconnects the viewers who joined through it, and ending a shared remote desktop session ends it for everyone\n- Presenting an RDP, VNC or Telnet host in a meeting room never started when Remote Desktop used guacd"
         },
         {
           "version": "1.0.1",
@@ -3093,11 +3229,11 @@
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:06.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -3119,11 +3255,11 @@
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Session-Sharing/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:25.000Z",
-          "notes": "### Added\n\n- First release\n- Share terminal, RDP, VNC and Telnet sessions by link or with a Termix user\n- Read-only or read and write, with links that expire or can be revoked\n- Meeting rooms where a presenter shows a session and can hand over control\n- Guest links for people without an account",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Share terminal, RDP, VNC and Telnet sessions by link or with a Termix user\n- Read-only or read and write, with links that expire or can be revoked\n- Meeting rooms where a presenter shows a session and can hand over control\n- Guest links for people without an account"
         }
       ]
     },
@@ -3206,10 +3342,13 @@
         "Variables for the host and your own inputs",
         "Run a snippet each time you connect to a host",
         "Share snippets with users or roles",
-        "Import and export as JSON"
+        "Import and export as JSON",
+        "A snippets panel beside any SSH terminal",
+        "A dashboard card to run host snippets or copy any snippet"
       ],
       "docs": "https://docs.termix.site/plugins/snippets",
       "contributes": [
+        "dashboardCards",
         "http",
         "keybindingActions",
         "panels",
@@ -3219,6 +3358,32 @@
         "uses"
       ],
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Snippets/releases/download/v1.1.0/snippets-1.1.0.tmxplug",
+          "sha256": "e2d7d1ebe5bdf2986ffb4961ac6f6d32b392b02c30a64a333a7eeb2ce6a46bb3",
+          "signature": "6DpFFIdA8i7P4wbYIDsnGAd0cZHtA/rZxMsN/GIh8pUcpOfEgYdKxrdptZ8i9be59AcCWsKFWZrt/EUETRBkBw==",
+          "size": 405653,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ssh:connect",
+            "credentials:use",
+            "credentials:read",
+            "hosts:write",
+            "ui:surface",
+            "events:core",
+            "db:core-refs"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Snippets panel beside an SSH terminal: search and click a snippet to run it in that terminal\n- Snippets dashboard card: run snippets that have target hosts, or copy any snippet",
+          "publishedAt": "2026-10-22T18:09:13.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -3238,12 +3403,12 @@
             "db:core-refs"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.2",
-          "notes": "### Added\n\n- Other plugins can read each snippet's command, so Fleets can run a snippet on a whole fleet\n- Fill sudo password setting: snippets run on hosts without a terminal answer sudo's prompt with the host's sudo password\n\n### Changed\n\n- The plugin name and description show in your language\n- Snippets now asks for permission to read host credentials, for the sudo password\n\n### Fixed\n\n- Running a snippet on a host now says why the connection failed instead of a generic error: failed authentication, an unreachable host, a timeout or a rejected host key each get their own status and message\n- A snippet that runs past the execution timeout answers with a timeout status and the output it printed so far, instead of a generic error",
           "publishedAt": "2026-10-18T04:57:57.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- Other plugins can read each snippet's command, so Fleets can run a snippet on a whole fleet\n- Fill sudo password setting: snippets run on hosts without a terminal answer sudo's prompt with the host's sudo password\n\n### Changed\n\n- The plugin name and description show in your language\n- Snippets now asks for permission to read host credentials, for the sudo password\n\n### Fixed\n\n- Running a snippet on a host now says why the connection failed instead of a generic error: failed authentication, an unreachable host, a timeout or a rejected host key each get their own status and message\n- A snippet that runs past the execution timeout answers with a timeout status and the output it printed so far, instead of a generic error"
         },
         {
           "version": "1.0.1",
@@ -3264,11 +3429,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:05.000Z",
-          "notes": "### Fixed\n\n- Folders that only exist on snippets now show in the folder picker when creating or editing a snippet",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- Folders that only exist on snippets now show in the folder picker when creating or editing a snippet"
         },
         {
           "version": "1.0.0",
@@ -3289,11 +3454,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Snippets/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T19:12:16.000Z",
-          "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Save commands and notes in folders\n- Run them in one or more terminals, or straight on a set of hosts\n- Variables for the host and your own inputs\n- Run a snippet each time you connect to a host\n- Share snippets with users or roles\n- Import and export as JSON"
         }
       ]
     },
@@ -3728,6 +3893,7 @@
       "category": "Infrastructure",
       "repository": "https://github.com/Termix-SSH/Plugin-Sync",
       "icon": "RefreshCw",
+      "video": "https://www.youtube.com/watch?v=mBiGtdZxdK0",
       "features": [
         "Link the desktop app to a server and keep hosts, credentials and settings in sync, with an offline copy",
         "Link several servers and accounts and switch between them, each with its own copy",
@@ -3742,9 +3908,37 @@
         "permissions",
         "settings"
       ],
-      "video": "https://www.youtube.com/watch?v=7tPhaP4aNuM",
       "versions": [],
       "gated": [
+        {
+          "version": "1.0.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Sync/releases/download/v1.0.1/sync-1.0.1.tmxplug",
+          "sha256": "66a301fd04fb8d2a3ece18dfb230069cf78e1138ee78941dc511dfbd8ee4f91e",
+          "signature": "ZBCGSgngQogd++2U7Y9ceIciAzF3ezhrPILc7oM/25aXFkvujlAx3qI6Jm7QSW+oQra5tMCP2xVdaYkLHRgEBQ==",
+          "size": 448017,
+          "capabilities": [
+            "sync:provide",
+            "db:own",
+            "hosts:read",
+            "hosts:write",
+            "hosts:lock",
+            "ssh:transport",
+            "users:impersonate",
+            "network:outbound",
+            "network:serve",
+            "kv:own",
+            "secrets:own",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.10",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Sync/releases/tag/v1.0.1",
+          "notes": "### Added\n\n- Keep all mine or keep all server settles every sync conflict at once, after a confirm",
+          "publishedAt": "2026-10-22T18:10:34.000Z"
+        },
         {
           "version": "1.0.0",
           "api": "1",
@@ -3771,8 +3965,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Sync/releases/tag/v1.0.0",
-          "notes": "### Added\n\n- Sync the desktop app with a server, with an offline copy of its data\n- The Sync screen, the link wizard and the first run step for the desktop app\n- Link several servers and accounts, each with its own copy, and switch between them from the profile row in the rail\n- Add other Termix servers as remote sites with an API key. Their SSH hosts appear as real, read only hosts in a managed folder of your own list, with their logins, so the terminal, files, Docker and tunnels all work\n- Open a session on a mirrored host like on any host, connecting through the remote server\n- Link to a server that asks for a client certificate (mutual TLS), with a .pfx or .p12 file or a certificate from the system store\n- Client type and device id in the sync handshake, and documented sync endpoints",
-          "publishedAt": "2026-10-20T20:21:25.000Z"
+          "publishedAt": "2026-10-20T20:21:25.000Z",
+          "notes": "### Added\n\n- Sync the desktop app with a server, with an offline copy of its data\n- The Sync screen, the link wizard and the first run step for the desktop app\n- Link several servers and accounts, each with its own copy, and switch between them from the profile row in the rail\n- Add other Termix servers as remote sites with an API key. Their SSH hosts appear as real, read only hosts in a managed folder of your own list, with their logins, so the terminal, files, Docker and tunnels all work\n- Open a session on a mirrored host like on any host, connecting through the remote server\n- Link to a server that asks for a client certificate (mutual TLS), with a .pfx or .p12 file or a certificate from the system store\n- Client type and device id in the sync handshake, and documented sync endpoints"
         }
       ]
     },
@@ -4832,10 +5026,12 @@
       "features": [
         "Open a web UI in a Termix tab or its own desktop window",
         "Connect directly, or over an SSH tunnel through the host",
-        "Embedded pages never see your Termix login"
+        "Embedded pages never see your Termix login",
+        "A web UI panel beside the SSH terminal and a dashboard card to open any web UI"
       ],
       "docs": "https://docs.termix.site/plugins/web-endpoint",
       "contributes": [
+        "dashboardCards",
         "hostCapability",
         "settings",
         "tabs"
@@ -4862,8 +5058,8 @@
             "tunnels": "^1.0.0"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.0.3",
-          "notes": "### Changed\n\n- In the desktop app, pages open in a native view instead of a sandboxed iframe, so sites that need storage, sign-in popups or their own cookies work\n\n### Fixed\n\n- The port field in the host editor can be cleared and retyped, so ports like 8006 can be set",
-          "publishedAt": "2026-10-20T19:16:15.000Z"
+          "publishedAt": "2026-10-20T19:16:15.000Z",
+          "notes": "### Changed\n\n- In the desktop app, pages open in a native view instead of a sandboxed iframe, so sites that need storage, sign-in popups or their own cookies work\n\n### Fixed\n\n- The port field in the host editor can be cleared and retyped, so ports like 8006 can be set"
         },
         {
           "version": "1.0.2",
@@ -4936,6 +5132,32 @@
             "termix": ">=26.10.0"
           },
           "notes": "### Added\n\n- First release\n- Open a web UI in a Termix tab or its own desktop window\n- Connect directly, or over an SSH tunnel through the host\n- Embedded pages never see your Termix login"
+        }
+      ],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/download/v1.1.0/web-endpoint-1.1.0.tmxplug",
+          "sha256": "79e691abc456b17c8ce651017b47097a7ff71e94267e668341548a05b911a92c",
+          "signature": "ypcLli2oAXMkor5994vTZS+atOxdxFp7Emn9I+7jeSNdHHK85UPocuR0vIQaPKsiCCYDbSX/6p5f5fNTYpySDQ==",
+          "size": 321884,
+          "capabilities": [
+            "hosts:read",
+            "network:serve",
+            "ui:surface",
+            "desktop:window"
+          ],
+          "engine": {
+            "api": "^1.9",
+            "termix": ">=26.10.3"
+          },
+          "dependencies": {
+            "tunnels": "^1.0.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Web-Endpoint/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Web UI panel beside an SSH terminal: the host's web UI next to its shell, with a picker when it has several\n- Web UIs dashboard card: every web UI on your hosts, one click to open\n\n### Fixed\n\n- Needs Termix 26.10.3 or later, since the desktop web view it uses is not in older versions and the plugin failed to load there",
+          "publishedAt": "2026-10-22T18:10:24.000Z"
         }
       ]
     },
@@ -5066,16 +5288,38 @@
         "Save your tabs and split layout as a named workspace",
         "Reopen it in one click",
         "Recover your last session",
-        "Syncs between the desktop app and a Termix server"
+        "Syncs between the desktop app and a Termix server",
+        "A dashboard card to open a saved workspace"
       ],
       "docs": "https://docs.termix.site/plugins/workspaces",
       "contributes": [
+        "dashboardCards",
         "panels",
         "permissions",
         "settings",
         "syncEntities"
       ],
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/download/v1.1.0/workspaces-1.1.0.tmxplug",
+          "sha256": "7189d767c3f7cddfb59366f6cceeca27a0b29e41da1dcc89d57a25317a0fe4bf",
+          "signature": "tqVTXI/CwEnj2bIXUp89fHfZI3xF6Cr0JeaEFoaGqlA39VMUvI9GnmixjxnfYFLc59AMji5w7W6HjvtupduUAA==",
+          "size": 142268,
+          "capabilities": [
+            "db:own",
+            "network:serve",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Workspaces dashboard card: open a saved workspace or your last session in one click",
+          "publishedAt": "2026-10-22T18:10:42.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -5089,12 +5333,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T05:05:52.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -5110,11 +5354,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:29.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -5130,11 +5374,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Workspaces/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T05:56:35.000Z",
-          "notes": "### Added\n\n- First release\n- Save your tabs and split layout as a named workspace\n- Reopen it in one click\n- Recover your last session\n- Syncs between the desktop app and a Termix server",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Save your tabs and split layout as a named workspace\n- Reopen it in one click\n- Recover your last session\n- Syncs between the desktop app and a Termix server"
         }
       ]
     }
