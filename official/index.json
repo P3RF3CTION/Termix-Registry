@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T04:36:29.467Z",
+  "updatedAt": "2026-10-22T17:49:51.442Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2348,6 +2348,31 @@
       ],
       "gated": [
         {
+          "version": "1.2.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.2.1/remote-desktop-1.2.1.tmxplug",
+          "sha256": "ad244f31016f0ea5df5c303bf6f48af35c6c8e52b12098d381c8296626b73de7",
+          "signature": "r25KO3Gs0z54H1MmFRiVOpR2h0YcKBk8njX6HzPgbqyiM+8dvpSeYrgx96eza5kuWT9JUekDhU/Ts/W3kZBtCQ==",
+          "size": 3917385,
+          "capabilities": [
+            "hosts:read",
+            "credentials:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "desktop:local",
+            "ui:surface",
+            "users:impersonate"
+          ],
+          "engine": {
+            "api": "^1.5",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.2.1",
+          "notes": "### Fixed\n\n- Apple Remote Desktop with a macOS account no longer shows a black screen in the built-in engine\n- The built-in engine connects to Windows servers that offer a UDP transport while licensing, instead of failing with a license error\n- Right Alt now reaches Windows as Alt on layouts without AltGr, so the Korean Han/Eng key switches the language\n- Debug logs from the built-in engine, like the sound channel lines, now show when the log level is debug",
+          "publishedAt": "2026-10-22T17:48:57.000Z"
+        },
+        {
           "version": "1.2.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/download/v1.2.0/remote-desktop-1.2.0.tmxplug",
@@ -2369,8 +2394,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Remote-Desktop/releases/tag/v1.2.0",
-          "notes": "### Changed\n\n- Opening a host in Windows Remote Desktop now runs inside this plugin instead of the desktop app itself, so fixes to it no longer need a new desktop build\n- Debug logs now show whether the built-in RDP engine negotiates audio and receives any sound from the server\n- Needs Termix 26.10.3 or newer",
-          "publishedAt": "2026-10-20T19:16:22.000Z"
+          "publishedAt": "2026-10-20T19:16:22.000Z",
+          "notes": "### Changed\n\n- Opening a host in Windows Remote Desktop now runs inside this plugin instead of the desktop app itself, so fixes to it no longer need a new desktop build\n- Debug logs now show whether the built-in RDP engine negotiates audio and receives any sound from the server\n- Needs Termix 26.10.3 or newer"
         }
       ]
     },
@@ -3274,6 +3299,29 @@
       ],
       "versions": [
         {
+          "version": "1.0.4",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.0.4/sso-1.0.4.tmxplug",
+          "sha256": "2aad33177085fbc92fe06cd007facffbfc8f42f9c9fa688ad5f37d68f62093d9",
+          "signature": "u/rGGp8HuWccg9VRgzOBsUNxBNPC/eQpOi/PDpNXH8syfV7m90I0svTyfozHgnrlBQwgjmNHkn2yO7RKLFJLAg==",
+          "size": 240977,
+          "capabilities": [
+            "db:own",
+            "kv:own",
+            "secrets:own",
+            "network:serve",
+            "auth:provide",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.4",
+          "notes": "### Fixed\n\n- Sign in with providers like Authelia no longer fails with OIDC authentication failed",
+          "publishedAt": "2026-10-22T17:48:44.000Z"
+        },
+        {
           "version": "1.0.3",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-SSO/releases/download/v1.0.3/sso-1.0.3.tmxplug",
@@ -3289,12 +3337,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.3",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:47:04.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.2",
@@ -3313,11 +3361,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.2",
           "publishedAt": "2026-10-11T22:29:47.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.1",
@@ -3336,11 +3384,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.1",
           "publishedAt": "2026-10-10T20:59:32.000Z",
-          "notes": "### Fixed\n\n- Providers set up before 2.9 send the old redirect URI again, so identity providers stop rejecting sign in\n- The old callback and back-channel logout URLs work again",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Fixed\n\n- Providers set up before 2.9 send the old redirect URI again, so identity providers stop rejecting sign in\n- The old callback and back-channel logout URLs work again"
         },
         {
           "version": "1.0.0",
@@ -3359,11 +3407,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSO/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T02:57:03.000Z",
-          "notes": "### Added\n\n- First release\n- Sign in with any OpenID Connect provider, GitHub or Google\n- More than one provider, each with its own login button\n- Make members of an admin group Termix admins, and map groups to roles\n- Limit sign in to certain users\n- Back-channel logout",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Sign in with any OpenID Connect provider, GitHub or Google\n- More than one provider, each with its own login button\n- Make members of an admin group Termix admins, and map groups to roles\n- Limit sign in to certain users\n- Back-channel logout"
         }
       ]
     },
