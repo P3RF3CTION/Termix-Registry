@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T18:00:23.209Z",
+  "updatedAt": "2026-10-22T18:02:56.887Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -327,16 +327,44 @@
         "Popups for new alerts",
         "Send alerts to Discord, ntfy, email or a webhook",
         "Rules that pick which alerts go where",
-        "Optional news from the Termix team, like security notices and releases"
+        "Optional news from the Termix team, like security notices and releases",
+        "An alerts inbox card for the dashboard"
       ],
       "docs": "https://docs.termix.site/plugins/alerts",
       "contributes": [
+        "dashboardCards",
         "permissions",
         "settings",
         "tabs",
         "uses"
       ],
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Alerts/releases/download/v1.1.0/alerts-1.1.0.tmxplug",
+          "sha256": "a7ce9e20ce3c15f77c15479b4901563adf3c793e24a3aacd7226950491f0434c",
+          "signature": "U1MUk6g7nxdNDSvuoHM44TqrnprICs5sKtwMDyuYNsopA38rJAUQLh6UryOr8aeheq5J6vzNtLflDUoBFSI1AQ==",
+          "size": 549188,
+          "capabilities": [
+            "db:core-refs",
+            "db:own",
+            "events:core",
+            "network:outbound",
+            "network:serve",
+            "notify:hub",
+            "secrets:own",
+            "settings:read-core",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Alerts dashboard card: your inbox on the dashboard, with mark as read",
+          "publishedAt": "2026-10-22T18:01:57.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -356,12 +384,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- ntfy alerts with non-ASCII titles or links arrived garbled or were not sent",
           "publishedAt": "2026-10-18T04:51:12.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language\n\n### Fixed\n\n- ntfy alerts with non-ASCII titles or links arrived garbled or were not sent"
         },
         {
           "version": "1.0.1",
@@ -383,11 +411,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:28:09.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -409,11 +437,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Alerts/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T05:56:26.000Z",
-          "notes": "### Added\n\n- First release\n- One inbox for alerts from every part of Termix\n- Popups for new alerts\n- Send alerts to Discord, ntfy, email or a webhook\n- Rules that pick which alerts go where\n- Optional news from the Termix team, like security notices and releases, with buttons and a popup for important ones\n- New accounts only get news from after they joined",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- One inbox for alerts from every part of Termix\n- Popups for new alerts\n- Send alerts to Discord, ntfy, email or a webhook\n- Rules that pick which alerts go where\n- Optional news from the Termix team, like security notices and releases, with buttons and a popup for important ones\n- New accounts only get news from after they joined"
         }
       ]
     },
@@ -3739,17 +3767,44 @@
         "Add tailnet devices as hosts in a couple of clicks",
         "Connect with Tailscale SSH, with no credentials stored",
         "Works with Headscale",
-        "A Tailscale card in Host Metrics"
+        "A Tailscale card in Host Metrics",
+        "A dashboard card with your tailnet devices and which are online"
       ],
       "docs": "https://docs.termix.site/plugins/tailscale",
       "contributes": [
         "auth",
+        "dashboardCards",
         "panels",
         "permissions",
         "settings",
         "uses"
       ],
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/download/v1.1.0/tailscale-1.1.0.tmxplug",
+          "sha256": "8784a77a1fc1b0011d8243d9520574300df31bc40c31f86339868f4c9b76d1bf",
+          "signature": "BET23dXcMY1QmoujSFj3VasHLsyLsD5+t03Qql3Q5X25s6h4THifXavVTG+R98H8GKWBt3O2f7f2w3oLvc9UAw==",
+          "size": 138688,
+          "capabilities": [
+            "hosts:read",
+            "network:outbound",
+            "network:serve",
+            "auth:provide",
+            "ssh:connect",
+            "credentials:use",
+            "credentials:read",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Tailnet dashboard card: how many devices are online and the list, online first",
+          "publishedAt": "2026-10-22T18:02:45.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -3768,12 +3823,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:58:14.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -3794,11 +3849,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:30:09.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -3819,11 +3874,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Tailscale/releases/tag/v1.0.0",
           "publishedAt": "2026-10-09T21:42:17.000Z",
-          "notes": "### Added\n\n- First release\n- Add tailnet devices as hosts in a couple of clicks\n- Connect with Tailscale SSH, with no credentials stored\n- Works with Headscale\n- A Tailscale card in Host Metrics",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Add tailnet devices as hosts in a couple of clicks\n- Connect with Tailscale SSH, with no credentials stored\n- Works with Headscale\n- A Tailscale card in Host Metrics"
         }
       ]
     },
