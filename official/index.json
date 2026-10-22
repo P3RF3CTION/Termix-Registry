@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T18:35:17.844Z",
+  "updatedAt": "2026-10-22T18:39:58.539Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -4672,7 +4672,7 @@
       "category": "Networking",
       "repository": "https://github.com/Termix-SSH/Plugin-Tunnels",
       "icon": "ArrowLeftRight",
-      "video": "https://www.youtube.com/watch?v=RJu5gzn8_fo",
+      "video": "https://www.youtube.com/watch?v=taRk5rpu0EA",
       "features": [
         "Local, remote and dynamic SOCKS5 forwarding",
         "Reconnects on its own when a tunnel drops",
