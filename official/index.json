@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-22T17:49:51.442Z",
+  "updatedAt": "2026-10-22T17:51:43.434Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -19,14 +19,40 @@
         "Certificates from Let's Encrypt or any ACME directory",
         "HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed",
         "Renews before the certificate expires",
-        "Swaps in the new certificate without a restart"
+        "Swaps in the new certificate without a restart",
+        "A dashboard card that shows when the certificate expires"
       ],
       "docs": "https://docs.termix.site/plugins/acme-ssl",
       "contributes": [
+        "dashboardCards",
         "permissions",
         "settings"
       ],
       "versions": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/download/v1.1.0/acme-ssl-1.1.0.tmxplug",
+          "sha256": "fb75541fae110007b45ed69d58aa4b9b6f6a79b6b1b762c6e54b635aa7cb6e4a",
+          "signature": "9fGWOAQROL7xHKgFf6lanEyXzkOvw43DH4ahUUmpqFbpFmxbaexVAEwPsDS0MTo65QuhW24lgYoilS0rREchCg==",
+          "size": 803686,
+          "capabilities": [
+            "system:tls",
+            "kv:own",
+            "secrets:own",
+            "network:outbound",
+            "network:serve",
+            "notify:send",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- HTTPS certificate dashboard card: days left on the certificate, the last error and a button to renew now",
+          "publishedAt": "2026-10-22T17:49:29.000Z"
+        },
         {
           "version": "1.0.2",
           "api": "1",
@@ -44,12 +70,12 @@
             "ui:surface"
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.0.2",
-          "notes": "### Changed\n\n- The plugin name and description show in your language",
           "publishedAt": "2026-10-18T04:24:12.000Z",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- The plugin name and description show in your language"
         },
         {
           "version": "1.0.1",
@@ -69,11 +95,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.0.1",
           "publishedAt": "2026-10-11T22:27:55.000Z",
-          "notes": "### Changed\n\n- Translated into every supported language",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Changed\n\n- Translated into every supported language"
         },
         {
           "version": "1.0.0",
@@ -93,11 +119,11 @@
           ],
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-ACME-SSL/releases/tag/v1.0.0",
           "publishedAt": "2026-10-10T02:56:33.000Z",
-          "notes": "### Added\n\n- First release\n- Certificates from Let's Encrypt or any ACME directory\n- HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed\n- Renews before the certificate expires and alerts admins when a renewal fails\n- Swaps in the new certificate without a restart",
           "engine": {
             "api": "^1.2",
             "termix": ">=26.10.0"
-          }
+          },
+          "notes": "### Added\n\n- First release\n- Certificates from Let's Encrypt or any ACME directory\n- HTTP challenge on port 80, or a Cloudflare DNS challenge when port 80 is closed\n- Renews before the certificate expires and alerts admins when a renewal fails\n- Swaps in the new certificate without a restart"
         }
       ]
     },
@@ -3247,6 +3273,32 @@
       ],
       "gated": [
         {
+          "version": "1.1.1",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/download/v1.1.1/ssh-terminal-1.1.1.tmxplug",
+          "sha256": "5cfb381a2de10b7a6fab108d79645bb1e6e7316fb5e4150c4529a3e76a2193d8",
+          "signature": "9OWm0HQB7swHHIU17wtsIpODUig8aLInI7pm5TgcK7Mda1G72b9YAYYpFCYDu/GnheaCW582JC29lxr49Y44Bw==",
+          "size": 2081000,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "credentials:read",
+            "ssh:connect",
+            "network:serve",
+            "db:own",
+            "events:core",
+            "ui:surface",
+            "desktop:local"
+          ],
+          "engine": {
+            "api": "^1.11",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.1.1",
+          "notes": "### Fixed\n\n- Pasting or uploading an image to a Windows OpenSSH host works when the host has no C:\\tmp folder",
+          "publishedAt": "2026-10-22T17:49:44.000Z"
+        },
+        {
           "version": "1.1.0",
           "api": "1",
           "url": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/download/v1.1.0/ssh-terminal-1.1.0.tmxplug",
@@ -3269,8 +3321,8 @@
             "termix": ">=26.10.3"
           },
           "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-SSH-Terminal/releases/tag/v1.1.0",
-          "notes": "### Added\n\n- A Panels card in the host Terminal tab turns the panel bar on or off, picks the side and sets which panels show and in what order, with defaults like the toolbar\n- Panels from other plugins can read the terminal's current folder, which the files panel uses to stay in sync\n- The terminal finds its current folder from /proc, so it works on hosts with a minimal ps such as busybox\n- A Clear console keybinding action wipes the screen and scrollback without sending anything to the shell\n- With Auto-Tmux, a host with exactly one tmux session attaches to it directly instead of asking which one\n\n### Fixed\n\n- The sudo password prompt is found on hosts whose prompt ends in a color reset or a window title\n- A tab that reconnects to its live session no longer leaves an extra connection open on the jump host\n\n### Changed\n\n- The local terminal now runs in the plugin instead of the desktop app, so fixes to it no longer need a new desktop build\n- Needs Termix 26.10.3 or newer",
-          "publishedAt": "2026-10-20T19:50:37.000Z"
+          "publishedAt": "2026-10-20T19:50:37.000Z",
+          "notes": "### Added\n\n- A Panels card in the host Terminal tab turns the panel bar on or off, picks the side and sets which panels show and in what order, with defaults like the toolbar\n- Panels from other plugins can read the terminal's current folder, which the files panel uses to stay in sync\n- The terminal finds its current folder from /proc, so it works on hosts with a minimal ps such as busybox\n- A Clear console keybinding action wipes the screen and scrollback without sending anything to the shell\n- With Auto-Tmux, a host with exactly one tmux session attaches to it directly instead of asking which one\n\n### Fixed\n\n- The sudo password prompt is found on hosts whose prompt ends in a color reset or a window title\n- A tab that reconnects to its live session no longer leaves an extra connection open on the jump host\n\n### Changed\n\n- The local terminal now runs in the plugin instead of the desktop app, so fixes to it no longer need a new desktop build\n- Needs Termix 26.10.3 or newer"
         }
       ]
     },
