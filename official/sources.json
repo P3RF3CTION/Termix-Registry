@@ -33,6 +33,7 @@
     "Termix-SSH/Plugin-Service-Manager",
     "Termix-SSH/Plugin-Session-Recording",
     "Termix-SSH/Plugin-Session-Sharing",
+    "Termix-SSH/Plugin-Simple-Layout",
     "Termix-SSH/Plugin-Snippets",
     "Termix-SSH/Plugin-SSH-Terminal",
     "Termix-SSH/Plugin-SSO",
