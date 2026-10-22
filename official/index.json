@@ -4,7 +4,7 @@
   "name": "Termix Official Plugins",
   "apiVersion": 1,
   "publicKey": "rF6ouWTnuLgnZi7yemr+yhZmMxvNMvgro1Mf05IkSGo=",
-  "updatedAt": "2026-10-21T23:47:24.541Z",
+  "updatedAt": "2026-10-22T04:05:06.691Z",
   "plugins": [
     {
       "id": "acme-ssl",
@@ -2913,6 +2913,49 @@
             "api": "^1.2",
             "termix": ">=26.10.0"
           }
+        }
+      ]
+    },
+    {
+      "id": "simple-layout",
+      "name": "Simple Layout",
+      "description": "A simple Termix layout for small setups with a top bar, a Home screen and only the basics.",
+      "author": "Termix",
+      "category": "Productivity",
+      "repository": "https://github.com/Termix-SSH/Plugin-Simple-Layout",
+      "icon": "PanelTop",
+      "features": [
+        "Top bar with tabs, search and settings",
+        "Home screen with a card for each host",
+        "Short host and credential forms",
+        "Only the settings most people need"
+      ],
+      "docs": "https://docs.termix.site/plugins/simple-layout",
+      "contributes": [
+        "layouts",
+        "tabs"
+      ],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/Termix-SSH/Plugin-Simple-Layout/releases/download/v1.0.0/simple-layout-1.0.0.tmxplug",
+          "sha256": "ee8ce87e76f95bedcb7ef4edf3349a2715ab274d5f2352e115e0914d57d61089",
+          "signature": "aiOt1ZmI8vj8yJJI5oo6GjctmV2BhUXv1hqK8qhVXdsgGzfc2WdvD3GTT5b/guUkoSVH84ed7hj11Ab/H94eCw==",
+          "size": 199341,
+          "capabilities": [
+            "settings:read-core",
+            "ui:layout",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.6",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/Termix-SSH/Plugin-Simple-Layout/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A simple layout for small setups: top bar, Home screen with a card for each host, short host and credential forms, and a short Settings screen\n- A search window that finds hosts, tabs and plugin actions\n- A bottom bar on phones",
+          "publishedAt": "2026-10-22T04:02:57.000Z"
         }
       ]
     },
