@@ -1,0 +1,12 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "host-icons",
+  "repository": "https://github.com/ZarenOFF/termix-plugin-host-icons",
+  "maintainers": ["ZarenOFF"],
+  "versions": [
+    {
+      "version": "0.2.0",
+      "sha256": "9c9e2984575f4a1c5f95eb5596cede91bae7da66024ede685d36c04049f36e73"
+    }
+  ]
+}
