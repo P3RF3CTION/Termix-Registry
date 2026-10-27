@@ -4,8 +4,44 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-10-19T01:16:06.486Z",
+  "updatedAt": "2026-10-27T16:07:19.470Z",
   "plugins": [
+    {
+      "id": "host-icons",
+      "name": "Host Icons",
+      "description": "Give each host in the Hosts list its own icon and color.",
+      "author": "ZarenOFF",
+      "category": "Productivity",
+      "repository": "https://github.com/ZarenOFF/termix-plugin-host-icons",
+      "icon": "Palette",
+      "features": [
+        "Pick an icon or a brand logo (Linux, Windows, Kubernetes and more) for each host",
+        "Optional icon color",
+        "Set a default icon for a whole folder",
+        "Large icon left of the host, or small before or after the name, at the size you like",
+        "Automatic icons for hosts with a tag or a name you choose"
+      ],
+      "docs": "https://github.com/ZarenOFF/termix-plugin-host-icons/tree/main/docs",
+      "contributes": ["settings"],
+      "versions": [
+        {
+          "version": "0.2.0",
+          "api": "1",
+          "url": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/download/v0.2.0/host-icons-0.2.0.tmxplug",
+          "sha256": "9c9e2984575f4a1c5f95eb5596cede91bae7da66024ede685d36c04049f36e73",
+          "signature": "sDU6/GdQNy1651BfpgL+CIUmA4cpxN6Zi0YTbINdiVSpOOQFIYOStzTQJRKcGfOFHmW/393QzQR1+bEaIMHuBQ==",
+          "size": 244867,
+          "capabilities": ["ui:surface"],
+          "engine": {
+            "api": "^1.2",
+            "termix": ">=26.10.0"
+          },
+          "releaseNotesUrl": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/tag/v0.2.0",
+          "notes": "First release.\n\n### Added\n\n- An Icon and an Icon color field in the host editor, with a searchable picker of general icons and an Icons and Brands switch\n- Brand logos to pick from: operating systems and Linux distributions, clouds, containers, databases, network gear and more, colored by the icon color like the other icons\n- Icon and color defaults for a folder, a user or the whole server\n- The icon in the Hosts list: large and left of the host, or small before or after the name, picked per user under Icon position, indenting only hosts that have an icon unless the user lines up all names\n- Icon size, from 50% to 150%\n- Change icon in the host context menu and in the command palette, where Use default hands the icon or the color back to the folder, user or server default\n- Automatic icons: rules that give hosts an icon or a color by tag or by name, in a table you can reorder by dragging, with suggestions from your tags. A rule fills in what a host has not got, or with Priority on replaces the host's own icon\n- Russian translation",
+          "publishedAt": "2026-10-27T11:56:42.000Z"
+        }
+      ]
+    },
     {
       "id": "pve-power",
       "name": "Proxmox Power",
