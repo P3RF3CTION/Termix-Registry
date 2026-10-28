@@ -1,0 +1,12 @@
+{
+  "$schema": "../../community-submission-schema.json",
+  "id": "herdr",
+  "repository": "https://github.com/jaygz316/termix-plugin-herdr",
+  "maintainers": ["jaygz316"],
+  "versions": [
+    {
+      "version": "1.0.0",
+      "sha256": "68a43323b11b155d964a93447cbfe2cc63b58e14dd5a1d7dcdd0fafb76f9dbf6"
+    }
+  ]
+}
