@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-10-27T16:07:19.470Z",
+  "updatedAt": "2026-10-28T11:09:33.953Z",
   "plugins": [
     {
       "id": "host-icons",
@@ -105,6 +105,45 @@
             "api": "^1.2",
             "termix": ">=26.10.0"
           }
+        }
+      ]
+    },
+    {
+      "id": "termix-vscode",
+      "name": "Remote VS Code",
+      "description": "Seamlessly open a web-based VS Code workspace on any saved SSH host.",
+      "author": "Tech-Innovators-Dev",
+      "category": "Productivity",
+      "repository": "https://github.com/Tech-Innovators-Dev/termix-vscode",
+      "icon": "Code2",
+      "features": [
+        "Opens code-server on a host over the saved SSH connection",
+        "Nothing listens on the Termix server: the tunnel is an SSH channel",
+        "Per-host code-server path and default workspace"
+      ],
+      "docs": "https://github.com/Tech-Innovators-Dev/termix-vscode/tree/main/docs",
+      "contributes": ["permissions", "settings", "tabs"],
+      "versions": [
+        {
+          "version": "1.1.1",
+          "api": "1",
+          "url": "https://github.com/Tech-Innovators-Dev/termix-vscode/releases/download/v1.1.1/termix-vscode-1.1.1.tmxplug",
+          "sha256": "7c755e8bb0d1c8f50eb1ad91b80ee2589dce2e3b1f24d98883a4fa448ef747ad",
+          "signature": "P53N5axBFJZEVcJS7al/wSh4zUXRTf/eaZCyr6qaBWx2mf38KSx54iUfkDMw8TnFzERaN0uOgqBQzUUJZhU9Bg==",
+          "size": 107066,
+          "capabilities": [
+            "ssh:connect",
+            "credentials:use",
+            "network:serve",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.3",
+            "termix": ">=26.10.2"
+          },
+          "releaseNotesUrl": "https://github.com/Tech-Innovators-Dev/termix-vscode/releases/tag/v1.1.1",
+          "notes": "### Changed\n\n- The \"code-server is not installed\" screen links to the install guide instead of showing an install command.",
+          "publishedAt": "2026-10-28T06:59:03.000Z"
         }
       ]
     }
