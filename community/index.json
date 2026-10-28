@@ -4,7 +4,7 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-10-28T11:11:21.995Z",
+  "updatedAt": "2026-10-28T14:07:28.558Z",
   "plugins": [
     {
       "id": "herdr",
@@ -84,6 +84,54 @@
           "releaseNotesUrl": "https://github.com/ZarenOFF/termix-plugin-host-icons/releases/tag/v0.2.0",
           "notes": "First release.\n\n### Added\n\n- An Icon and an Icon color field in the host editor, with a searchable picker of general icons and an Icons and Brands switch\n- Brand logos to pick from: operating systems and Linux distributions, clouds, containers, databases, network gear and more, colored by the icon color like the other icons\n- Icon and color defaults for a folder, a user or the whole server\n- The icon in the Hosts list: large and left of the host, or small before or after the name, picked per user under Icon position, indenting only hosts that have an icon unless the user lines up all names\n- Icon size, from 50% to 150%\n- Change icon in the host context menu and in the command palette, where Use default hands the icon or the color back to the folder, user or server default\n- Automatic icons: rules that give hosts an icon or a color by tag or by name, in a table you can reorder by dragging, with suggestions from your tags. A rule fills in what a host has not got, or with Priority on replaces the host's own icon\n- Russian translation",
           "publishedAt": "2026-10-27T11:56:42.000Z"
+        }
+      ]
+    },
+    {
+      "id": "netbird",
+      "name": "NetBird",
+      "description": "Lists the peers of your NetBird network, signs you in with your identity provider or a token, imports peers as hosts and explains which access policy lets Termix reach them.",
+      "author": "Maximilian Herz",
+      "category": "Networking",
+      "repository": "https://github.com/P3RF3CTION/termix-plugin-netbird",
+      "icon": "Network",
+      "features": [
+        "Lists NetBird peers with NetBird IP, DNS name, OS, groups and online state",
+        "Single sign-on with any OpenID Connect provider (code flow with PKCE), so each user sees what NetBird lets them see",
+        "Service user token or a personal access token per user as an alternative",
+        "Select peers and add them as hosts in one go, into a folder, with a saved credential; existing hosts are skipped",
+        "Peer details: client version, location, login expiry, accessible peers",
+        "Explains per port which policy rule allows the Termix server to reach a peer, which rules use other ports and which are switched off",
+        "Works with NetBird Cloud and self-hosted management servers"
+      ],
+      "docs": "https://github.com/P3RF3CTION/termix-plugin-netbird/tree/main/docs",
+      "contributes": ["panels", "permissions", "settings"],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.1.0",
+          "api": "1",
+          "url": "https://github.com/P3RF3CTION/termix-plugin-netbird/releases/download/v1.1.0/netbird-1.1.0.tmxplug",
+          "sha256": "018789f9a455fb8334b2a803d77c4f2b78d3eb9536c8bd04345aa259e66d1f95",
+          "signature": "JcH4Zcgr5lZWgfSreXGJ51hCvDLES4YlTHiNcCzvchuaxIj65u3DFkGLxSN47rFHr5Senvx2hHUx9zyrPAuRAQ==",
+          "size": 77490,
+          "capabilities": [
+            "network:outbound",
+            "network:serve",
+            "ui:surface",
+            "hosts:read",
+            "hosts:write",
+            "kv:own",
+            "secrets:own",
+            "credentials:use"
+          ],
+          "engine": {
+            "api": "^1.8",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/P3RF3CTION/termix-plugin-netbird/releases/tag/v1.1.0",
+          "notes": "### Added\n\n- Single sign-on with any OpenID Connect provider NetBird trusts (authorization code flow with PKCE, refresh tokens): NetBird's built-in IdP, Keycloak, Zitadel, Authentik, Entra ID, Auth0 and others. Each user then sees NetBird with their own NetBird permissions\n- Own NetBird access token per user as a second way to sign in\n- Sign-in modes: service token for everyone (default, the 1.0 behaviour), own sign-in only, or own sign-in with the service token as fallback\n- Bulk import: select peers (or all shown) and add them as hosts in one step, with folder, username, SSH port, a saved login and optional tags from the NetBird groups. Peers that already exist as a host are skipped\n- Peer details: NetBird version, system, public address and location, login expiry, approval state, NetBird SSH server, DNS names and reachable peers\n- Access explanation per peer: which rule allows each checked port, rules between the two peers on other ports, and matching rules that are switched off. Extra ports to check in the settings\n- New permission **Import NetBird peers as hosts**\n\n### Changed\n\n- Needs Termix 26.10.3 or newer (plugin API 1.8 for host folders)\n- New capabilities `hosts:read`, `hosts:write`, `credentials:use`, `kv:own` and `secrets:own` for the import and the sign-in\n- If the NetBird account may not read policies, the panel lists peers and says why reachability is not checked, instead of failing",
+          "publishedAt": "2026-10-23T05:29:14.000Z"
         }
       ]
     },
