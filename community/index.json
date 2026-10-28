@@ -4,8 +4,53 @@
   "name": "Termix Community Plugins",
   "apiVersion": 1,
   "publicKey": "LYdHHGJeinCZ7UA8R/o5i1P5W3+dzktTDn5bxp4nPpI=",
-  "updatedAt": "2026-10-28T11:09:33.953Z",
+  "updatedAt": "2026-10-28T11:11:21.995Z",
   "plugins": [
+    {
+      "id": "herdr",
+      "name": "Herdr",
+      "description": "Use herdr, the terminal workspace manager for coding agents, from Termix with touch, mouse and a native navigator.",
+      "author": "Diego Rodriguez",
+      "category": "Terminal",
+      "repository": "https://github.com/jaygz316/termix-plugin-herdr",
+      "icon": "Bot",
+      "features": [
+        "Attach to herdr on any SSH host in one tap",
+        "Touch becomes mouse: tap to click, long-press to right-click, hold and drag to select or resize, swipe to scroll",
+        "A key bar with herdr's prefix key, Esc, Tab, Ctrl, Alt and arrows",
+        "A navigator with every workspace, tab, pane and agent state",
+        "A tappable map of the current tab's panes",
+        "Prompt an agent or type into a pane from a normal text box, so phone keyboards and dictation work",
+        "Split, zoom, close and create without remembering keybindings"
+      ],
+      "docs": "https://github.com/jaygz316/termix-plugin-herdr/tree/main/docs",
+      "contributes": ["permissions", "settings", "tabs", "uses"],
+      "versions": [],
+      "gated": [
+        {
+          "version": "1.0.0",
+          "api": "1",
+          "url": "https://github.com/jaygz316/termix-plugin-herdr/releases/download/v1.0.0/herdr-1.0.0.tmxplug",
+          "sha256": "68a43323b11b155d964a93447cbfe2cc63b58e14dd5a1d7dcdd0fafb76f9dbf6",
+          "signature": "jtP/oe3uYmwK6044WS/vty2miKSq/FRJCZSxPeaudOO4qzA8KgaL0+9bStGl6VNgAalm0OLvpU3EF1J9GaKlDg==",
+          "size": 74486,
+          "capabilities": [
+            "hosts:read",
+            "credentials:use",
+            "ssh:connect",
+            "network:serve",
+            "ui:surface"
+          ],
+          "engine": {
+            "api": "^1.11",
+            "termix": ">=26.10.3"
+          },
+          "releaseNotesUrl": "https://github.com/jaygz316/termix-plugin-herdr/releases/tag/v1.0.0",
+          "notes": "### Added\n\n- A Herdr tab that attaches to herdr on a host inside Termix's SSH terminal\n- Touch as mouse: tap to click, long press to right click, long press and drag to drag, swipe to scroll\n- A key bar with herdr's prefix, Ctrl, Alt, Esc, Tab, arrows and herdr actions\n- A navigator with workspaces, tabs, agents waiting, a map of the current tab's panes and a text box that sends to the focused pane\n- Open in Herdr on host rows and in the SSH terminal's toolbar\n- Host settings for the herdr binary and session, and user settings for touch, long press, prefix key and the key bar",
+          "publishedAt": "2026-10-28T04:55:06.000Z"
+        }
+      ]
+    },
     {
       "id": "host-icons",
       "name": "Host Icons",
